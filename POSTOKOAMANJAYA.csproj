@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formEditBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditBarang.Designer.cs">
+      <DependentUpon>formEditBarang.cs</DependentUpon>
+    </Compile>
     <Compile Include="formMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formEditBarang.resx">
+      <DependentUpon>formEditBarang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formMenu.resx">
       <DependentUpon>formMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logoedit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nama Barang _ Qty _ Harga Beli _ Harga Jual _.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

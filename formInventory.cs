@@ -101,7 +101,8 @@ namespace POSTOKOAMANJAYA
 
         private void pbEdit_Click(object sender, EventArgs e)
         {
-
+            formEditBarang formEditBarang = new formEditBarang();
+            formEditBarang.ShowDialog();
         }
 
         private void pbAdd_Click(object sender, EventArgs e)

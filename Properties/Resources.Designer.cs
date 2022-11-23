@@ -253,6 +253,16 @@ namespace POSTOKOAMANJAYA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Nama_Barang___Qty___Harga_Beli___Harga_Jual__ {
+            get {
+                object obj = ResourceManager.GetObject("Nama Barang _ Qty _ Harga Beli _ Harga Jual _", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PENJUALAN {
             get {
                 object obj = ResourceManager.GetObject("PENJUALAN", resourceCulture);
