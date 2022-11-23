@@ -33,16 +33,21 @@ namespace POSTOKOAMANJAYA
             tbNamaBarang.BackColor = ColorTranslator.FromHtml("#979BC7");
             btnSave.BackColor = ColorTranslator.FromHtml("#979BC7");
             btnCancel.BackColor = ColorTranslator.FromHtml("#F40000");
-        }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            tbNamaBarang.Text = formInventory.namaBarang;
+            tbJumlah.Text = formInventory.jumlahBarang.ToString();
+            tbHargaJual.Text = formInventory.hargaJual.ToString();
+            tbHargaBeli.Text = formInventory.hargaBeli.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

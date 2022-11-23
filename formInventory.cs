@@ -24,6 +24,11 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
 
+        public static string namaBarang;
+        public static int jumlahBarang;
+        public static int hargaBeli;
+        public static int hargaJual;
+
         public void loadTable()
         {
             sqlConnect.Open();
