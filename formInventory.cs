@@ -90,5 +90,23 @@ namespace POSTOKOAMANJAYA
 
             }
         }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formMenu formMenu = new formMenu();
+            formMenu.ShowDialog();
+            this.Close();
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

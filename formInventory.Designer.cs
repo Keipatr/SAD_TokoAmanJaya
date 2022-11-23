@@ -92,7 +92,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvInven.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvInven.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInven.ColumnHeadersHeight = 40;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +116,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvInven.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInven.RowHeadersVisible = false;
-            this.dgvInven.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvInven.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -145,6 +145,7 @@
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbBack.TabIndex = 3;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // pbNamaBarang
             // 
@@ -195,6 +196,7 @@
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbEdit.TabIndex = 3;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             // 
             // pbAdd
             // 
@@ -206,6 +208,7 @@
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAdd.TabIndex = 2;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             // 
             // pbTextPenjualan
             // 
