@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4B9DA81-B6A9-4F06-A872-3596CF5FB7FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>POSTOKOAMANJAYA</RootNamespace>
+    <AssemblyName>POSTOKOAMANJAYA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="formMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMenu.Designer.cs">
+      <DependentUpon>formMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formInventory.Designer.cs">
+      <DependentUpon>formInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPenjualan.Designer.cs">
+      <DependentUpon>formPenjualan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formMenu.resx">
+      <DependentUpon>formMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formInventory.resx">
+      <DependentUpon>formInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPenjualan.resx">
+      <DependentUpon>formPenjualan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Mukta-Bold.ttf" />
+    <None Include="Resources\Mukta-ExtraBold.ttf" />
+    <None Include="Resources\Mukta-ExtraLight.ttf" />
+    <None Include="Resources\Mukta-Light.ttf" />
+    <None Include="Resources\Mukta-Medium.ttf" />
+    <None Include="Resources\Mukta-Regular.ttf" />
+    <None Include="Resources\Mukta-SemiBold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aman Jaya-5 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoBeli.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoInven.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoJual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laporan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kotak biru atas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PENJUALAN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nama Barang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoedit.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
