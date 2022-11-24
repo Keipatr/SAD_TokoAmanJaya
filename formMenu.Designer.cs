@@ -43,6 +43,9 @@
             // 
             // pbBeli
             // 
+            this.pbBeli.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbBeli.BackColor = System.Drawing.Color.Transparent;
             this.pbBeli.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoBeli1;
             this.pbBeli.Location = new System.Drawing.Point(96, 787);
@@ -55,6 +58,9 @@
             // 
             // pbJual
             // 
+            this.pbJual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbJual.BackColor = System.Drawing.Color.Transparent;
             this.pbJual.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoJual1;
             this.pbJual.Location = new System.Drawing.Point(571, 787);
@@ -67,6 +73,9 @@
             // 
             // pbInven
             // 
+            this.pbInven.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbInven.BackColor = System.Drawing.Color.Transparent;
             this.pbInven.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbInven.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoInven1;
@@ -80,6 +89,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::POSTOKOAMANJAYA.Properties.Resources.history;
             this.pictureBox1.Location = new System.Drawing.Point(1220, 52);
@@ -91,6 +103,9 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::POSTOKOAMANJAYA.Properties.Resources.laporan;
             this.pictureBox2.Location = new System.Drawing.Point(1352, 42);
@@ -103,18 +118,15 @@
             // formMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackgroundImage = global::POSTOKOAMANJAYA.Properties.Resources.Aman_Jaya_5_1;
-            this.ClientSize = new System.Drawing.Size(1496, 943);
+            this.ClientSize = new System.Drawing.Size(1512, 982);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbInven);
             this.Controls.Add(this.pbJual);
             this.Controls.Add(this.pbBeli);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1512, 982);
-            this.MinimumSize = new System.Drawing.Size(1512, 982);
             this.Name = "formMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Menu";
