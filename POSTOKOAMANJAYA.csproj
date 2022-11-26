@@ -111,14 +111,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,46 +122,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Mukta-Bold.ttf" />
-    <None Include="Resources\Mukta-ExtraBold.ttf" />
-    <None Include="Resources\Mukta-ExtraLight.ttf" />
-    <None Include="Resources\Mukta-Light.ttf" />
-    <None Include="Resources\Mukta-Medium.ttf" />
-    <None Include="Resources\Mukta-Regular.ttf" />
-    <None Include="Resources\Mukta-SemiBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Aman Jaya-5 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoBeli.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoInven.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoJual.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\history.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\laporan.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\kotak biru atas.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PENJUALAN.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\Mukta_Regular.ttf" />
     <None Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Nama Barang.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logoadd.png" />
@@ -179,11 +143,16 @@
     <None Include="Resources\logoedit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Nama Barang _ Qty _ Harga Beli _ Harga Jual _.png" />
+    <None Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Nama Barang _ Kategori _ Qty _ Harga Beli _ Harga Jual _.png" />
+    <None Include="Resources\history1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\laporan1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pembelian.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
