@@ -26,7 +26,7 @@ namespace POSTOKOAMANJAYA
 
         private void formMenu_Load(object sender, EventArgs e)
         {
-            
+            radioButton1.Checked = true;
         }
 
         private void pbInven_Click(object sender, EventArgs e)
