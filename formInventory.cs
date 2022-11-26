@@ -24,10 +24,11 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
 
-        public static string namaBarang;
-        public static int jumlahBarang;
-        public static int hargaBeli;
-        public static int hargaJual;
+        public static string idBarang = "";
+        public static string namaBarang = "";
+        public static string jumlahBarang ="";
+        public static string hargaBeli = "";
+        public static string hargaJual = "";
 
         public void loadTable()
         {
@@ -43,11 +44,21 @@ namespace POSTOKOAMANJAYA
             sqlConnect.Close();
 
             DataGridViewColumn no = dgvInven.Columns[0];
-            no.Width = 50;
-            DataGridViewColumn idBarang = dgvInven.Columns[0];
-            idBarang.Width = 60;
+            no.Width = 60;
+            DataGridViewColumn idUkur = dgvInven.Columns[1];
+            idUkur.Width = 180;
+            DataGridViewColumn namaUkur = dgvInven.Columns[2];
+            namaUkur.Width = 350;
             dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            for (int i = 3;i<=5;i++)
+                dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            idBarang = dgvInven.CurrentRow.Cells["ID Barang"].Value.ToString();
+            namaBarang = dgvInven.CurrentRow.Cells["Nama Barang"].Value.ToString();
+            jumlahBarang = dgvInven.CurrentRow.Cells["QTY"].Value.ToString();
+            hargaBeli = dgvInven.CurrentRow.Cells["Harga Beli"].Value.ToString();
+            hargaJual = dgvInven.CurrentRow.Cells["Harga Jual"].Value.ToString();
         }
         public void loadDesign()
         {
@@ -72,6 +83,7 @@ namespace POSTOKOAMANJAYA
 
 
             lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");
+            btnMinim.BackColor = ColorTranslator.FromHtml("#F40000");
         }
         private void formMenu_Load(object sender, EventArgs e)
         {

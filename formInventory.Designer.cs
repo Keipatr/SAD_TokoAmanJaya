@@ -44,6 +44,7 @@
             this.tbSearchs = new CustomControls.RJControls.RJTextBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnMinim = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInven)).BeginInit();
             this.paneldgvSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -116,7 +117,7 @@
             // 
             this.pbBack.BackColor = System.Drawing.Color.Transparent;
             this.pbBack.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoback;
-            this.pbBack.Location = new System.Drawing.Point(1249, 18);
+            this.pbBack.Location = new System.Drawing.Point(1330, 18);
             this.pbBack.Name = "pbBack";
             this.pbBack.Size = new System.Drawing.Size(55, 55);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -143,7 +144,7 @@
             // 
             this.pbEdit.BackColor = System.Drawing.Color.Transparent;
             this.pbEdit.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoedit;
-            this.pbEdit.Location = new System.Drawing.Point(1164, 17);
+            this.pbEdit.Location = new System.Drawing.Point(1245, 17);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(55, 55);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -155,7 +156,7 @@
             // 
             this.pbAdd.BackColor = System.Drawing.Color.Transparent;
             this.pbAdd.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoadd;
-            this.pbAdd.Location = new System.Drawing.Point(1334, 18);
+            this.pbAdd.Location = new System.Drawing.Point(1415, 18);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(55, 55);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -233,10 +234,30 @@
             this.tbSearch.TabIndex = 9;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
+            // btnMinim
+            // 
+            this.btnMinim.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnMinim.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnMinim.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMinim.BorderRadius = 24;
+            this.btnMinim.BorderSize = 0;
+            this.btnMinim.FlatAppearance.BorderSize = 0;
+            this.btnMinim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinim.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinim.ForeColor = System.Drawing.Color.White;
+            this.btnMinim.Location = new System.Drawing.Point(1197, 137);
+            this.btnMinim.Name = "btnMinim";
+            this.btnMinim.Size = new System.Drawing.Size(197, 48);
+            this.btnMinim.TabIndex = 10;
+            this.btnMinim.Text = "Stok Minimum";
+            this.btnMinim.TextColor = System.Drawing.Color.White;
+            this.btnMinim.UseVisualStyleBackColor = false;
+            // 
             // formInventory
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1512, 982);
+            this.Controls.Add(this.btnMinim);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.tbSearchs);
@@ -276,6 +297,7 @@
         private CustomControls.RJControls.RJTextBox tbSearchs;
         private System.Windows.Forms.PictureBox pbSearch;
         private System.Windows.Forms.TextBox tbSearch;
+        private CustomControls.RJControls.RJButton btnMinim;
     }
 }
 

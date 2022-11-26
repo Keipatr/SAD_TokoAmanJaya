@@ -40,14 +40,21 @@ namespace POSTOKOAMANJAYA
             tbHargaBeli.Text = formInventory.hargaBeli.ToString();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+               this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            sqlCommand = new MySqlCommand("pEditBarang", sqlConnect);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("parID", formInventory.idBarang);
+            sqlCommand.Parameters.AddWithValue("parNama", tbNamaBarang.Text);
+            sqlCommand.Parameters.AddWithValue("parBeli", tbHargaBeli);
+            sqlCommand.Parameters.AddWithValue("parJual", tbHargaJual);
+            sqlCommand.Parameters.AddWithValue("parStok", tbJumlah);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
         }
     }
 }
