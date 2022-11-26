@@ -184,6 +184,29 @@
   <ItemGroup>
     <None Include="Resources\Nama Barang _ Kategori _ Qty _ Harga Beli _ Harga Jual _.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logolaporan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logohistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoPembelian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logopenjualan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoinventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\POSAMANJAYA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGOMENU.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

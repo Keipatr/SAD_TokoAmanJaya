@@ -41,12 +41,24 @@ namespace POSTOKOAMANJAYA
             dgvInven.DataSource = dtBarang;
 
             sqlConnect.Close();
+
+            DataGridViewColumn no = dgvInven.Columns[0];
+            no.Width = 50;
+            DataGridViewColumn idBarang = dgvInven.Columns[0];
+            idBarang.Width = 60;
+            dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
-        private void formMenu_Load(object sender, EventArgs e)
+        public void loadDesign()
         {
             this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
+            tbSearchs.BackColor = ColorTranslator.FromHtml("#FFC814");
+            tbSearchs.BorderColor = ColorTranslator.FromHtml("#FFC814");
+            tbSearchs.BorderFocusColor = ColorTranslator.FromHtml("#FFC814");
+            tbSearchs.Enabled = false;
             tbSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
-            panelSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
+
+            pbSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
             paneldgvSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.BackgroundColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.GridColor = ColorTranslator.FromHtml("#FFC814");
@@ -58,19 +70,13 @@ namespace POSTOKOAMANJAYA
             dgvInven.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvInven.RowHeadersVisible = false;
 
-            loadTable();
-        }
 
-        private void tbSearch_TextChanged(object sender, EventArgs e)
+            lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");
+        }
+        private void formMenu_Load(object sender, EventArgs e)
         {
-            //if (tbSearch.Text != "")
-            //{
-            //    pbSearch.Visible = false;
-            //}
-            //else
-            //{
-            //    pbSearch.Visible = true;
-            //}
+            loadDesign();
+
             loadTable();
         }
 
@@ -83,8 +89,6 @@ namespace POSTOKOAMANJAYA
         {
             try
             {
-
-
                 int index = e.RowIndex;
                 DataGridViewRow selectedRow = dgvInven.Rows[index];
                 tbSearch.Text = selectedRow.Cells[2].Value.ToString();
@@ -113,6 +117,11 @@ namespace POSTOKOAMANJAYA
         {
             formAddBarang formAddBarang = new formAddBarang();
             formAddBarang.ShowDialog();
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            loadTable();
         }
     }
 }
