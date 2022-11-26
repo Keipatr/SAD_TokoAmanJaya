@@ -41,7 +41,13 @@ namespace POSTOKOAMANJAYA
             dgvInven.DataSource = dtBarang;
 
             sqlConnect.Close();
-
+        }
+        private void formMenu_Load(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
+            tbSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
+            panelSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
+            paneldgvSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.BackgroundColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.GridColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFC814");
@@ -51,13 +57,6 @@ namespace POSTOKOAMANJAYA
             dgvInven.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvInven.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvInven.RowHeadersVisible = false;
-        }
-        private void formMenu_Load(object sender, EventArgs e)
-        {
-            this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
-            tbSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
-            panelSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
-            paneldgvSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
 
             loadTable();
         }

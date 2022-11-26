@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTool\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomTool\RJCombobox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomTool\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomTool\RJTextBox.designer.cs">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAddBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomTool\RJTextBox.resx">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAddBarang.resx">
       <DependentUpon>formAddBarang.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,5 +184,6 @@
   <ItemGroup>
     <None Include="Resources\Nama Barang _ Kategori _ Qty _ Harga Beli _ Harga Jual _.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
