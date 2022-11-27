@@ -18,7 +18,7 @@ namespace POSTOKOAMANJAYA
             InitializeComponent();
         }
 
-        public static string sqlConnection = "server=localhost;uid=root;pwd=; database=premier_league";
+        public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=SAD_TokoAmanJaya";
         public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;

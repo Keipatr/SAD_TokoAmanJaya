@@ -29,86 +29,83 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEditBarang));
-            this.tbNamaBarang = new System.Windows.Forms.TextBox();
-            this.tbJumlah = new System.Windows.Forms.TextBox();
-            this.tbHargaBeli = new System.Windows.Forms.TextBox();
-            this.tbHargaJual = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSave = new CustomControls.RJControls.RJButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbNama = new CustomControls.RJControls.RJTextBox();
             this.btnCancel = new CustomControls.RJControls.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnSave = new CustomControls.RJControls.RJButton();
+            this.tbQty = new CustomControls.RJControls.RJTextBox();
+            this.tbBeli = new CustomControls.RJControls.RJTextBox();
+            this.tbJual = new CustomControls.RJControls.RJTextBox();
             this.SuspendLayout();
             // 
-            // tbNamaBarang
+            // label1
             // 
-            this.tbNamaBarang.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbNamaBarang.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNamaBarang.ForeColor = System.Drawing.Color.White;
-            this.tbNamaBarang.Location = new System.Drawing.Point(232, 88);
-            this.tbNamaBarang.Name = "tbNamaBarang";
-            this.tbNamaBarang.Size = new System.Drawing.Size(373, 38);
-            this.tbNamaBarang.TabIndex = 1;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(194, 36);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Nama Barang :";
             // 
-            // tbJumlah
+            // label2
             // 
-            this.tbJumlah.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbJumlah.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbJumlah.ForeColor = System.Drawing.Color.White;
-            this.tbJumlah.Location = new System.Drawing.Point(232, 143);
-            this.tbJumlah.Name = "tbJumlah";
-            this.tbJumlah.Size = new System.Drawing.Size(85, 38);
-            this.tbJumlah.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 36);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Qty :";
             // 
-            // tbHargaBeli
+            // label3
             // 
-            this.tbHargaBeli.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbHargaBeli.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHargaBeli.ForeColor = System.Drawing.Color.White;
-            this.tbHargaBeli.Location = new System.Drawing.Point(232, 203);
-            this.tbHargaBeli.Name = "tbHargaBeli";
-            this.tbHargaBeli.Size = new System.Drawing.Size(193, 38);
-            this.tbHargaBeli.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(12, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 36);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Harga Beli :";
             // 
-            // tbHargaJual
+            // label4
             // 
-            this.tbHargaJual.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbHargaJual.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHargaJual.ForeColor = System.Drawing.Color.White;
-            this.tbHargaJual.Location = new System.Drawing.Point(232, 260);
-            this.tbHargaJual.Name = "tbHargaJual";
-            this.tbHargaJual.Size = new System.Drawing.Size(193, 38);
-            this.tbHargaJual.TabIndex = 4;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(12, 262);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 36);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Harga Jual :";
             // 
-            // pictureBox1
+            // tbNama
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::POSTOKOAMANJAYA.Properties.Resources.Nama_Barang___Qty___Harga_Beli___Harga_Jual__;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 88);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(171, 210);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSave.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 22;
-            this.btnSave.BorderSize = 0;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(692, 382);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(123, 45);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.tbNama.BackColor = System.Drawing.SystemColors.Window;
+            this.tbNama.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbNama.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbNama.BorderRadius = 12;
+            this.tbNama.BorderSize = 2;
+            this.tbNama.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNama.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbNama.Location = new System.Drawing.Point(232, 90);
+            this.tbNama.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNama.Multiline = false;
+            this.tbNama.Name = "tbNama";
+            this.tbNama.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbNama.PasswordChar = false;
+            this.tbNama.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbNama.PlaceholderText = "";
+            this.tbNama.Size = new System.Drawing.Size(373, 42);
+            this.tbNama.TabIndex = 13;
+            this.tbNama.Texts = "";
+            this.tbNama.UnderlinedStyle = false;
             // 
             // btnCancel
             // 
@@ -130,18 +127,108 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSave.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 22;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(692, 382);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(123, 45);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // tbQty
+            // 
+            this.tbQty.BackColor = System.Drawing.SystemColors.Window;
+            this.tbQty.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbQty.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbQty.BorderRadius = 12;
+            this.tbQty.BorderSize = 2;
+            this.tbQty.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbQty.Location = new System.Drawing.Point(232, 143);
+            this.tbQty.Margin = new System.Windows.Forms.Padding(4);
+            this.tbQty.Multiline = false;
+            this.tbQty.Name = "tbQty";
+            this.tbQty.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbQty.PasswordChar = false;
+            this.tbQty.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbQty.PlaceholderText = "";
+            this.tbQty.Size = new System.Drawing.Size(85, 42);
+            this.tbQty.TabIndex = 14;
+            this.tbQty.Texts = "";
+            this.tbQty.UnderlinedStyle = false;
+            // 
+            // tbBeli
+            // 
+            this.tbBeli.BackColor = System.Drawing.SystemColors.Window;
+            this.tbBeli.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbBeli.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbBeli.BorderRadius = 12;
+            this.tbBeli.BorderSize = 2;
+            this.tbBeli.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBeli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbBeli.Location = new System.Drawing.Point(232, 199);
+            this.tbBeli.Margin = new System.Windows.Forms.Padding(4);
+            this.tbBeli.Multiline = false;
+            this.tbBeli.Name = "tbBeli";
+            this.tbBeli.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbBeli.PasswordChar = false;
+            this.tbBeli.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbBeli.PlaceholderText = "";
+            this.tbBeli.Size = new System.Drawing.Size(193, 42);
+            this.tbBeli.TabIndex = 15;
+            this.tbBeli.Texts = "";
+            this.tbBeli.UnderlinedStyle = false;
+            // 
+            // tbJual
+            // 
+            this.tbJual.BackColor = System.Drawing.SystemColors.Window;
+            this.tbJual.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbJual.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbJual.BorderRadius = 12;
+            this.tbJual.BorderSize = 2;
+            this.tbJual.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbJual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbJual.Location = new System.Drawing.Point(232, 256);
+            this.tbJual.Margin = new System.Windows.Forms.Padding(4);
+            this.tbJual.Multiline = false;
+            this.tbJual.Name = "tbJual";
+            this.tbJual.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbJual.PasswordChar = false;
+            this.tbJual.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbJual.PlaceholderText = "";
+            this.tbJual.Size = new System.Drawing.Size(193, 42);
+            this.tbJual.TabIndex = 16;
+            this.tbJual.Texts = "";
+            this.tbJual.UnderlinedStyle = false;
+            // 
             // formEditBarang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(866, 455);
+            this.Controls.Add(this.tbNama);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.tbHargaJual);
-            this.Controls.Add(this.tbHargaBeli);
-            this.Controls.Add(this.tbJumlah);
-            this.Controls.Add(this.tbNamaBarang);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.tbQty);
+            this.Controls.Add(this.tbBeli);
+            this.Controls.Add(this.tbJual);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -149,21 +236,22 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Edit";
             this.Load += new System.EventHandler(this.formMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox tbNamaBarang;
-        private System.Windows.Forms.TextBox tbJumlah;
-        private System.Windows.Forms.TextBox tbHargaBeli;
-        private System.Windows.Forms.TextBox tbHargaJual;
         private CustomControls.RJControls.RJButton btnSave;
         private CustomControls.RJControls.RJButton btnCancel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private CustomControls.RJControls.RJTextBox tbNama;
+        private CustomControls.RJControls.RJTextBox tbQty;
+        private CustomControls.RJControls.RJTextBox tbBeli;
+        private CustomControls.RJControls.RJTextBox tbJual;
     }
 }
 

@@ -54,11 +54,6 @@ namespace POSTOKOAMANJAYA
             for (int i = 3;i<=5;i++)
                 dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            idBarang = dgvInven.CurrentRow.Cells["ID Barang"].Value.ToString();
-            namaBarang = dgvInven.CurrentRow.Cells["Nama Barang"].Value.ToString();
-            jumlahBarang = dgvInven.CurrentRow.Cells["QTY"].Value.ToString();
-            hargaBeli = dgvInven.CurrentRow.Cells["Harga Beli"].Value.ToString();
-            hargaJual = dgvInven.CurrentRow.Cells["Harga Jual"].Value.ToString();
         }
         public void loadDesign()
         {
@@ -104,6 +99,12 @@ namespace POSTOKOAMANJAYA
                 int index = e.RowIndex;
                 DataGridViewRow selectedRow = dgvInven.Rows[index];
                 tbSearch.Text = selectedRow.Cells[2].Value.ToString();
+
+                idBarang = selectedRow.Cells["ID Barang"].Value.ToString();
+                namaBarang = selectedRow.Cells["Nama Barang"].Value.ToString();
+                jumlahBarang = selectedRow.Cells["QTY"].Value.ToString();
+                hargaBeli = selectedRow.Cells["Harga Beli"].Value.ToString();
+                hargaJual = selectedRow.Cells["Harga Jual"].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -134,6 +135,26 @@ namespace POSTOKOAMANJAYA
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             loadTable();
+        }
+
+        private void dgvInven_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvInven.Rows[index];
+                tbSearch.Text = selectedRow.Cells[2].Value.ToString();
+
+                idBarang = selectedRow.Cells["ID Barang"].Value.ToString();
+                namaBarang = selectedRow.Cells["Nama Barang"].Value.ToString();
+                jumlahBarang = selectedRow.Cells["QTY"].Value.ToString();
+                hargaBeli = selectedRow.Cells["Harga Beli"].Value.ToString();
+                hargaJual = selectedRow.Cells["Harga Jual"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

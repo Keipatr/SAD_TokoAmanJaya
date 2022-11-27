@@ -59,6 +59,12 @@
     <Compile Include="CustomTool\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="formDoneEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDoneEdit.Designer.cs">
+      <DependentUpon>formDoneEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAddBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomTool\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDoneEdit.resx">
+      <DependentUpon>formDoneEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formAddBarang.resx">
       <DependentUpon>formAddBarang.cs</DependentUpon>

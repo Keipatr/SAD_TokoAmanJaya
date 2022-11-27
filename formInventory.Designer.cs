@@ -37,9 +37,9 @@
             this.paneldgvSearch = new System.Windows.Forms.Panel();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.panelAtas = new System.Windows.Forms.Panel();
+            this.lbLogo = new System.Windows.Forms.Label();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.lbLogo = new System.Windows.Forms.Label();
             this.lbNamabarang = new System.Windows.Forms.Label();
             this.tbSearchs = new CustomControls.RJControls.RJTextBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
@@ -103,6 +103,7 @@
             this.dgvInven.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInven.Size = new System.Drawing.Size(1297, 665);
             this.dgvInven.TabIndex = 4;
+            this.dgvInven.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInven_CellClick);
             this.dgvInven.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInven_CellContentClick);
             // 
             // paneldgvSearch
@@ -140,6 +141,18 @@
             this.panelAtas.Size = new System.Drawing.Size(1528, 91);
             this.panelAtas.TabIndex = 0;
             // 
+            // lbLogo
+            // 
+            this.lbLogo.AutoSize = true;
+            this.lbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.lbLogo.Font = new System.Drawing.Font("Arial", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLogo.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbLogo.Location = new System.Drawing.Point(8, 7);
+            this.lbLogo.Name = "lbLogo";
+            this.lbLogo.Size = new System.Drawing.Size(419, 78);
+            this.lbLogo.TabIndex = 4;
+            this.lbLogo.Text = "INVENTORY";
+            // 
             // pbEdit
             // 
             this.pbEdit.BackColor = System.Drawing.Color.Transparent;
@@ -163,18 +176,6 @@
             this.pbAdd.TabIndex = 2;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
-            // 
-            // lbLogo
-            // 
-            this.lbLogo.AutoSize = true;
-            this.lbLogo.BackColor = System.Drawing.Color.Transparent;
-            this.lbLogo.Font = new System.Drawing.Font("Arial", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLogo.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbLogo.Location = new System.Drawing.Point(8, 7);
-            this.lbLogo.Name = "lbLogo";
-            this.lbLogo.Size = new System.Drawing.Size(419, 78);
-            this.lbLogo.TabIndex = 4;
-            this.lbLogo.Text = "INVENTORY";
             // 
             // lbNamabarang
             // 
