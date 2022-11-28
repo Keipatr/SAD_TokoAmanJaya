@@ -65,6 +65,12 @@
     <Compile Include="formDoneAdd.Designer.cs">
       <DependentUpon>formDoneAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="formPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPenjualan.Designer.cs">
+      <DependentUpon>formPenjualan.cs</DependentUpon>
+    </Compile>
     <Compile Include="formReminder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,12 +113,6 @@
     <Compile Include="formInventory.Designer.cs">
       <DependentUpon>formInventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="formPenjualan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formPenjualan.Designer.cs">
-      <DependentUpon>formPenjualan.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomTool\RJTextBox.resx">
@@ -120,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formDoneAdd.resx">
       <DependentUpon>formDoneAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPenjualan.resx">
+      <DependentUpon>formPenjualan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formReminder.resx">
       <DependentUpon>formReminder.cs</DependentUpon>
@@ -141,9 +144,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formInventory.resx">
       <DependentUpon>formInventory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formPenjualan.resx">
-      <DependentUpon>formPenjualan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -255,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logofixpopup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gambargaris.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
