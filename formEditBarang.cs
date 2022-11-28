@@ -24,10 +24,6 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
 
-        public int jual = 0;
-        public int beli= 0;
-        public int jumlah = 0;
-
         
         private void formMenu_Load(object sender, EventArgs e)
         {
@@ -63,13 +59,7 @@ namespace POSTOKOAMANJAYA
         private void btnSave_Click(object sender, EventArgs e)
         {
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand("pEditBarang", sqlConnect);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("parID", formInventory.idBarang);
-            sqlCommand.Parameters.AddWithValue("parNama", tbNama.Texts);
-            sqlCommand.Parameters.AddWithValue("parBeli", int.Parse(tbBeli.Texts));
-            sqlCommand.Parameters.AddWithValue("parJual", int.Parse(tbJual.Texts));
-            sqlCommand.Parameters.AddWithValue("parStok", int.Parse(tbQty.Texts));
+            sqlCommand = new MySqlCommand("update BARANG set nama_barang = '"+tbNama.Texts+ "', stok_barang = '" + tbQty.Texts + "', harga_beli = '" + tbBeli.Texts + "', harga_jual = '" + tbJual.Texts + "' where id_barang = '" + formInventory.idBarang + "';",sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
