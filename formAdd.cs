@@ -89,14 +89,47 @@ namespace POSTOKOAMANJAYA
             }
             else
             {
-                sqlConnect.Open();
-                sqlCommand = new MySqlCommand("insert into BARANG() values('', '" + tbNama.Texts + "', '" + cbKategori.Texts + "', '"+tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', '"+tbJual.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', '"+tbQty.Texts+"', '1', 'N');", sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-
+                try
+                {
+                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand("insert into BARANG() values('', '" + tbNama.Texts + "', '" + cbKategori.Texts + "', '" + tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', '" + tbJual.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', '" + tbQty.Texts + "', '1', 'N');", sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR!");
+                }
                 this.Hide();
-                formDoneEdit formDoneEdit = new formDoneEdit();
-                formDoneEdit.ShowDialog();
+                Form formBackground = new Form();
+                try
+                {
+                    using (formDoneAdd uu = new formDoneAdd())
+                    {
+                        formBackground.StartPosition = FormStartPosition.Manual;
+                        formBackground.FormBorderStyle = FormBorderStyle.None;
+                        formBackground.Opacity = .30d;
+                        formBackground.BackColor = Color.Gray;
+                        formBackground.WindowState = FormWindowState.Maximized;
+                        formBackground.TopMost = true;
+                        formBackground.Location = this.Location;
+                        formBackground.ShowInTaskbar = false;
+                        formBackground.Show();
+
+                        uu.Owner = formBackground;
+                        uu.ShowDialog();
+
+                        formBackground.Dispose();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    formBackground.Dispose();
+                }
                 this.Close();
 
             }

@@ -32,33 +32,45 @@ namespace POSTOKOAMANJAYA
 
         public void loadTable()
         {
-            sqlConnect.Open();
-            DataTable dtBarang = new DataTable();
-            sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("cekNama", tbSearch.Text);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtBarang);
-            dgvInven.DataSource = dtBarang;
+            try
+            {
 
-            sqlConnect.Close();
 
-            DataGridViewColumn no = dgvInven.Columns[0];
-            no.Width = 60;
-            DataGridViewColumn idUkur = dgvInven.Columns[1];
-            idUkur.Width = 180;
-            DataGridViewColumn namaUkur = dgvInven.Columns[2];
-            namaUkur.Width = 350;
-            dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            for (int i = 3;i<=5;i++)
-                dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("cekNama", tbSearch.Text);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
 
-            idBarang = dgvInven.CurrentRow.Cells["ID Barang"].Value.ToString();
-            namaBarang = dgvInven.CurrentRow.Cells["Nama Barang"].Value.ToString();
-            jumlahBarang = dgvInven.CurrentRow.Cells["QTY"].Value.ToString();
-            hargaBeli = dgvInven.CurrentRow.Cells["Harga Beli"].Value.ToString();
-            hargaJual = dgvInven.CurrentRow.Cells["Harga Jual"].Value.ToString();
+                sqlConnect.Close();
+
+                DataGridViewColumn no = dgvInven.Columns[0];
+                no.Width = 60;
+                DataGridViewColumn idUkur = dgvInven.Columns[1];
+                idUkur.Width = 180;
+                DataGridViewColumn namaUkur = dgvInven.Columns[2];
+                namaUkur.Width = 350;
+                dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                for (int i = 3; i <= 5; i++)
+                    dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                if (dgvInven.RowCount > 0)
+                {
+                    idBarang = dgvInven.CurrentRow.Cells["ID Barang"].Value.ToString();
+                    namaBarang = dgvInven.CurrentRow.Cells["Nama Barang"].Value.ToString();
+                    jumlahBarang = dgvInven.CurrentRow.Cells["QTY"].Value.ToString();
+                    hargaBeli = dgvInven.CurrentRow.Cells["Harga Beli"].Value.ToString();
+                    hargaJual = dgvInven.CurrentRow.Cells["Harga Jual"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LOAD ERROR!");
+            }
         }
         public void loadDesign()
         {
@@ -80,10 +92,6 @@ namespace POSTOKOAMANJAYA
             dgvInven.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvInven.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvInven.RowHeadersVisible = false;
-
-            //pbTxtAdd.BackColor = ColorTranslator.FromHtml("#0E2A4E");
-            //pbTxtBack.BackColor = ColorTranslator.FromHtml("#0E2A4E");
-            //pbTxtEdit.BackColor = ColorTranslator.FromHtml("#0E2A4E");
 
             lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");
             btnMinim.BackColor = ColorTranslator.FromHtml("#F40000");
@@ -132,12 +140,15 @@ namespace POSTOKOAMANJAYA
         {
             formEditBarang formEditBarang = new formEditBarang();
             formEditBarang.ShowDialog();
+
+            loadTable();
         }
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
             formAdd formAdd = new formAdd();
             formAdd.ShowDialog();
+            loadTable();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -193,6 +204,14 @@ namespace POSTOKOAMANJAYA
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
             pbTxtAdd.Visible = false;
+        }
+
+        private void btnMinim_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formReminder formReminder = new formReminder();
+            formReminder.ShowDialog();
+            this.Close();
         }
     }
 }

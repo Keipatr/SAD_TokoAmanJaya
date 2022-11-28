@@ -59,6 +59,18 @@
     <Compile Include="CustomTool\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="formDoneAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDoneAdd.Designer.cs">
+      <DependentUpon>formDoneAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formReminder.Designer.cs">
+      <DependentUpon>formReminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="formSalah.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomTool\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDoneAdd.resx">
+      <DependentUpon>formDoneAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formReminder.resx">
+      <DependentUpon>formReminder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSalah.resx">
       <DependentUpon>formSalah.cs</DependentUpon>

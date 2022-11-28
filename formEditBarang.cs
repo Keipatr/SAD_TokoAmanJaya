@@ -58,11 +58,17 @@ namespace POSTOKOAMANJAYA
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand("update BARANG set nama_barang = '"+tbNama.Texts+ "', stok_barang = '" + tbQty.Texts + "', harga_beli = '" + tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', harga_jual = '" + tbJual.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "' where id_barang = '" + formInventory.idBarang + "';",sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-
+            try
+            {
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand("update BARANG set nama_barang = '" + tbNama.Texts + "', stok_barang = '" + tbQty.Texts + "', harga_beli = '" + tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', harga_jual = '" + tbJual.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "' where id_barang = '" + formInventory.idBarang + "';", sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR!");
+            }
             this.Hide();
             formDoneEdit formDoneEdit = new formDoneEdit();
             formDoneEdit.ShowDialog();
