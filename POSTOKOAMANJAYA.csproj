@@ -59,17 +59,23 @@
     <Compile Include="CustomTool\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="formSalah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSalah.Designer.cs">
+      <DependentUpon>formSalah.cs</DependentUpon>
+    </Compile>
     <Compile Include="formDoneEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formDoneEdit.Designer.cs">
       <DependentUpon>formDoneEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAddBarang.cs">
+    <Compile Include="formAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAddBarang.Designer.cs">
-      <DependentUpon>formAddBarang.cs</DependentUpon>
+    <Compile Include="formAdd.Designer.cs">
+      <DependentUpon>formAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="formEditBarang.cs">
       <SubType>Form</SubType>
@@ -100,11 +106,14 @@
     <EmbeddedResource Include="CustomTool\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formSalah.resx">
+      <DependentUpon>formSalah.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formDoneEdit.resx">
       <DependentUpon>formDoneEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAddBarang.resx">
-      <DependentUpon>formAddBarang.cs</DependentUpon>
+    <EmbeddedResource Include="formAdd.resx">
+      <DependentUpon>formAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formEditBarang.resx">
       <DependentUpon>formEditBarang.cs</DependentUpon>
@@ -216,6 +225,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOGOMENU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popupEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popupBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popupAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logofixpopup.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

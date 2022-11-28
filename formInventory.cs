@@ -54,6 +54,11 @@ namespace POSTOKOAMANJAYA
             for (int i = 3;i<=5;i++)
                 dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            idBarang = dgvInven.CurrentRow.Cells["ID Barang"].Value.ToString();
+            namaBarang = dgvInven.CurrentRow.Cells["Nama Barang"].Value.ToString();
+            jumlahBarang = dgvInven.CurrentRow.Cells["QTY"].Value.ToString();
+            hargaBeli = dgvInven.CurrentRow.Cells["Harga Beli"].Value.ToString();
+            hargaJual = dgvInven.CurrentRow.Cells["Harga Jual"].Value.ToString();
         }
         public void loadDesign()
         {
@@ -76,6 +81,9 @@ namespace POSTOKOAMANJAYA
             dgvInven.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvInven.RowHeadersVisible = false;
 
+            //pbTxtAdd.BackColor = ColorTranslator.FromHtml("#0E2A4E");
+            //pbTxtBack.BackColor = ColorTranslator.FromHtml("#0E2A4E");
+            //pbTxtEdit.BackColor = ColorTranslator.FromHtml("#0E2A4E");
 
             lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");
             btnMinim.BackColor = ColorTranslator.FromHtml("#F40000");
@@ -128,8 +136,8 @@ namespace POSTOKOAMANJAYA
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            formAddBarang formAddBarang = new formAddBarang();
-            formAddBarang.ShowDialog();
+            formAdd formAdd = new formAdd();
+            formAdd.ShowDialog();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -155,6 +163,36 @@ namespace POSTOKOAMANJAYA
             {
 
             }
+        }
+
+        private void pbEdit_MouseHover(object sender, EventArgs e)
+        {
+            pbTxtEdit.Visible = true;
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            pbTxtEdit.Visible = false;
+        }
+
+        private void pbBack_MouseHover(object sender, EventArgs e)
+        {
+            pbTxtBack.Visible = true;
+        }
+
+        private void pbBack_MouseLeave(object sender, EventArgs e)
+        {
+            pbTxtBack.Visible= false;
+        }
+
+        private void pbAdd_MouseHover(object sender, EventArgs e)
+        {
+            pbTxtAdd.Visible = true;
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            pbTxtAdd.Visible = false;
         }
     }
 }

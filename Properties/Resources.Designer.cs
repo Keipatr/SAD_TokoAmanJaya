@@ -153,6 +153,16 @@ namespace POSTOKOAMANJAYA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logofixpopup {
+            get {
+                object obj = ResourceManager.GetObject("logofixpopup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logohistory {
             get {
                 object obj = ResourceManager.GetObject("logohistory", resourceCulture);
@@ -346,6 +356,36 @@ namespace POSTOKOAMANJAYA.Properties {
         internal static System.Drawing.Bitmap PENJUALAN {
             get {
                 object obj = ResourceManager.GetObject("PENJUALAN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap popupAdd {
+            get {
+                object obj = ResourceManager.GetObject("popupAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap popupBack {
+            get {
+                object obj = ResourceManager.GetObject("popupBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap popupEdit {
+            get {
+                object obj = ResourceManager.GetObject("popupEdit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

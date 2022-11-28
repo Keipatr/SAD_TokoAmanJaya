@@ -45,8 +45,8 @@ namespace POSTOKOAMANJAYA
             tbQty.BorderFocusColor = ColorTranslator.FromHtml("#979BC7");
 
 
-            tbBeli.Texts = formInventory.hargaBeli.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }).ToString(); 
-            tbJual.Texts = formInventory.hargaJual.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }).ToString();
+            tbBeli.Texts = formInventory.hargaBeli; 
+            tbJual.Texts = formInventory.hargaJual.ToString();
             tbNama.Texts = formInventory.namaBarang.ToString();
             tbQty.Texts = formInventory.jumlahBarang.ToString();
         }
@@ -59,7 +59,7 @@ namespace POSTOKOAMANJAYA
         private void btnSave_Click(object sender, EventArgs e)
         {
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand("update BARANG set nama_barang = '"+tbNama.Texts+ "', stok_barang = '" + tbQty.Texts + "', harga_beli = '" + tbBeli.Texts + "', harga_jual = '" + tbJual.Texts + "' where id_barang = '" + formInventory.idBarang + "';",sqlConnect);
+            sqlCommand = new MySqlCommand("update BARANG set nama_barang = '"+tbNama.Texts+ "', stok_barang = '" + tbQty.Texts + "', harga_beli = '" + tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "', harga_jual = '" + tbJual.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "' where id_barang = '" + formInventory.idBarang + "';",sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
@@ -67,6 +67,11 @@ namespace POSTOKOAMANJAYA
             formDoneEdit formDoneEdit = new formDoneEdit();
             formDoneEdit.ShowDialog();
             this.Close();
+        }
+
+        private void tbQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

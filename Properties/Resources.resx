@@ -166,8 +166,8 @@
   <data name="Mukta_SemiBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-SemiBold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Aman Jaya-5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Aman Jaya-5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="popupEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popupEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="POSAMANJAYA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\POSAMANJAYA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,8 +175,17 @@
   <data name="logoadd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoadd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LOGOMENU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGOMENU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="popupBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popupBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoback" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="popupAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popupAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logolaporan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logolaporan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -186,6 +195,9 @@
   </data>
   <data name="Mukta_ExtraBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-ExtraBold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Aman Jaya-5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aman Jaya-5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logohistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logohistory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,7 +220,7 @@
   <data name="Mukta_Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-Medium.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LOGOMENU" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOGOMENU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logofixpopup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logofixpopup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

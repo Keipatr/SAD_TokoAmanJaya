@@ -47,6 +47,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbHistory.BackColor = System.Drawing.Color.Transparent;
+            this.pbHistory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbHistory.Image = global::POSTOKOAMANJAYA.Properties.Resources.logohistory;
             this.pbHistory.Location = new System.Drawing.Point(1195, 793);
             this.pbHistory.Name = "pbHistory";
@@ -62,6 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLaporan.BackColor = System.Drawing.Color.Transparent;
+            this.pbLaporan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLaporan.Image = global::POSTOKOAMANJAYA.Properties.Resources.logolaporan;
             this.pbLaporan.Location = new System.Drawing.Point(908, 793);
             this.pbLaporan.Name = "pbLaporan";
@@ -77,6 +79,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbInven.BackColor = System.Drawing.Color.Transparent;
+            this.pbInven.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbInven.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoinventory;
             this.pbInven.Location = new System.Drawing.Point(621, 793);
             this.pbInven.Name = "pbInven";
@@ -92,6 +95,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbJual.BackColor = System.Drawing.Color.Transparent;
+            this.pbJual.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbJual.Image = global::POSTOKOAMANJAYA.Properties.Resources.Logopenjualan;
             this.pbJual.Location = new System.Drawing.Point(47, 793);
             this.pbJual.Name = "pbJual";
@@ -107,6 +111,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbBeli.BackColor = System.Drawing.Color.Transparent;
+            this.pbBeli.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbBeli.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoPembelian;
             this.pbBeli.Location = new System.Drawing.Point(334, 793);
             this.pbBeli.Name = "pbBeli";
@@ -128,6 +133,9 @@
             this.Controls.Add(this.pbBeli);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1515, 1010);
+            this.MinimumSize = new System.Drawing.Size(1515, 1010);
             this.Name = "formMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Menu";

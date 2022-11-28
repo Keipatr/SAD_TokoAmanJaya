@@ -1,6 +1,6 @@
 ﻿namespace POSTOKOAMANJAYA
 {
-    partial class formEditBarang
+    partial class formAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEditBarang));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAdd));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbKategori = new POSTOKOAMANJAYA.CustomTool.RJComboBox();
             this.tbNama = new CustomControls.RJControls.RJTextBox();
             this.btnCancel = new CustomControls.RJControls.RJButton();
             this.btnSave = new CustomControls.RJControls.RJButton();
@@ -46,7 +48,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 90);
+            this.label1.Location = new System.Drawing.Point(12, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 36);
             this.label1.TabIndex = 9;
@@ -57,7 +59,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 143);
+            this.label2.Location = new System.Drawing.Point(12, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 36);
             this.label2.TabIndex = 10;
@@ -68,7 +70,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 203);
+            this.label3.Location = new System.Drawing.Point(12, 216);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(155, 36);
             this.label3.TabIndex = 11;
@@ -79,11 +81,49 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 262);
+            this.label4.Location = new System.Drawing.Point(12, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 36);
             this.label4.TabIndex = 12;
             this.label4.Text = "Harga Jual :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(12, 105);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 36);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Kategori : ";
+            // 
+            // cbKategori
+            // 
+            this.cbKategori.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbKategori.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbKategori.BorderRadius = 12;
+            this.cbKategori.BorderSize = 0;
+            this.cbKategori.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbKategori.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbKategori.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKategori.ForeColor = System.Drawing.Color.White;
+            this.cbKategori.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbKategori.Items.AddRange(new object[] {
+            "Food",
+            "Drink",
+            "Ciggaretes",
+            "Detergent",
+            "Shampoo",
+            "Soap"});
+            this.cbKategori.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cbKategori.ListTextColor = System.Drawing.Color.White;
+            this.cbKategori.Location = new System.Drawing.Point(232, 101);
+            this.cbKategori.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbKategori.Name = "cbKategori";
+            this.cbKategori.Size = new System.Drawing.Size(280, 40);
+            this.cbKategori.TabIndex = 18;
+            this.cbKategori.Texts = "Pilih Kategori";
             // 
             // tbNama
             // 
@@ -94,13 +134,13 @@
             this.tbNama.BorderSize = 2;
             this.tbNama.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNama.ForeColor = System.Drawing.Color.White;
-            this.tbNama.Location = new System.Drawing.Point(232, 90);
+            this.tbNama.Location = new System.Drawing.Point(232, 44);
             this.tbNama.Margin = new System.Windows.Forms.Padding(4);
             this.tbNama.Multiline = false;
             this.tbNama.Name = "tbNama";
             this.tbNama.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.tbNama.PasswordChar = false;
-            this.tbNama.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbNama.PlaceholderColor = System.Drawing.Color.White;
             this.tbNama.PlaceholderText = "";
             this.tbNama.Size = new System.Drawing.Size(373, 42);
             this.tbNama.TabIndex = 13;
@@ -158,7 +198,7 @@
             this.tbQty.BorderSize = 2;
             this.tbQty.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQty.ForeColor = System.Drawing.Color.White;
-            this.tbQty.Location = new System.Drawing.Point(232, 143);
+            this.tbQty.Location = new System.Drawing.Point(232, 155);
             this.tbQty.Margin = new System.Windows.Forms.Padding(4);
             this.tbQty.Multiline = false;
             this.tbQty.Name = "tbQty";
@@ -181,7 +221,7 @@
             this.tbBeli.BorderSize = 2;
             this.tbBeli.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBeli.ForeColor = System.Drawing.Color.White;
-            this.tbBeli.Location = new System.Drawing.Point(232, 199);
+            this.tbBeli.Location = new System.Drawing.Point(232, 216);
             this.tbBeli.Margin = new System.Windows.Forms.Padding(4);
             this.tbBeli.Multiline = false;
             this.tbBeli.Name = "tbBeli";
@@ -193,6 +233,7 @@
             this.tbBeli.TabIndex = 15;
             this.tbBeli.Texts = "";
             this.tbBeli.UnderlinedStyle = false;
+            this.tbBeli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBeli_KeyPress);
             // 
             // tbJual
             // 
@@ -203,7 +244,7 @@
             this.tbJual.BorderSize = 2;
             this.tbJual.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbJual.ForeColor = System.Drawing.Color.White;
-            this.tbJual.Location = new System.Drawing.Point(232, 256);
+            this.tbJual.Location = new System.Drawing.Point(232, 273);
             this.tbJual.Margin = new System.Windows.Forms.Padding(4);
             this.tbJual.Multiline = false;
             this.tbJual.Name = "tbJual";
@@ -215,12 +256,15 @@
             this.tbJual.TabIndex = 16;
             this.tbJual.Texts = "";
             this.tbJual.UnderlinedStyle = false;
+            this.tbJual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbJual_KeyPress);
             // 
-            // formEditBarang
+            // formAdd
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(866, 455);
+            this.Controls.Add(this.cbKategori);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.tbNama);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -235,7 +279,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "formEditBarang";
+            this.Name = "formAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Edit";
             this.Load += new System.EventHandler(this.formMenu_Load);
@@ -255,6 +299,8 @@
         private CustomControls.RJControls.RJTextBox tbQty;
         private CustomControls.RJControls.RJTextBox tbBeli;
         private CustomControls.RJControls.RJTextBox tbJual;
+        private System.Windows.Forms.Label label5;
+        private CustomTool.RJComboBox cbKategori;
     }
 }
 

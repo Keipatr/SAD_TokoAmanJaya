@@ -1,6 +1,6 @@
 ﻿namespace POSTOKOAMANJAYA
 {
-    partial class formDoneEdit
+    partial class formSalah
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formDoneEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSalah));
             this.btnOK = new CustomControls.RJControls.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -52,20 +52,20 @@
             this.btnOK.Text = "OK";
             this.btnOK.TextColor = System.Drawing.Color.White;
             this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.rjButton1_Click);
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(49, 60);
+            this.label1.Location = new System.Drawing.Point(32, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(355, 44);
+            this.label1.Size = new System.Drawing.Size(400, 44);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Data telah terubah!";
+            this.label1.Text = "Data Belum Lengkap!";
             // 
-            // formDoneEdit
+            // formSalah
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -75,9 +75,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "formDoneEdit";
+            this.Name = "formSalah";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Done";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.formMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

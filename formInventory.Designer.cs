@@ -35,23 +35,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formInventory));
             this.dgvInven = new System.Windows.Forms.DataGridView();
             this.paneldgvSearch = new System.Windows.Forms.Panel();
-            this.pbBack = new System.Windows.Forms.PictureBox();
+            this.lbNamabarang = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.pbTxtBack = new System.Windows.Forms.PictureBox();
+            this.pbTxtAdd = new System.Windows.Forms.PictureBox();
+            this.pbTxtEdit = new System.Windows.Forms.PictureBox();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panelAtas = new System.Windows.Forms.Panel();
             this.lbLogo = new System.Windows.Forms.Label();
+            this.pbBack = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.lbNamabarang = new System.Windows.Forms.Label();
-            this.tbSearchs = new CustomControls.RJControls.RJTextBox();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
-            this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnMinim = new CustomControls.RJControls.RJButton();
+            this.tbSearchs = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInven)).BeginInit();
             this.paneldgvSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTxtAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTxtEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.panelAtas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvInven
@@ -114,17 +120,75 @@
             this.paneldgvSearch.Size = new System.Drawing.Size(1297, 665);
             this.paneldgvSearch.TabIndex = 5;
             // 
-            // pbBack
+            // lbNamabarang
             // 
-            this.pbBack.BackColor = System.Drawing.Color.Transparent;
-            this.pbBack.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoback;
-            this.pbBack.Location = new System.Drawing.Point(1330, 18);
-            this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(55, 55);
-            this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbBack.TabIndex = 3;
-            this.pbBack.TabStop = false;
-            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
+            this.lbNamabarang.AutoSize = true;
+            this.lbNamabarang.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNamabarang.ForeColor = System.Drawing.Color.Black;
+            this.lbNamabarang.Location = new System.Drawing.Point(83, 145);
+            this.lbNamabarang.Name = "lbNamabarang";
+            this.lbNamabarang.Size = new System.Drawing.Size(276, 46);
+            this.lbNamabarang.TabIndex = 6;
+            this.lbNamabarang.Text = "Nama Barang";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbSearch.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.Location = new System.Drawing.Point(428, 141);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(368, 46);
+            this.tbSearch.TabIndex = 9;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            // 
+            // pbTxtBack
+            // 
+            this.pbTxtBack.BackColor = System.Drawing.Color.Transparent;
+            this.pbTxtBack.Image = global::POSTOKOAMANJAYA.Properties.Resources.popupBack;
+            this.pbTxtBack.Location = new System.Drawing.Point(1332, 91);
+            this.pbTxtBack.Name = "pbTxtBack";
+            this.pbTxtBack.Size = new System.Drawing.Size(48, 32);
+            this.pbTxtBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbTxtBack.TabIndex = 13;
+            this.pbTxtBack.TabStop = false;
+            this.pbTxtBack.Visible = false;
+            // 
+            // pbTxtAdd
+            // 
+            this.pbTxtAdd.BackColor = System.Drawing.Color.Transparent;
+            this.pbTxtAdd.Image = global::POSTOKOAMANJAYA.Properties.Resources.logofixpopup;
+            this.pbTxtAdd.Location = new System.Drawing.Point(1418, 91);
+            this.pbTxtAdd.Name = "pbTxtAdd";
+            this.pbTxtAdd.Size = new System.Drawing.Size(48, 32);
+            this.pbTxtAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbTxtAdd.TabIndex = 12;
+            this.pbTxtAdd.TabStop = false;
+            this.pbTxtAdd.Visible = false;
+            // 
+            // pbTxtEdit
+            // 
+            this.pbTxtEdit.BackColor = System.Drawing.Color.Transparent;
+            this.pbTxtEdit.Image = global::POSTOKOAMANJAYA.Properties.Resources.popupEdit;
+            this.pbTxtEdit.Location = new System.Drawing.Point(1247, 91);
+            this.pbTxtEdit.Name = "pbTxtEdit";
+            this.pbTxtEdit.Size = new System.Drawing.Size(48, 32);
+            this.pbTxtEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbTxtEdit.TabIndex = 11;
+            this.pbTxtEdit.TabStop = false;
+            this.pbTxtEdit.Visible = false;
+            // 
+            // pbSearch
+            // 
+            this.pbSearch.BackColor = System.Drawing.Color.Transparent;
+            this.pbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pbSearch.Image = global::POSTOKOAMANJAYA.Properties.Resources.search;
+            this.pbSearch.Location = new System.Drawing.Point(391, 141);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(36, 46);
+            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbSearch.TabIndex = 3;
+            this.pbSearch.TabStop = false;
+            this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
             // 
             // panelAtas
             // 
@@ -153,9 +217,25 @@
             this.lbLogo.TabIndex = 4;
             this.lbLogo.Text = "INVENTORY";
             // 
+            // pbBack
+            // 
+            this.pbBack.BackColor = System.Drawing.Color.Transparent;
+            this.pbBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBack.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoback;
+            this.pbBack.Location = new System.Drawing.Point(1330, 18);
+            this.pbBack.Name = "pbBack";
+            this.pbBack.Size = new System.Drawing.Size(55, 55);
+            this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbBack.TabIndex = 3;
+            this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
+            this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
+            this.pbBack.MouseHover += new System.EventHandler(this.pbBack_MouseHover);
+            // 
             // pbEdit
             // 
             this.pbEdit.BackColor = System.Drawing.Color.Transparent;
+            this.pbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbEdit.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoedit;
             this.pbEdit.Location = new System.Drawing.Point(1245, 17);
             this.pbEdit.Name = "pbEdit";
@@ -164,10 +244,13 @@
             this.pbEdit.TabIndex = 3;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
+            this.pbEdit.MouseHover += new System.EventHandler(this.pbEdit_MouseHover);
             // 
             // pbAdd
             // 
             this.pbAdd.BackColor = System.Drawing.Color.Transparent;
+            this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbAdd.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoadd;
             this.pbAdd.Location = new System.Drawing.Point(1415, 18);
             this.pbAdd.Name = "pbAdd";
@@ -176,17 +259,28 @@
             this.pbAdd.TabIndex = 2;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
+            this.pbAdd.MouseHover += new System.EventHandler(this.pbAdd_MouseHover);
             // 
-            // lbNamabarang
+            // btnMinim
             // 
-            this.lbNamabarang.AutoSize = true;
-            this.lbNamabarang.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNamabarang.ForeColor = System.Drawing.Color.Black;
-            this.lbNamabarang.Location = new System.Drawing.Point(83, 145);
-            this.lbNamabarang.Name = "lbNamabarang";
-            this.lbNamabarang.Size = new System.Drawing.Size(276, 46);
-            this.lbNamabarang.TabIndex = 6;
-            this.lbNamabarang.Text = "Nama Barang";
+            this.btnMinim.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnMinim.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnMinim.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMinim.BorderRadius = 24;
+            this.btnMinim.BorderSize = 0;
+            this.btnMinim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinim.FlatAppearance.BorderSize = 0;
+            this.btnMinim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinim.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinim.ForeColor = System.Drawing.Color.White;
+            this.btnMinim.Location = new System.Drawing.Point(1197, 137);
+            this.btnMinim.Name = "btnMinim";
+            this.btnMinim.Size = new System.Drawing.Size(197, 48);
+            this.btnMinim.TabIndex = 10;
+            this.btnMinim.Text = "Stok Minimum";
+            this.btnMinim.TextColor = System.Drawing.Color.White;
+            this.btnMinim.UseVisualStyleBackColor = false;
             // 
             // tbSearchs
             // 
@@ -212,52 +306,13 @@
             this.tbSearchs.Texts = "";
             this.tbSearchs.UnderlinedStyle = false;
             // 
-            // pbSearch
-            // 
-            this.pbSearch.BackColor = System.Drawing.Color.Transparent;
-            this.pbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pbSearch.Image = global::POSTOKOAMANJAYA.Properties.Resources.search;
-            this.pbSearch.Location = new System.Drawing.Point(391, 141);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(36, 46);
-            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbSearch.TabIndex = 3;
-            this.pbSearch.TabStop = false;
-            this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbSearch.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(428, 141);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(368, 46);
-            this.tbSearch.TabIndex = 9;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
-            // 
-            // btnMinim
-            // 
-            this.btnMinim.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnMinim.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnMinim.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMinim.BorderRadius = 24;
-            this.btnMinim.BorderSize = 0;
-            this.btnMinim.FlatAppearance.BorderSize = 0;
-            this.btnMinim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinim.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinim.ForeColor = System.Drawing.Color.White;
-            this.btnMinim.Location = new System.Drawing.Point(1197, 137);
-            this.btnMinim.Name = "btnMinim";
-            this.btnMinim.Size = new System.Drawing.Size(197, 48);
-            this.btnMinim.TabIndex = 10;
-            this.btnMinim.Text = "Stok Minimum";
-            this.btnMinim.TextColor = System.Drawing.Color.White;
-            this.btnMinim.UseVisualStyleBackColor = false;
-            // 
             // formInventory
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1512, 982);
+            this.Controls.Add(this.pbTxtAdd);
+            this.Controls.Add(this.pbTxtBack);
+            this.Controls.Add(this.pbTxtEdit);
             this.Controls.Add(this.btnMinim);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pbSearch);
@@ -274,12 +329,15 @@
             this.Load += new System.EventHandler(this.formMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInven)).EndInit();
             this.paneldgvSearch.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTxtAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTxtEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.panelAtas.ResumeLayout(false);
             this.panelAtas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,6 +357,9 @@
         private System.Windows.Forms.PictureBox pbSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private CustomControls.RJControls.RJButton btnMinim;
+        private System.Windows.Forms.PictureBox pbTxtEdit;
+        private System.Windows.Forms.PictureBox pbTxtAdd;
+        private System.Windows.Forms.PictureBox pbTxtBack;
     }
 }
 

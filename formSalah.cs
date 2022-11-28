@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace POSTOKOAMANJAYA
 {
-    public partial class formDoneEdit : Form
+    public partial class formSalah : Form
     {
-        public formDoneEdit()
+        public formSalah()
         {
             InitializeComponent();
         }
@@ -28,9 +28,15 @@ namespace POSTOKOAMANJAYA
         {
             this.BackColor = ColorTranslator.FromHtml("#191A38");
             btnOK.BackColor= ColorTranslator.FromHtml("#F40000");
+
+            formInventory formInventory = new formInventory();
+            formInventory.Opacity = .10;
+
+           formAdd formAdd = new formAdd();
+            formAdd.Opacity = .10;
         }
 
-        private void rjButton1_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             this.Close();
         }

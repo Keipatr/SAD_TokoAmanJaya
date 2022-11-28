@@ -27,10 +27,6 @@ namespace POSTOKOAMANJAYA
 
         private void formMenu_Load(object sender, EventArgs e)
         {
-            this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile("Properties.Resources.Mukta_Regular");
-            label1.Font = new Font(pfc.Families[0],40);
 
         }
     }
