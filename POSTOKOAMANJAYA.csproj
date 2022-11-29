@@ -259,5 +259,17 @@
   <ItemGroup>
     <None Include="Resources\gambargaris.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\header_nota.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kotak Barang 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoMinus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoPlus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

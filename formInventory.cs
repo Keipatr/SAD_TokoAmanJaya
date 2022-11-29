@@ -34,8 +34,6 @@ namespace POSTOKOAMANJAYA
         {
             try
             {
-
-
                 sqlConnect.Open();
                 DataTable dtBarang = new DataTable();
                 sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
@@ -69,7 +67,6 @@ namespace POSTOKOAMANJAYA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("LOAD ERROR!");
             }
         }
         public void loadDesign()

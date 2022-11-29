@@ -83,6 +83,16 @@ namespace POSTOKOAMANJAYA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap header_nota {
+            get {
+                object obj = ResourceManager.GetObject("header_nota", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap history {
             get {
                 object obj = ResourceManager.GetObject("history", resourceCulture);
@@ -96,6 +106,16 @@ namespace POSTOKOAMANJAYA.Properties {
         internal static System.Drawing.Bitmap icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Kotak_Barang_1 {
+            get {
+                object obj = ResourceManager.GetObject("Kotak Barang 1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +263,16 @@ namespace POSTOKOAMANJAYA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logoMinus {
+            get {
+                object obj = ResourceManager.GetObject("logoMinus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoPembelian {
             get {
                 object obj = ResourceManager.GetObject("logoPembelian", resourceCulture);
@@ -256,6 +286,16 @@ namespace POSTOKOAMANJAYA.Properties {
         internal static System.Drawing.Bitmap Logopenjualan {
             get {
                 object obj = ResourceManager.GetObject("Logopenjualan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoPlus {
+            get {
+                object obj = ResourceManager.GetObject("logoPlus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

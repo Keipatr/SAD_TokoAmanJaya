@@ -26,16 +26,21 @@ namespace POSTOKOAMANJAYA
 
         public void loadTable()
         {
-            sqlConnect.Open();
-            DataTable dtBarang = new DataTable();
-            sqlQuery = "SELECT * FROM SAD_TokoAmanJaya.v_dibawah_reminder_stok;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtBarang);
-            dgvInven.DataSource = dtBarang;
+            try
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "SELECT * FROM SAD_TokoAmanJaya.v_dibawah_reminder_stok;";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            catch (Exception ex)
+            {
 
-            sqlConnect.Close();
-
+            }
             DataGridViewColumn no = dgvInven.Columns[0];
             no.Width = 60;
             DataGridViewColumn idUkur = dgvInven.Columns[1];
