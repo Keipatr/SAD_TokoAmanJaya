@@ -67,7 +67,6 @@ namespace POSTOKOAMANJAYA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR!");
             }
             this.Hide();
             formDoneEdit formDoneEdit = new formDoneEdit();

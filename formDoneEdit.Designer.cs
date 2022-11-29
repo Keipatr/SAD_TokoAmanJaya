@@ -78,6 +78,7 @@
             this.Name = "formDoneEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Done";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.formMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
