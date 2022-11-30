@@ -29,25 +29,28 @@ namespace POSTOKOAMANJAYA
         public int Y = 0;
         public int jmlMenu = 0;
         public DataTable dtBarang = new DataTable();
+        public static DataTable dtJumlahBarang = new DataTable();
 
         public Dictionary<Button, Label> mappingPlus = new Dictionary<Button, Label>();
         public Dictionary<Button, Label> mappingMinus = new Dictionary<Button, Label>();
 
-        //public Label[] lbNama;
-        //public Label[] lbQty;
-        //public Label[] lbHarga;
-        //public Label[] lbJumlah;
-        //public Button[] btnMinus;
-        //public Button[] btnPlus;
+        public Label[] lbNama= new Label[dtJumlahBarang.Rows.Count];
+        public Label[] lbQty = new Label[dtJumlahBarang.Rows.Count];
+        public Label[] lbHarga = new Label[dtJumlahBarang.Rows.Count];
+        public Label[] lbJumlah = new Label[dtJumlahBarang.Rows.Count];
+        public Button[] btnMinus = new Button[dtJumlahBarang.Rows.Count];
+        public Button[] btnPlus =new Button[dtJumlahBarang.Rows.Count];
 
-        public Label lbNama = new Label();
-        public Label lbQty = new Label();
-        public Label lbHarga = new Label();
-        public Label lbJumlah = new Label();
-        public Button btnMinus = new Button();
-        public Button btnPlus = new Button();
+        //public Label lbNama = new Label();
+        //public Label lbQty = new Label();
+        //public Label lbHarga = new Label();
+        //public Label lbJumlah = new Label();
+        //public Button btnMinus = new Button();
+        //public Button btnPlus = new Button();
 
         public PictureBox menu = new PictureBox();
+
+        
         public void loadDesign()
         {
             this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
@@ -80,6 +83,7 @@ namespace POSTOKOAMANJAYA
 
         public void buatMenu()
         {
+            DataTable dtBarang = new DataTable();
             sqlConnect.Open();
             sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
             sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -87,7 +91,8 @@ namespace POSTOKOAMANJAYA
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtBarang);
             sqlConnect.Close();
-
+            panelMenu.Controls.Remove(menu);
+            
             DataTable dtJumlahBarang = new DataTable();
             sqlConnect.Open();
             sqlCommand = new MySqlCommand("select * from BARANG where status_delete = 'N'", sqlConnect);
@@ -99,8 +104,14 @@ namespace POSTOKOAMANJAYA
             X = 3;
             Y = 12;
 
-            lbTextTotal.Text = dtBarang.Rows[0]["QTY"].ToString();
-            jmlMenu = 0;
+            Label[] lbNama = new Label[dtJumlahBarang.Rows.Count];
+         Label[] lbQty = new Label[dtJumlahBarang.Rows.Count];
+        Label[] lbHarga = new Label[dtJumlahBarang.Rows.Count];
+        Label[] lbJumlah = new Label[dtJumlahBarang.Rows.Count];
+        Button[] btnMinus = new Button[dtJumlahBarang.Rows.Count];
+        Button[] btnPlus = new Button[dtJumlahBarang.Rows.Count];
+
+        jmlMenu = 0;
             //Label[] lbNama = new Label[jumlahBarang];
             //Label[] lbQty = new Label[jumlahBarang];
             //Label[] lbHarga = new Label[jumlahBarang];
@@ -109,7 +120,7 @@ namespace POSTOKOAMANJAYA
             //Button[] btnPlus = new Button[jumlahBarang];
             //Dictionary<Button, Label> mappingPlus = new Dictionary<Button, Label>();
             //Dictionary<Button, Label> mappingMinus = new Dictionary<Button, Label>();
-
+/*
             for (int i = 0; i < dtBarang.Rows.Count / 2; i++) // dtBarang.Rows.Count/2 
             {
                 for (int j = 0; j < 2; j++)
@@ -223,8 +234,8 @@ namespace POSTOKOAMANJAYA
                     jmlMenu++;
                 }
                 Y += 162;
-            }
-            /*
+            }*/
+            ///*
             for (int i =0;i< dtBarang.Rows.Count;i++)
             {
                 if (dtBarang.Rows[jmlMenu]["QTY"].ToString() != "0" && dtBarang.Rows.Count > 0)
@@ -247,12 +258,12 @@ namespace POSTOKOAMANJAYA
                     //Button[] btnMinus = new Button[jumlahBarang];
                     //Button[] btnPlus = new Button[jumlahBarang];
 
-                    lbNama[jmlMenu] = new System.Windows.Forms.Label();
-                    lbQty[jmlMenu] = new System.Windows.Forms.Label();
-                    lbHarga[jmlMenu] = new System.Windows.Forms.Label();
-                    lbJumlah[jmlMenu] = new System.Windows.Forms.Label();
-                    btnMinus[jmlMenu] = new System.Windows.Forms.Button();
-                    btnPlus[jmlMenu] = new System.Windows.Forms.Button();
+                    lbNama[i] = new System.Windows.Forms.Label();
+                    lbQty[i] = new System.Windows.Forms.Label();
+                    lbHarga[i] = new System.Windows.Forms.Label();
+                    lbJumlah[i] = new System.Windows.Forms.Label();
+                    btnMinus[i] = new System.Windows.Forms.Button();
+                    btnPlus[i] = new System.Windows.Forms.Button();
 
                     menu.Controls.Add(btnMinus[jmlMenu]);
                     menu.Controls.Add(btnPlus[jmlMenu]);
@@ -317,16 +328,16 @@ namespace POSTOKOAMANJAYA
                     Y += 162;
                 }
                 jmlMenu++;
-            }*/
+            }//*/
         }
 
         private void BtnMinus_Click(object sender, EventArgs e)
         {
            for (int i = 0; i < dtBarang.Rows.Count; i++)
             {
-                if (lbJumlah.Name == ((Button)sender).Name)
+                if (lbJumlah[i].Name == ((Button)sender).Name)
                 {
-                    lbJumlah.Text = "1";
+                    lbJumlah[i].Text = "1";
                 }
             }
         }
@@ -357,8 +368,7 @@ namespace POSTOKOAMANJAYA
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
-        {
-            menu.Dispose();
+        {            
             buatMenu();
         }
 
