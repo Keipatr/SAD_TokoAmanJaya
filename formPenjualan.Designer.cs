@@ -76,7 +76,7 @@
             this.lbNamabarang.ForeColor = System.Drawing.Color.Black;
             this.lbNamabarang.Location = new System.Drawing.Point(21, 143);
             this.lbNamabarang.Name = "lbNamabarang";
-            this.lbNamabarang.Size = new System.Drawing.Size(276, 46);
+            this.lbNamabarang.Size = new System.Drawing.Size(347, 59);
             this.lbNamabarang.TabIndex = 6;
             this.lbNamabarang.Text = "Nama Barang";
             // 
@@ -86,7 +86,7 @@
             this.tbSearch.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.Location = new System.Drawing.Point(376, 142);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(417, 46);
+            this.tbSearch.Size = new System.Drawing.Size(417, 58);
             this.tbSearch.TabIndex = 9;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -136,7 +136,7 @@
             this.lbLogo.ForeColor = System.Drawing.Color.Goldenrod;
             this.lbLogo.Location = new System.Drawing.Point(8, 7);
             this.lbLogo.Name = "lbLogo";
-            this.lbLogo.Size = new System.Drawing.Size(435, 78);
+            this.lbLogo.Size = new System.Drawing.Size(553, 97);
             this.lbLogo.TabIndex = 4;
             this.lbLogo.Text = "PENJUALAN";
             // 
@@ -180,7 +180,7 @@
             this.lbTotal.Location = new System.Drawing.Point(513, 750);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbTotal.Size = new System.Drawing.Size(66, 42);
+            this.lbTotal.Size = new System.Drawing.Size(82, 52);
             this.lbTotal.TabIndex = 16;
             this.lbTotal.Text = "......";
             // 
@@ -218,7 +218,7 @@
             this.lbTextTotal.Font = new System.Drawing.Font("Arial Narrow", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTextTotal.Location = new System.Drawing.Point(36, 750);
             this.lbTextTotal.Name = "lbTextTotal";
-            this.lbTextTotal.Size = new System.Drawing.Size(125, 42);
+            this.lbTextTotal.Size = new System.Drawing.Size(154, 52);
             this.lbTextTotal.TabIndex = 5;
             this.lbTextTotal.Text = "TOTAL:";
             // 
@@ -259,7 +259,7 @@
             this.lbIDJual.Location = new System.Drawing.Point(372, 26);
             this.lbIDJual.Name = "lbIDJual";
             this.lbIDJual.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbIDJual.Size = new System.Drawing.Size(244, 44);
+            this.lbIDJual.Size = new System.Drawing.Size(301, 55);
             this.lbIDJual.TabIndex = 2;
             this.lbIDJual.Text = "J2211118001";
             // 
@@ -269,7 +269,7 @@
             this.lbNota.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNota.Location = new System.Drawing.Point(24, 26);
             this.lbNota.Name = "lbNota";
-            this.lbNota.Size = new System.Drawing.Size(242, 44);
+            this.lbNota.Size = new System.Drawing.Size(306, 55);
             this.lbNota.TabIndex = 0;
             this.lbNota.Text = "ID Penjualan";
             // 
@@ -292,7 +292,7 @@
             this.tbSearchs.PasswordChar = false;
             this.tbSearchs.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbSearchs.PlaceholderText = "";
-            this.tbSearchs.Size = new System.Drawing.Size(473, 60);
+            this.tbSearchs.Size = new System.Drawing.Size(473, 72);
             this.tbSearchs.TabIndex = 7;
             this.tbSearchs.Texts = "";
             this.tbSearchs.UnderlinedStyle = false;
@@ -305,7 +305,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(18, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 32);
+            this.label1.Size = new System.Drawing.Size(252, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mie Sedap Soto";
             this.label1.Visible = false;
@@ -318,7 +318,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(17, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 32);
+            this.label2.Size = new System.Drawing.Size(158, 39);
             this.label2.TabIndex = 3;
             this.label2.Text = "QTY :  48";
             this.label2.Visible = false;
@@ -331,7 +331,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(11, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 32);
+            this.label3.Size = new System.Drawing.Size(163, 39);
             this.label3.TabIndex = 4;
             this.label3.Text = " Rp 3.000";
             this.label3.Visible = false;
@@ -344,7 +344,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(278, 80);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 42);
+            this.label4.Size = new System.Drawing.Size(49, 53);
             this.label4.TabIndex = 5;
             this.label4.Text = "5";
             this.label4.Visible = false;

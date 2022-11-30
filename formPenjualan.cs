@@ -17,8 +17,8 @@ namespace POSTOKOAMANJAYA
         {
             InitializeComponent();
         }
-
-        public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=SAD_TokoAmanJaya";
+        public static string sqlConnection = "server=127.0.0.1;uid=root;pwd=;database=sad_tokoamanjaya";
+       // public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=SAD_TokoAmanJaya";
         public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
@@ -165,6 +165,8 @@ namespace POSTOKOAMANJAYA
                         lbQty.BackColor = ColorTranslator.FromHtml("#32324E");
                         lbHarga.BackColor = ColorTranslator.FromHtml("#32324E");
                         lbJumlah.BackColor = ColorTranslator.FromHtml("#32324E");
+                        btnPlus.BackColor = ColorTranslator.FromHtml("#32324E");
+                        btnMinus.BackColor = ColorTranslator.FromHtml("#32324E");
 
                         lbNama.ForeColor = Color.White;
                         lbQty.ForeColor = Color.White;
@@ -320,15 +322,20 @@ namespace POSTOKOAMANJAYA
 
         private void BtnMinus_Click(object sender, EventArgs e)
         {
-           //((Label)mappingMinus[(Button)sender)]).Text = "some text";
-
+           for (int i = 0; i < dtBarang.Rows.Count; i++)
+            {
+                if (lbJumlah.Name == ((Button)sender).Name)
+                {
+                    lbJumlah.Text = "1";
+                }
+            }
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
             //lbJumlah[jmlMenu] = new System.Windows.Forms.Label();
             //lbJumlah[jmlMenu].Text = Convert.ToString(int.Parse(lbJumlah[jmlMenu].Text) + 1);
-            MessageBox.Show(((System.Windows.Forms.Label)sender).Name + " clicked");
+            MessageBox.Show(((System.Windows.Forms.Button)sender).Name + " clicked");
         }
         private void formMenu_Load(object sender, EventArgs e)
         {
