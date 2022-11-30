@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace POSTOKOAMANJAYA
 {
-    public partial class formPenjualan : Form
+    public partial class formPembelian : Form
     {
-        public formPenjualan()
+        public formPembelian()
         {
             InitializeComponent();
         }
@@ -31,26 +31,9 @@ namespace POSTOKOAMANJAYA
         public DataTable dtBarang = new DataTable();
         public static DataTable dtJumlahBarang = new DataTable();
 
-        public Dictionary<Button, Label> mappingPlus = new Dictionary<Button, Label>();
-        public Dictionary<Button, Label> mappingMinus = new Dictionary<Button, Label>();
+        public Button menu = new Button();
 
-        public Label[] lbNama= new Label[dtJumlahBarang.Rows.Count];
-        public Label[] lbQty = new Label[dtJumlahBarang.Rows.Count];
-        public Label[] lbHarga = new Label[dtJumlahBarang.Rows.Count];
-        public Label[] lbJumlah = new Label[dtJumlahBarang.Rows.Count];
-        public Button[] btnMinus = new Button[dtJumlahBarang.Rows.Count];
-        public Button[] btnPlus =new Button[dtJumlahBarang.Rows.Count];
-
-        //public Label lbNama = new Label();
-        //public Label lbQty = new Label();
-        //public Label lbHarga = new Label();
-        //public Label lbJumlah = new Label();
-        //public Button btnMinus = new Button();
-        //public Button btnPlus = new Button();
-
-        public PictureBox menu = new PictureBox();
-
-        
+        public int[] tes = new int[dtJumlahBarang.Rows.Count];
         public void loadDesign()
         {
             this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
@@ -74,7 +57,7 @@ namespace POSTOKOAMANJAYA
 
             DataTable dtIdNota = new DataTable();
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand("select fAutogenIDJual()", sqlConnect);            
+            sqlCommand = new MySqlCommand("select fAutogenIDBeli()", sqlConnect);            
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtIdNota);
             sqlConnect.Close();
@@ -91,6 +74,7 @@ namespace POSTOKOAMANJAYA
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtBarang);
             sqlConnect.Close();
+            
             panelMenu.Controls.Remove(menu);
             
             DataTable dtJumlahBarang = new DataTable();
@@ -101,26 +85,12 @@ namespace POSTOKOAMANJAYA
             sqlConnect.Close();
 
             jumlahBarang = dtJumlahBarang.Rows.Count;
+            int[] tes = new int[jumlahBarang];
             X = 3;
             Y = 12;
 
-            Label[] lbNama = new Label[dtJumlahBarang.Rows.Count];
-            Label[] lbQty = new Label[dtJumlahBarang.Rows.Count];
-            Label[] lbHarga = new Label[dtJumlahBarang.Rows.Count];
-            Label[] lbJumlah = new Label[dtJumlahBarang.Rows.Count];
-            Button[] btnMinus = new Button[dtJumlahBarang.Rows.Count];
-            Button[] btnPlus = new Button[dtJumlahBarang.Rows.Count];
-
-        jmlMenu = 0;
-            //Label[] lbNama = new Label[jumlahBarang];
-            //Label[] lbQty = new Label[jumlahBarang];
-            //Label[] lbHarga = new Label[jumlahBarang];
-            //Label[] lbJumlah = new Label[jumlahBarang];
-            //Button[] btnMinus = new Button[jumlahBarang];
-            //Button[] btnPlus = new Button[jumlahBarang];
-            //Dictionary<Button, Label> mappingPlus = new Dictionary<Button, Label>();
-            //Dictionary<Button, Label> mappingMinus = new Dictionary<Button, Label>();
-/*
+            jmlMenu = 0;
+            /*
             for (int i = 0; i < dtBarang.Rows.Count / 2; i++) // dtBarang.Rows.Count/2 
             {
                 for (int j = 0; j < 2; j++)
@@ -242,93 +212,26 @@ namespace POSTOKOAMANJAYA
                 {
                     if (dtBarang.Rows[jmlMenu]["QTY"].ToString() != "0" && dtBarang.Rows.Count > 0)
                     {
-                        menu = new PictureBox();
+                        menu = new Button();
                         panelMenu.Controls.Add(menu);
                         menu.Image = Properties.Resources.Kotak_Barang_1;
-                        menu.Size = new Size(356, 121);
-                        menu.SizeMode = PictureBoxSizeMode.StretchImage;
+                        menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"];
+                        menu.Font = new Font("Arial", 20, FontStyle.Regular);
+                        menu.ForeColor = Color.White;
+                        menu.FlatStyle = FlatStyle.Flat;
+                        menu.FlatAppearance.BorderSize = 0;
+                        menu.TextAlign = ContentAlignment.MiddleLeft;
+                        menu.TextImageRelation = TextImageRelation.Overlay;
+                        menu.Size = new Size(355, 121);
                         menu.Location = new Point(X, Y);
+                        menu.Cursor = Cursors.Hand;
+                        menu.Click += Menu_Click;
+                        menu.Name = Convert.ToString(jmlMenu);
                         X += 412;
                         if (X > 415)
                         {
                             X = 3;
                         }
-                        //Label[] lbNama = new Label[jumlahBarang];
-                        //Label[] lbQty = new Label[jumlahBarang];
-                        //Label[] lbHarga = new Label[jumlahBarang];
-                        //Label[] lbJumlah = new Label[jumlahBarang];
-                        //Button[] btnMinus = new Button[jumlahBarang];
-                        //Button[] btnPlus = new Button[jumlahBarang];
-
-                        lbNama[jmlMenu] = new System.Windows.Forms.Label();
-                        lbQty[jmlMenu] = new System.Windows.Forms.Label();
-                        lbHarga[jmlMenu] = new System.Windows.Forms.Label();
-                        lbJumlah[jmlMenu] = new System.Windows.Forms.Label();
-                        btnMinus[jmlMenu] = new System.Windows.Forms.Button();
-                        btnPlus[jmlMenu] = new System.Windows.Forms.Button();
-
-                        menu.Controls.Add(btnMinus[jmlMenu]);
-                        menu.Controls.Add(btnPlus[jmlMenu]);
-                        menu.Controls.Add(lbJumlah[jmlMenu]);
-                        menu.Controls.Add(lbHarga[jmlMenu]);
-                        menu.Controls.Add(lbQty[jmlMenu]);
-                        menu.Controls.Add(lbNama[jmlMenu]);
-
-                        lbNama[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                        lbQty[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                        lbHarga[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                        lbJumlah[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-
-                        lbNama[jmlMenu].ForeColor = Color.White;
-                        lbQty[jmlMenu].ForeColor = Color.White;
-                        lbHarga[jmlMenu].ForeColor = Color.White;
-                        lbJumlah[jmlMenu].ForeColor = Color.White;
-
-                        lbNama[jmlMenu].Font = new Font("Arial", 18, FontStyle.Regular);
-                        lbQty[jmlMenu].Font = new Font("Arial", 18, FontStyle.Regular);
-                        lbHarga[jmlMenu].Font = new Font("Arial", 18, FontStyle.Regular);
-                        lbJumlah[jmlMenu].Font = new Font("Arial", 18, FontStyle.Regular);
-
-                        lbNama[jmlMenu].Location = new Point(9, 15);
-                        lbQty[jmlMenu].Location = new Point(9, 44);
-                        lbHarga[jmlMenu].Location = new Point(9, 73);
-                        lbJumlah[jmlMenu].Location = new Point(272, 72);
-                        btnPlus[jmlMenu].Location = new Point(305, 75);
-                        btnMinus[jmlMenu].Location = new Point(238, 75);
-
-                        lbNama[jmlMenu].Size = new Size(356, 121);
-                        lbQty[jmlMenu].Size = new Size(313, 32);
-                        lbHarga[jmlMenu].Size = new Size(133, 32);
-                        lbJumlah[jmlMenu].Size = new Size(39, 42);
-                        btnPlus[jmlMenu].Size = new Size(32, 32);
-                        btnMinus[jmlMenu].Size = new Size(32, 32);
-
-                        lbNama[jmlMenu].Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString();
-                        lbQty[jmlMenu].Text = "QTY : " + dtBarang.Rows[jmlMenu]["QTY"].ToString();
-                        lbHarga[jmlMenu].Text = dtBarang.Rows[jmlMenu]["Harga Jual"].ToString();
-                        lbJumlah[jmlMenu].Text = "0";
-
-                        btnPlus[jmlMenu].Image = Properties.Resources.logoPlus;
-                        btnMinus[jmlMenu].Image = Properties.Resources.logoMinus;
-                        btnPlus[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                        btnMinus[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-
-                        btnPlus[jmlMenu].FlatAppearance.BorderSize = 0;
-                        btnPlus[jmlMenu].FlatStyle = FlatStyle.Flat;
-                        btnMinus[jmlMenu].FlatAppearance.BorderSize = 0;
-                        btnMinus[jmlMenu].FlatStyle = FlatStyle.Flat;
-                        btnMinus[jmlMenu].Cursor = Cursors.Hand;
-                        btnPlus[jmlMenu].Cursor = Cursors.Hand;
-
-                        btnPlus[jmlMenu].Click += btnPlus_Click;
-                        btnMinus[jmlMenu].Click += BtnMinus_Click;
-
-                        lbNama[jmlMenu].Tag = Convert.ToString(jmlMenu);
-                        lbQty[jmlMenu].Tag = Convert.ToString(jmlMenu);
-                        lbHarga[jmlMenu].Tag = Convert.ToString(jmlMenu);
-                        lbJumlah[jmlMenu].Tag = Convert.ToString(jmlMenu);
-                        btnPlus[jmlMenu].Tag = Convert.ToString(jmlMenu);
-                        btnMinus[jmlMenu].Tag = Convert.ToString(jmlMenu);
                     }
                     jmlMenu++;
                 }
@@ -336,23 +239,12 @@ namespace POSTOKOAMANJAYA
                 
             }//*/
         }
-
-        private void BtnMinus_Click(object sender, EventArgs e)
+        private void Menu_Click(object sender, EventArgs e)
         {
-           for (int i = 0; i < dtBarang.Rows.Count; i++)
-            {
-                if (lbJumlah[i].Tag == (((System.Windows.Forms.Button)sender).Tag))
-                {
-                    MessageBox.Show(((System.Windows.Forms.Button)sender).Tag.ToString() + " clicked");
-                }
-            }
-        }
+            //lbNamabarang.Text = tes[int.Parse(((Button)sender).Name)];
+            formPembelianAdd formPembelianAdd = new formPembelianAdd();
+            formPembelianAdd.ShowDialog();
 
-        private void btnPlus_Click(object sender, EventArgs e)
-        {
-            //lbJumlah[jmlMenu] = new System.Windows.Forms.Label();
-            //lbJumlah[jmlMenu].Text = Convert.ToString(int.Parse(lbJumlah[jmlMenu].Text) + 1);
-            MessageBox.Show(((System.Windows.Forms.Button)sender).Name + " clicked");
         }
         private void formMenu_Load(object sender, EventArgs e)
         {
@@ -401,6 +293,35 @@ namespace POSTOKOAMANJAYA
                 //sqlCommand.ExecuteNonQuery();
             }
             sqlConnect.Close();
+
+            Form formBackground = new Form();
+            try
+            {
+                using (formDoneAdd uu = new formDoneAdd())
+                {
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .30d;
+                    formBackground.BackColor = Color.Gray;
+                    formBackground.WindowState = FormWindowState.Maximized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
         }
     }
 }

@@ -43,7 +43,10 @@ namespace POSTOKOAMANJAYA
 
         private void pbBeli_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            formPembelian formPembelian = new formPembelian();
+            formPembelian.ShowDialog();
+            this.Close();
         }
 
         private void pbLaporan_Click(object sender, EventArgs e)
