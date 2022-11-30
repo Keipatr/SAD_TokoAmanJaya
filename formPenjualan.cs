@@ -17,8 +17,8 @@ namespace POSTOKOAMANJAYA
         {
             InitializeComponent();
         }
-        public static string sqlConnection = "server=127.0.0.1;uid=root;pwd=;database=sad_tokoamanjaya";
-       // public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=SAD_TokoAmanJaya";
+        //public static string sqlConnection = "server=127.0.0.1;uid=root;pwd=;database=sad_tokoamanjaya";
+        public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=SAD_TokoAmanJaya";
         public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
@@ -240,8 +240,6 @@ namespace POSTOKOAMANJAYA
             {
                 for (int j = 0; j < 2; j++)
                 {
-
-
                     if (dtBarang.Rows[jmlMenu]["QTY"].ToString() != "0" && dtBarang.Rows.Count > 0)
                     {
                         menu = new PictureBox();
@@ -262,12 +260,12 @@ namespace POSTOKOAMANJAYA
                         //Button[] btnMinus = new Button[jumlahBarang];
                         //Button[] btnPlus = new Button[jumlahBarang];
 
-                        lbNama[i] = new System.Windows.Forms.Label();
-                        lbQty[i] = new System.Windows.Forms.Label();
-                        lbHarga[i] = new System.Windows.Forms.Label();
-                        lbJumlah[i] = new System.Windows.Forms.Label();
-                        btnMinus[i] = new System.Windows.Forms.Button();
-                        btnPlus[i] = new System.Windows.Forms.Button();
+                        lbNama[jmlMenu] = new System.Windows.Forms.Label();
+                        lbQty[jmlMenu] = new System.Windows.Forms.Label();
+                        lbHarga[jmlMenu] = new System.Windows.Forms.Label();
+                        lbJumlah[jmlMenu] = new System.Windows.Forms.Label();
+                        btnMinus[jmlMenu] = new System.Windows.Forms.Button();
+                        btnPlus[jmlMenu] = new System.Windows.Forms.Button();
 
                         menu.Controls.Add(btnMinus[jmlMenu]);
                         menu.Controls.Add(btnPlus[jmlMenu]);
@@ -275,11 +273,6 @@ namespace POSTOKOAMANJAYA
                         menu.Controls.Add(lbHarga[jmlMenu]);
                         menu.Controls.Add(lbQty[jmlMenu]);
                         menu.Controls.Add(lbNama[jmlMenu]);
-                        //menu.Controls.Add(lbQty);
-                        //menu.Controls.Add(lbHarga);
-                        //menu.Controls.Add(lbJumlah);
-                        //menu.Controls.Add(btnPlus);
-                        //menu.Controls.Add(btnMinus);
 
                         lbNama[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
                         lbQty[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
@@ -310,9 +303,9 @@ namespace POSTOKOAMANJAYA
                         btnPlus[jmlMenu].Size = new Size(32, 32);
                         btnMinus[jmlMenu].Size = new Size(32, 32);
 
-                        lbNama[jmlMenu].Text = dtBarang.Rows[i]["Nama Barang"].ToString();
-                        lbQty[jmlMenu].Text = "QTY : " + dtBarang.Rows[i]["QTY"].ToString();
-                        lbHarga[jmlMenu].Text = dtBarang.Rows[i]["Harga Jual"].ToString();
+                        lbNama[jmlMenu].Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString();
+                        lbQty[jmlMenu].Text = "QTY : " + dtBarang.Rows[jmlMenu]["QTY"].ToString();
+                        lbHarga[jmlMenu].Text = dtBarang.Rows[jmlMenu]["Harga Jual"].ToString();
                         lbJumlah[jmlMenu].Text = "0";
 
                         btnPlus[jmlMenu].Image = Properties.Resources.logoPlus;
@@ -329,6 +322,13 @@ namespace POSTOKOAMANJAYA
 
                         btnPlus[jmlMenu].Click += btnPlus_Click;
                         btnMinus[jmlMenu].Click += BtnMinus_Click;
+
+                        lbNama[jmlMenu].Tag = Convert.ToString(jmlMenu);
+                        lbQty[jmlMenu].Tag = Convert.ToString(jmlMenu);
+                        lbHarga[jmlMenu].Tag = Convert.ToString(jmlMenu);
+                        lbJumlah[jmlMenu].Tag = Convert.ToString(jmlMenu);
+                        btnPlus[jmlMenu].Tag = Convert.ToString(jmlMenu);
+                        btnMinus[jmlMenu].Tag = Convert.ToString(jmlMenu);
                     }
                     jmlMenu++;
                 }
@@ -341,9 +341,9 @@ namespace POSTOKOAMANJAYA
         {
            for (int i = 0; i < dtBarang.Rows.Count; i++)
             {
-                if (lbJumlah[i].Name == ((Button)sender).Name)
+                if (lbJumlah[i].Tag == (((System.Windows.Forms.Button)sender).Tag))
                 {
-                    lbJumlah[i].Text = "1";
+                    MessageBox.Show(((System.Windows.Forms.Button)sender).Tag.ToString() + " clicked");
                 }
             }
         }
@@ -375,6 +375,7 @@ namespace POSTOKOAMANJAYA
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {            
+            panelMenu.Controls.Clear();
             buatMenu();
         }
 
