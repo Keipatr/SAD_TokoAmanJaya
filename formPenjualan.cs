@@ -236,98 +236,104 @@ namespace POSTOKOAMANJAYA
                 Y += 162;
             }*/
             ///*
-            for (int i =0;i< dtBarang.Rows.Count;i++)
+            for (int i =0;i< dtBarang.Rows.Count/2;i++)
             {
-                if (dtBarang.Rows[jmlMenu]["QTY"].ToString() != "0" && dtBarang.Rows.Count > 0)
+                for (int j = 0; j < 2; j++)
                 {
-                    menu = new PictureBox();
-                    panelMenu.Controls.Add(menu);
-                    menu.Image = Properties.Resources.Kotak_Barang_1;
-                    menu.Size = new Size(356, 121);
-                    menu.SizeMode = PictureBoxSizeMode.StretchImage;
-                    menu.Location = new Point(X, Y);
-                    X += 412;
-                    if (X > 415)
+
+
+                    if (dtBarang.Rows[jmlMenu]["QTY"].ToString() != "0" && dtBarang.Rows.Count > 0)
                     {
-                        X = 3;
+                        menu = new PictureBox();
+                        panelMenu.Controls.Add(menu);
+                        menu.Image = Properties.Resources.Kotak_Barang_1;
+                        menu.Size = new Size(356, 121);
+                        menu.SizeMode = PictureBoxSizeMode.StretchImage;
+                        menu.Location = new Point(X, Y);
+                        X += 412;
+                        if (X > 415)
+                        {
+                            X = 3;
+                        }
+                        //Label[] lbNama = new Label[jumlahBarang];
+                        //Label[] lbQty = new Label[jumlahBarang];
+                        //Label[] lbHarga = new Label[jumlahBarang];
+                        //Label[] lbJumlah = new Label[jumlahBarang];
+                        //Button[] btnMinus = new Button[jumlahBarang];
+                        //Button[] btnPlus = new Button[jumlahBarang];
+
+                        lbNama[i] = new System.Windows.Forms.Label();
+                        lbQty[i] = new System.Windows.Forms.Label();
+                        lbHarga[i] = new System.Windows.Forms.Label();
+                        lbJumlah[i] = new System.Windows.Forms.Label();
+                        btnMinus[i] = new System.Windows.Forms.Button();
+                        btnPlus[i] = new System.Windows.Forms.Button();
+
+                        menu.Controls.Add(btnMinus[jmlMenu]);
+                        menu.Controls.Add(btnPlus[jmlMenu]);
+                        menu.Controls.Add(lbJumlah[jmlMenu]);
+                        menu.Controls.Add(lbHarga[jmlMenu]);
+                        menu.Controls.Add(lbQty[jmlMenu]);
+                        menu.Controls.Add(lbNama[jmlMenu]);
+                        //menu.Controls.Add(lbQty);
+                        //menu.Controls.Add(lbHarga);
+                        //menu.Controls.Add(lbJumlah);
+                        //menu.Controls.Add(btnPlus);
+                        //menu.Controls.Add(btnMinus);
+
+                        lbNama[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
+                        lbQty[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
+                        lbHarga[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
+                        lbJumlah[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
+
+                        lbNama[jmlMenu].ForeColor = Color.White;
+                        lbQty[jmlMenu].ForeColor = Color.White;
+                        lbHarga[jmlMenu].ForeColor = Color.White;
+                        lbJumlah[jmlMenu].ForeColor = Color.White;
+
+                        lbNama[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
+                        lbQty[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
+                        lbHarga[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
+                        lbJumlah[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
+
+                        lbNama[jmlMenu].Location = new Point(9, 15);
+                        lbQty[jmlMenu].Location = new Point(9, 44);
+                        lbHarga[jmlMenu].Location = new Point(9, 73);
+                        lbJumlah[jmlMenu].Location = new Point(272, 72);
+                        btnPlus[jmlMenu].Location = new Point(305, 75);
+                        btnMinus[jmlMenu].Location = new Point(238, 75);
+
+                        lbNama[jmlMenu].Size = new Size(356, 121);
+                        lbQty[jmlMenu].Size = new Size(313, 32);
+                        lbHarga[jmlMenu].Size = new Size(133, 32);
+                        lbJumlah[jmlMenu].Size = new Size(39, 42);
+                        btnPlus[jmlMenu].Size = new Size(32, 32);
+                        btnMinus[jmlMenu].Size = new Size(32, 32);
+
+                        lbNama[jmlMenu].Text = dtBarang.Rows[i]["Nama Barang"].ToString();
+                        lbQty[jmlMenu].Text = "QTY : " + dtBarang.Rows[i]["QTY"].ToString();
+                        lbHarga[jmlMenu].Text = dtBarang.Rows[i]["Harga Jual"].ToString();
+                        lbJumlah[jmlMenu].Text = "0";
+
+                        btnPlus[jmlMenu].Image = Properties.Resources.logoPlus;
+                        btnMinus[jmlMenu].Image = Properties.Resources.logoMinus;
+                        btnPlus[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
+                        btnMinus[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
+
+                        btnPlus[jmlMenu].FlatAppearance.BorderSize = 0;
+                        btnPlus[jmlMenu].FlatStyle = FlatStyle.Flat;
+                        btnMinus[jmlMenu].FlatAppearance.BorderSize = 0;
+                        btnMinus[jmlMenu].FlatStyle = FlatStyle.Flat;
+                        btnMinus[jmlMenu].Cursor = Cursors.Hand;
+                        btnPlus[jmlMenu].Cursor = Cursors.Hand;
+
+                        btnPlus[jmlMenu].Click += btnPlus_Click;
+                        btnMinus[jmlMenu].Click += BtnMinus_Click;
                     }
-                    //Label[] lbNama = new Label[jumlahBarang];
-                    //Label[] lbQty = new Label[jumlahBarang];
-                    //Label[] lbHarga = new Label[jumlahBarang];
-                    //Label[] lbJumlah = new Label[jumlahBarang];
-                    //Button[] btnMinus = new Button[jumlahBarang];
-                    //Button[] btnPlus = new Button[jumlahBarang];
-
-                    lbNama[i] = new System.Windows.Forms.Label();
-                    lbQty[i] = new System.Windows.Forms.Label();
-                    lbHarga[i] = new System.Windows.Forms.Label();
-                    lbJumlah[i] = new System.Windows.Forms.Label();
-                    btnMinus[i] = new System.Windows.Forms.Button();
-                    btnPlus[i] = new System.Windows.Forms.Button();
-
-                    menu.Controls.Add(btnMinus[jmlMenu]);
-                    menu.Controls.Add(btnPlus[jmlMenu]);
-                    menu.Controls.Add(lbJumlah[jmlMenu]);
-                    menu.Controls.Add(lbHarga[jmlMenu]);
-                    menu.Controls.Add(lbQty[jmlMenu]);
-                    menu.Controls.Add(lbNama[jmlMenu]);
-                    //menu.Controls.Add(lbQty);
-                    //menu.Controls.Add(lbHarga);
-                    //menu.Controls.Add(lbJumlah);
-                    //menu.Controls.Add(btnPlus);
-                    //menu.Controls.Add(btnMinus);
-
-                    lbNama[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                    lbQty[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                    lbHarga[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                    lbJumlah[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-
-                    lbNama[jmlMenu].ForeColor = Color.White;
-                    lbQty[jmlMenu].ForeColor = Color.White;
-                    lbHarga[jmlMenu].ForeColor = Color.White;
-                    lbJumlah[jmlMenu].ForeColor = Color.White;
-
-                    lbNama[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
-                    lbQty[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
-                    lbHarga[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
-                    lbJumlah[jmlMenu].Font = new Font("Arial", 20, FontStyle.Regular);
-
-                    lbNama[jmlMenu].Location = new Point(9, 15);
-                    lbQty[jmlMenu].Location = new Point(9, 44);
-                    lbHarga[jmlMenu].Location = new Point(9, 73);
-                    lbJumlah[jmlMenu].Location = new Point(272, 72);
-                    btnPlus[jmlMenu].Location = new Point(305, 75);
-                    btnMinus[jmlMenu].Location = new Point(238, 75);
-
-                    lbNama[jmlMenu].Size = new Size(356, 121);
-                    lbQty[jmlMenu].Size = new Size(313, 32);
-                    lbHarga[jmlMenu].Size = new Size(133, 32);
-                    lbJumlah[jmlMenu].Size = new Size(39, 42);
-                    btnPlus[jmlMenu].Size = new Size(32, 32);
-                    btnMinus[jmlMenu].Size = new Size(32, 32);
-
-                    lbNama[jmlMenu].Text = dtBarang.Rows[i]["Nama Barang"].ToString();
-                    lbQty[jmlMenu].Text = "QTY : " + dtBarang.Rows[i]["QTY"].ToString();
-                    lbHarga[jmlMenu].Text = dtBarang.Rows[i]["Harga Jual"].ToString();
-                    lbJumlah[jmlMenu].Text = "0";
-
-                    btnPlus[jmlMenu].Image = Properties.Resources.logoPlus;
-                    btnMinus[jmlMenu].Image = Properties.Resources.logoMinus;
-                    btnPlus[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-                    btnMinus[jmlMenu].BackColor = ColorTranslator.FromHtml("#32324E");
-
-                    btnPlus[jmlMenu].FlatAppearance.BorderSize = 0;
-                    btnPlus[jmlMenu].FlatStyle = FlatStyle.Flat;
-                    btnMinus[jmlMenu].FlatAppearance.BorderSize = 0;
-                    btnMinus[jmlMenu].FlatStyle = FlatStyle.Flat;
-                    btnMinus[jmlMenu].Cursor = Cursors.Hand;
-                    btnPlus[jmlMenu].Cursor = Cursors.Hand;
-
-                    btnPlus[jmlMenu].Click += btnPlus_Click;
-                    btnMinus[jmlMenu].Click += BtnMinus_Click;
-                    Y += 162;
+                    jmlMenu++;
                 }
-                jmlMenu++;
+                Y += 162;
+                
             }//*/
         }
 
