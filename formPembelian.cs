@@ -24,6 +24,7 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
 
+        public static int cekBuatDT = 0;
         public static string nama = "";
         public static string hbeli = "";
         public static string id = "";
@@ -310,8 +311,65 @@ namespace POSTOKOAMANJAYA
             formPembelianAdd.ShowDialog();
 
         }
+        public void buatNota()
+        {
+            panelNota.Controls.Clear();
+            DataTable dtSimpan = formPembelianAdd.notaIsi;
+
+            int y = 15;
+            for (int i = 0; i < dtSimpan.Rows.Count;i++)
+            {
+                if (dtSimpan.Rows.Count >0)
+                {
+                    Label nama = new Label();
+                    Label jumlah = new Label();
+                    Label harga = new Label();
+
+                    panelNota.Controls.Add(nama);
+                    panelNota.Controls.Add(jumlah);
+                    panelNota.Controls.Add(harga);
+
+                    nama.Text = dtSimpan.Rows[i]["nama"].ToString();
+                    jumlah.Text = dtSimpan.Rows[i]["jumlah"].ToString();
+                    harga.Text = dtSimpan.Rows[i]["harga"].ToString();
+
+                    nama.Location = new Point(2,y);
+                    harga.Location = new Point(430, y);
+                    jumlah.Location = new Point(320, y);
+
+                    nama.Size = new Size(290, 27);
+                    harga.AutoSize = true;
+                    jumlah.Size = new Size(109, 27);
+
+                    nama.Font = new Font("Arial", 15, FontStyle.Regular);
+                    harga.Font = new Font("Arial", 15, FontStyle.Regular);
+                    jumlah.Font = new Font("Arial", 15, FontStyle.Regular);
+
+                    nama.ForeColor = Color.Black;
+                    jumlah.ForeColor = Color.Black;
+                    harga.ForeColor = Color.Black;
+
+                    nama.BackColor = Color.Transparent;
+                    jumlah.BackColor = Color.Transparent;
+                    harga.BackColor = Color.Transparent;
+
+                    nama.UseCompatibleTextRendering = true;
+                    jumlah.UseCompatibleTextRendering = true;
+                    harga.UseCompatibleTextRendering = true;
+
+                    nama.AutoEllipsis = true;
+                    jumlah.AutoEllipsis = true;
+                    harga.AutoEllipsis = true;
+
+
+                    y += 43;
+                } 
+            }
+        }
         private void formMenu_Load(object sender, EventArgs e)
         {
+            formPembelianAdd.notaIsi = new DataTable();
+            cekBuatDT = 0;
             loadDesign();
             buatMenu();
         }
@@ -347,17 +405,20 @@ namespace POSTOKOAMANJAYA
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            
             sqlConnect.Open();
             sqlCommand = new MySqlCommand("insert into NOTA_PENJUALAN() values('','',"+lbIDJual.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
             sqlCommand.ExecuteNonQuery();
 
-            //for(int i =0;i<count;i++) insert ke barang pembelian
+            for(int i =0;i<formPembelianAdd.notaIsi.Rows.Count;i++) //insert ke barang pembelian
             {
                 //sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"',''," + lbIDJual.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
                 //sqlCommand.ExecuteNonQuery();
             }
             sqlConnect.Close();
 
+            cekBuatDT = 0;
+            formPembelianAdd.notaIsi = new DataTable();
             Form formBackground = new Form();
             try
             {
@@ -386,6 +447,12 @@ namespace POSTOKOAMANJAYA
             {
                 formBackground.Dispose();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lbNamabarang.Text = formPembelianAdd.notaIsi.Rows[0]["jumlah"].ToString();
+            buatNota();
         }
     }
 }

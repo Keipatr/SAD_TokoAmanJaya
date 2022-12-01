@@ -23,8 +23,8 @@ namespace POSTOKOAMANJAYA
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
+        public static DataTable notaIsi = new DataTable();
 
-        
         private void formMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#191A38");
@@ -45,6 +45,7 @@ namespace POSTOKOAMANJAYA
             tbBeli.Texts = formPembelian.hbeli;
             tbNama.Texts = formPembelian.nama;
 
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -60,12 +61,37 @@ namespace POSTOKOAMANJAYA
                 sqlCommand = new MySqlCommand("update BARANG set harga_beli = '"+ tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "' where id_barang = '"+formPembelian.id+"';", sqlConnect);
                 sqlCommand.ExecuteNonQuery();
             }
-            DataTable notaIsi = new DataTable();
-            notaIsi.Columns.Add("id");
-            notaIsi.Columns.Add("nama");
-            notaIsi.Columns.Add("jumlah");
-            notaIsi.Columns.Add("harga");
+            if (formPembelian.cekBuatDT == 0)
+            {
+                notaIsi.Columns.Add("id");
+                notaIsi.Columns.Add("nama");
+                notaIsi.Columns.Add("jumlah");
+                notaIsi.Columns.Add("harga");
+                notaIsi.PrimaryKey = new DataColumn[] { notaIsi.Columns["id"] };
+                formPembelian.cekBuatDT = 1;
+            }
+            if (notaIsi.Rows.Find(formPembelian.id) != null)
+            {
+                DataRow row = notaIsi.AsEnumerable().SingleOrDefault(r => r.Field<string>("id") == formPembelian.id);
+                row["jumlah"] = Convert.ToString(Convert.ToInt32(row["jumlah"]) + Convert.ToInt32(tbQty.Texts));
+            }
+            else
+            {
+                notaIsi.Rows.Add(formPembelian.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
+            }
 
+            if (System.Windows.Forms.Application.OpenForms["formPembelian"] != null) // kok cuma sekali ya gtau apa cuma bisa 
+            {
+                (System.Windows.Forms.Application.OpenForms["formPembelian"] as formPembelian).buatNota();
+                formPembelian nota = new formPembelian();
+                nota.buatNota();
+            }
+            else
+            {
+                (System.Windows.Forms.Application.OpenForms["formPembelian"] as formPembelian).buatNota();
+                formPembelian nota = new formPembelian();
+                nota.buatNota();
+            }
             this.Close();
         }
 
