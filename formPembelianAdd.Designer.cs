@@ -46,7 +46,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(27, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 36);
+            this.label1.Size = new System.Drawing.Size(247, 45);
             this.label1.TabIndex = 9;
             this.label1.Text = "Nama Barang :";
             // 
@@ -57,7 +57,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(27, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 36);
+            this.label2.Size = new System.Drawing.Size(94, 45);
             this.label2.TabIndex = 10;
             this.label2.Text = "Qty :";
             // 
@@ -68,7 +68,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(27, 161);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 36);
+            this.label3.Size = new System.Drawing.Size(199, 45);
             this.label3.TabIndex = 11;
             this.label3.Text = "Harga Beli :";
             // 
@@ -79,7 +79,6 @@
             this.tbNama.BorderFocusColor = System.Drawing.Color.HotPink;
             this.tbNama.BorderRadius = 12;
             this.tbNama.BorderSize = 2;
-            this.tbNama.Enabled = false;
             this.tbNama.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNama.ForeColor = System.Drawing.Color.White;
             this.tbNama.Location = new System.Drawing.Point(232, 33);
@@ -88,12 +87,13 @@
             this.tbNama.Name = "tbNama";
             this.tbNama.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.tbNama.PasswordChar = false;
-            this.tbNama.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbNama.PlaceholderColor = System.Drawing.Color.White;
             this.tbNama.PlaceholderText = "";
-            this.tbNama.Size = new System.Drawing.Size(373, 42);
+            this.tbNama.Size = new System.Drawing.Size(373, 50);
             this.tbNama.TabIndex = 13;
             this.tbNama.Texts = "";
             this.tbNama.UnderlinedStyle = false;
+            this.tbNama.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNama_KeyPress);
             // 
             // btnCancel
             // 
@@ -154,7 +154,7 @@
             this.tbQty.PasswordChar = false;
             this.tbQty.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbQty.PlaceholderText = "";
-            this.tbQty.Size = new System.Drawing.Size(85, 42);
+            this.tbQty.Size = new System.Drawing.Size(85, 50);
             this.tbQty.TabIndex = 14;
             this.tbQty.Texts = "";
             this.tbQty.UnderlinedStyle = false;
@@ -177,7 +177,7 @@
             this.tbBeli.PasswordChar = false;
             this.tbBeli.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbBeli.PlaceholderText = "";
-            this.tbBeli.Size = new System.Drawing.Size(193, 42);
+            this.tbBeli.Size = new System.Drawing.Size(193, 50);
             this.tbBeli.TabIndex = 15;
             this.tbBeli.Texts = "";
             this.tbBeli.UnderlinedStyle = false;

@@ -47,9 +47,6 @@
             this.lbIDJual = new System.Windows.Forms.Label();
             this.lbNota = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbSearchs = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
@@ -59,9 +56,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGarisAtas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKotak)).BeginInit();
-            this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbNamabarang
@@ -71,7 +65,7 @@
             this.lbNamabarang.ForeColor = System.Drawing.Color.Black;
             this.lbNamabarang.Location = new System.Drawing.Point(21, 143);
             this.lbNamabarang.Name = "lbNamabarang";
-            this.lbNamabarang.Size = new System.Drawing.Size(276, 46);
+            this.lbNamabarang.Size = new System.Drawing.Size(347, 59);
             this.lbNamabarang.TabIndex = 6;
             this.lbNamabarang.Text = "Nama Barang";
             // 
@@ -81,7 +75,7 @@
             this.tbSearch.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.Location = new System.Drawing.Point(376, 142);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(417, 46);
+            this.tbSearch.Size = new System.Drawing.Size(417, 58);
             this.tbSearch.TabIndex = 9;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -131,7 +125,7 @@
             this.lbLogo.ForeColor = System.Drawing.Color.Goldenrod;
             this.lbLogo.Location = new System.Drawing.Point(8, 7);
             this.lbLogo.Name = "lbLogo";
-            this.lbLogo.Size = new System.Drawing.Size(369, 78);
+            this.lbLogo.Size = new System.Drawing.Size(462, 97);
             this.lbLogo.TabIndex = 4;
             this.lbLogo.Text = "Pembelian";
             // 
@@ -175,7 +169,7 @@
             this.lbTotal.Location = new System.Drawing.Point(513, 750);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbTotal.Size = new System.Drawing.Size(66, 42);
+            this.lbTotal.Size = new System.Drawing.Size(82, 52);
             this.lbTotal.TabIndex = 16;
             this.lbTotal.Text = "......";
             // 
@@ -213,7 +207,7 @@
             this.lbTextTotal.Font = new System.Drawing.Font("Arial Narrow", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTextTotal.Location = new System.Drawing.Point(36, 750);
             this.lbTextTotal.Name = "lbTextTotal";
-            this.lbTextTotal.Size = new System.Drawing.Size(125, 42);
+            this.lbTextTotal.Size = new System.Drawing.Size(154, 52);
             this.lbTextTotal.TabIndex = 5;
             this.lbTextTotal.Text = "TOTAL:";
             // 
@@ -254,7 +248,7 @@
             this.lbIDJual.Location = new System.Drawing.Point(372, 26);
             this.lbIDJual.Name = "lbIDJual";
             this.lbIDJual.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbIDJual.Size = new System.Drawing.Size(244, 44);
+            this.lbIDJual.Size = new System.Drawing.Size(301, 55);
             this.lbIDJual.TabIndex = 2;
             this.lbIDJual.Text = "J2211118001";
             // 
@@ -264,63 +258,17 @@
             this.lbNota.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNota.Location = new System.Drawing.Point(24, 26);
             this.lbNota.Name = "lbNota";
-            this.lbNota.Size = new System.Drawing.Size(252, 44);
+            this.lbNota.Size = new System.Drawing.Size(319, 55);
             this.lbNota.TabIndex = 0;
             this.lbNota.Text = "ID Pembelian";
             // 
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
-            this.panelMenu.Controls.Add(this.button3);
-            this.panelMenu.Controls.Add(this.pictureBox3);
-            this.panelMenu.Controls.Add(this.pictureBox2);
             this.panelMenu.Location = new System.Drawing.Point(29, 240);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(817, 742);
             this.panelMenu.TabIndex = 15;
-            // 
-            // button3
-            // 
-            this.button3.AutoEllipsis = true;
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::POSTOKOAMANJAYA.Properties.Resources.Kotak_Barang_1;
-            this.button3.Location = new System.Drawing.Point(4, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(355, 121);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Mie Sedap Soto\r\nQTY : 48";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::POSTOKOAMANJAYA.Properties.Resources.Kotak_Barang_1;
-            this.pictureBox3.Location = new System.Drawing.Point(415, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(356, 121);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::POSTOKOAMANJAYA.Properties.Resources.Kotak_Barang_1;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(356, 121);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
             // 
             // tbSearchs
             // 
@@ -341,7 +289,7 @@
             this.tbSearchs.PasswordChar = false;
             this.tbSearchs.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbSearchs.PlaceholderText = "";
-            this.tbSearchs.Size = new System.Drawing.Size(473, 60);
+            this.tbSearchs.Size = new System.Drawing.Size(473, 72);
             this.tbSearchs.TabIndex = 7;
             this.tbSearchs.Texts = "";
             this.tbSearchs.UnderlinedStyle = false;
@@ -375,9 +323,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGarisAtas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKotak)).EndInit();
-            this.panelMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,9 +349,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button3;
     }
 }
 

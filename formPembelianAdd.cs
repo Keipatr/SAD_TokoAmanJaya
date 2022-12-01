@@ -42,9 +42,9 @@ namespace POSTOKOAMANJAYA
             tbQty.BorderFocusColor = ColorTranslator.FromHtml("#979BC7");
 
 
-            tbBeli.Texts = formInventory.hargaBeli; 
-            tbNama.Texts = formInventory.namaBarang.ToString();
-            tbQty.Texts = formInventory.jumlahBarang.ToString();
+            tbBeli.Texts = formPembelian.hbeli;
+            tbNama.Texts = formPembelian.nama;
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -54,12 +54,33 @@ namespace POSTOKOAMANJAYA
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            if (tbNama.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) != formPembelian.hbeli.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }))
+            {
+                sqlConnect.Open();                
+                sqlCommand = new MySqlCommand("update BARANG set harga_beli = '"+ tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "' where id_barang = '"+formPembelian.id+"';", sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+            }
+            DataTable notaIsi = new DataTable();
+            notaIsi.Columns.Add("id");
+            notaIsi.Columns.Add("nama");
+            notaIsi.Columns.Add("jumlah");
+            notaIsi.Columns.Add("harga");
+
+            this.Close();
         }
 
         private void tbQty_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void tbNama_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) || !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) || !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

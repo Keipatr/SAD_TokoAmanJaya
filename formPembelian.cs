@@ -24,6 +24,9 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
 
+        public static string nama = "";
+        public static string hbeli = "";
+        public static string id = "";
         public int jumlahBarang = 0;
         public int X = 0;
         public int Y = 0;
@@ -206,11 +209,56 @@ namespace POSTOKOAMANJAYA
                 Y += 162;
             }*/
             ///*
-            for (int i =0;i< dtBarang.Rows.Count/2;i++)
+            /*
+            for (int i = 0; i < dtBarang.Rows.Count; i++)
+            {
+                menu = new Button();
+                panelMenu.Controls.Add(menu);
+                menu.Image = Properties.Resources.Kotak_Barang_1;
+                menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"];
+                menu.Font = new Font("Arial", 20, FontStyle.Regular);
+                menu.ForeColor = Color.White;
+                menu.FlatStyle = FlatStyle.Flat;
+                menu.FlatAppearance.BorderSize = 0;
+                menu.TextAlign = ContentAlignment.MiddleLeft;
+                menu.TextImageRelation = TextImageRelation.Overlay;
+                menu.Size = new Size(355, 121);
+                menu.Location = new Point(X, Y);
+                menu.Cursor = Cursors.Hand;
+                menu.Click += Menu_Click;
+                menu.Name = Convert.ToString(jmlMenu);
+                menu.Tag = jmlMenu;
+                X += 412;
+                
+                if (X > 415)
+                {
+                    X = 3;
+                }
+                menu = new Button();
+                panelMenu.Controls.Add(menu);
+                menu.Image = Properties.Resources.Kotak_Barang_1;
+                menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"];
+                menu.Font = new Font("Arial", 20, FontStyle.Regular);
+                menu.ForeColor = Color.White;
+                menu.FlatStyle = FlatStyle.Flat;
+                menu.FlatAppearance.BorderSize = 0;
+                menu.TextAlign = ContentAlignment.MiddleLeft;
+                menu.TextImageRelation = TextImageRelation.Overlay;
+                menu.Size = new Size(355, 121);
+                menu.Location = new Point(X, Y);
+                menu.Cursor = Cursors.Hand;
+                menu.Click += Menu_Click;
+                menu.Name = Convert.ToString(jmlMenu);
+                menu.Tag = jmlMenu;
+                Y += 162;
+                jmlMenu++;
+            }*/
+            ///*
+            for (int i =0;i< (dtBarang.Rows.Count/2);i++)
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    if (dtBarang.Rows[jmlMenu]["QTY"].ToString() != "0" && dtBarang.Rows.Count > 0)
+                    if (dtBarang.Rows.Count >0)
                     {
                         menu = new Button();
                         panelMenu.Controls.Add(menu);
@@ -227,13 +275,15 @@ namespace POSTOKOAMANJAYA
                         menu.Cursor = Cursors.Hand;
                         menu.Click += Menu_Click;
                         menu.Name = Convert.ToString(jmlMenu);
+                        menu.Tag = jmlMenu;
                         X += 412;
                         if (X > 415)
                         {
                             X = 3;
                         }
+                        jmlMenu++;
                     }
-                    jmlMenu++;
+                    //jmlMenu++;
                 }
                 Y += 162;
                 
@@ -241,8 +291,22 @@ namespace POSTOKOAMANJAYA
         }
         private void Menu_Click(object sender, EventArgs e)
         {
-            //lbNamabarang.Text = tes[int.Parse(((Button)sender).Name)];
+            DataTable dtBarang = new DataTable();
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("cekNama", tbSearch.Text);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtBarang);
+            sqlConnect.Close();
+
+            nama = dtBarang.Rows[Convert.ToInt32(((Button)sender).Tag)]["Nama Barang"].ToString();
+
             formPembelianAdd formPembelianAdd = new formPembelianAdd();
+            Button button = sender as Button;
+            //nama =  dtBarang.Rows[Convert.ToInt32(button.Tag)]["Nama Barang"].ToString();
+            hbeli = dtBarang.Rows[Convert.ToInt32(button.Tag)]["Harga Beli"].ToString();
+            id = dtBarang.Rows[Convert.ToInt32(button.Tag)]["ID Barang"].ToString();
             formPembelianAdd.ShowDialog();
 
         }
