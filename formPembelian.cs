@@ -16,6 +16,9 @@ namespace POSTOKOAMANJAYA
         public formPembelian()
         {
             InitializeComponent();
+
+            formPembelianAdd addMenu = new formPembelianAdd();
+            addMenu.DefectButtonPressed += OnDefectButtonPressed;
         }
         //public static string sqlConnection = "server=127.0.0.1;uid=root;pwd=;database=sad_tokoamanjaya";
         public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=SAD_TokoAmanJaya";
@@ -452,6 +455,11 @@ namespace POSTOKOAMANJAYA
         private void button1_Click(object sender, EventArgs e)
         {
             lbNamabarang.Text = formPembelianAdd.notaIsi.Rows[0]["jumlah"].ToString();
+            buatNota();
+        }
+        
+        private void OnDefectButtonPressed()
+        {
             buatNota();
         }
     }

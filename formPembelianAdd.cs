@@ -25,6 +25,7 @@ namespace POSTOKOAMANJAYA
         public string sqlQuery;
         public static DataTable notaIsi = new DataTable();
 
+        public bool cekForm = false;
         private void formMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#191A38");
@@ -45,6 +46,10 @@ namespace POSTOKOAMANJAYA
             tbBeli.Texts = formPembelian.hbeli;
             tbNama.Texts = formPembelian.nama;
 
+            if (System.Windows.Forms.Application.OpenForms["formPembelian"] != null) // kok cuma sekali ya gtau apa cuma bisa 
+            {
+                cekForm = true;
+            }
 
         }
 
@@ -52,7 +57,7 @@ namespace POSTOKOAMANJAYA
         {
                this.Close();
         }
-
+        public Action DefectButtonPressed;
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (tbNama.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) != formPembelian.hbeli.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }))
@@ -79,19 +84,12 @@ namespace POSTOKOAMANJAYA
             {
                 notaIsi.Rows.Add(formPembelian.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
             }
-
             if (System.Windows.Forms.Application.OpenForms["formPembelian"] != null) // kok cuma sekali ya gtau apa cuma bisa 
             {
-                (System.Windows.Forms.Application.OpenForms["formPembelian"] as formPembelian).buatNota();
-                formPembelian nota = new formPembelian();
-                nota.buatNota();
+               //(System.Windows.Forms.Application.OpenForms["formPembelian"] as formPembelian).buatNota();
             }
-            else
-            {
-                (System.Windows.Forms.Application.OpenForms["formPembelian"] as formPembelian).buatNota();
-                formPembelian nota = new formPembelian();
-                nota.buatNota();
-            }
+
+            if (DefectButtonPressed != null) DefectButtonPressed();
             this.Close();
         }
 
@@ -108,5 +106,6 @@ namespace POSTOKOAMANJAYA
             }
 
         }
+        
     }
 }
