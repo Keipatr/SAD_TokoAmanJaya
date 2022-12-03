@@ -56,7 +56,10 @@ namespace POSTOKOAMANJAYA
 
         private void pbHistory_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            formHistory formHistory = new formHistory();
+            formHistory.ShowDialog();
+            this.Close();
         }
 
     }

@@ -53,6 +53,9 @@
     <Compile Include="CustomTool\RJCombobox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="CustomTool\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomTool\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,6 +85,12 @@
     </Compile>
     <Compile Include="formPenjualan.Designer.cs">
       <DependentUpon>formPenjualan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formHistory.Designer.cs">
+      <DependentUpon>formHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="formReminder.cs">
       <SubType>Form</SubType>
@@ -141,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPenjualan.resx">
       <DependentUpon>formPenjualan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formHistory.resx">
+      <DependentUpon>formHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formReminder.resx">
       <DependentUpon>formReminder.cs</DependentUpon>
@@ -288,6 +300,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logoPlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blackDownArrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

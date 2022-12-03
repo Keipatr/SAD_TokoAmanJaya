@@ -40,19 +40,19 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelNota = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pbGarisAtas = new System.Windows.Forms.PictureBox();
             this.lbTextTotal = new System.Windows.Forms.Label();
             this.pbKotak = new System.Windows.Forms.PictureBox();
+            this.btnSubmit = new CustomControls.RJControls.RJButton();
             this.lbIDJual = new System.Windows.Forms.Label();
             this.lbNota = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tbSearchs = new CustomControls.RJControls.RJTextBox();
-            this.btnSubmit = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.panelAtas.SuspendLayout();
@@ -201,6 +201,50 @@
             this.panelNota.Size = new System.Drawing.Size(592, 523);
             this.panelNota.TabIndex = 7;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(2, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(290, 27);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Teh Pucuk 350 ml dawd d";
+            this.label4.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(383, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 27);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Rp 2.200";
+            this.label3.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(329, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 27);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "15";
+            this.label2.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(290, 27);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Teh Pucuk 350 ml dawd d";
+            this.label1.Visible = false;
+            // 
             // pbGarisAtas
             // 
             this.pbGarisAtas.BackColor = System.Drawing.Color.Gold;
@@ -229,6 +273,26 @@
             this.pbKotak.Size = new System.Drawing.Size(592, 62);
             this.pbKotak.TabIndex = 4;
             this.pbKotak.TabStop = false;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSubmit.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSubmit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSubmit.BorderRadius = 20;
+            this.btnSubmit.BorderSize = 0;
+            this.btnSubmit.FlatAppearance.BorderSize = 0;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(487, 829);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(130, 42);
+            this.btnSubmit.TabIndex = 3;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.TextColor = System.Drawing.Color.White;
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // lbIDJual
             // 
@@ -259,50 +323,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(817, 742);
             this.panelMenu.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Teh Pucuk 350 ml dawd d";
-            this.label1.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(329, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "15";
-            this.label2.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(383, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 27);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Rp 2.200";
-            this.label3.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(2, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(290, 27);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Teh Pucuk 350 ml dawd d";
-            this.label4.Visible = false;
             // 
             // button1
             // 
@@ -338,26 +358,6 @@
             this.tbSearchs.Texts = "";
             this.tbSearchs.UnderlinedStyle = false;
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSubmit.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSubmit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSubmit.BorderRadius = 20;
-            this.btnSubmit.BorderSize = 0;
-            this.btnSubmit.FlatAppearance.BorderSize = 0;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(487, 829);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(130, 42);
-            this.btnSubmit.TabIndex = 3;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.TextColor = System.Drawing.Color.White;
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // formPembelian
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -376,7 +376,7 @@
             this.MaximizeBox = false;
             this.Name = "formPembelian";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "v";
+            this.Text = "formPembelian";
             this.Load += new System.EventHandler(this.formMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
