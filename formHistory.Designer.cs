@@ -45,11 +45,10 @@
             this.panelAtas = new System.Windows.Forms.Panel();
             this.lbLogo = new System.Windows.Forms.Label();
             this.pbBack = new System.Windows.Forms.PictureBox();
+            this.rbBeli = new CustomControls.RJControls.RJRadioButton();
+            this.rbJual = new CustomControls.RJControls.RJRadioButton();
             this.dtpAkhir = new CustomControls.RJControls.RJDatePicker();
             this.dtpAwal = new CustomControls.RJControls.RJDatePicker();
-            this.rbJual = new CustomControls.RJControls.RJRadioButton();
-            this.rbBeli = new CustomControls.RJControls.RJRadioButton();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInven)).BeginInit();
             this.paneldgvSearch.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -62,9 +61,10 @@
             // 
             this.dgvInven.AllowUserToAddRows = false;
             this.dgvInven.AllowUserToDeleteRows = false;
+            this.dgvInven.AllowUserToResizeColumns = false;
+            this.dgvInven.AllowUserToResizeRows = false;
             this.dgvInven.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInven.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvInven.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,6 +239,47 @@
             this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
             this.pbBack.MouseHover += new System.EventHandler(this.pbBack_MouseHover);
             // 
+            // rbBeli
+            // 
+            this.rbBeli.AutoSize = true;
+            this.rbBeli.CheckedColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbBeli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbBeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbBeli.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbBeli.Location = new System.Drawing.Point(303, 238);
+            this.rbBeli.MinimumSize = new System.Drawing.Size(0, 21);
+            this.rbBeli.Name = "rbBeli";
+            this.rbBeli.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.rbBeli.Size = new System.Drawing.Size(153, 31);
+            this.rbBeli.TabIndex = 24;
+            this.rbBeli.TabStop = true;
+            this.rbBeli.Text = "Pembelian";
+            this.rbBeli.UnCheckedColor = System.Drawing.Color.Gray;
+            this.rbBeli.UseVisualStyleBackColor = true;
+            this.rbBeli.CheckedChanged += new System.EventHandler(this.rbBeli_CheckedChanged);
+            this.rbBeli.Click += new System.EventHandler(this.rbBeli_Click);
+            // 
+            // rbJual
+            // 
+            this.rbJual.AutoSize = true;
+            this.rbJual.BackColor = System.Drawing.Color.White;
+            this.rbJual.CheckedColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbJual.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbJual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbJual.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbJual.Location = new System.Drawing.Point(303, 201);
+            this.rbJual.MinimumSize = new System.Drawing.Size(0, 21);
+            this.rbJual.Name = "rbJual";
+            this.rbJual.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.rbJual.Size = new System.Drawing.Size(148, 31);
+            this.rbJual.TabIndex = 23;
+            this.rbJual.TabStop = true;
+            this.rbJual.Text = "Penjualan";
+            this.rbJual.UnCheckedColor = System.Drawing.Color.Gray;
+            this.rbJual.UseVisualStyleBackColor = false;
+            this.rbJual.CheckedChanged += new System.EventHandler(this.rbJual_CheckedChanged);
+            this.rbJual.Click += new System.EventHandler(this.rbJual_Click);
+            // 
             // dtpAkhir
             // 
             this.dtpAkhir.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -277,61 +318,10 @@
             this.dtpAwal.TextColor = System.Drawing.Color.White;
             this.dtpAwal.ValueChanged += new System.EventHandler(this.dtpAwal_ValueChanged);
             // 
-            // rbJual
-            // 
-            this.rbJual.AutoSize = true;
-            this.rbJual.BackColor = System.Drawing.Color.White;
-            this.rbJual.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbJual.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbJual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbJual.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbJual.Location = new System.Drawing.Point(303, 201);
-            this.rbJual.MinimumSize = new System.Drawing.Size(0, 21);
-            this.rbJual.Name = "rbJual";
-            this.rbJual.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.rbJual.Size = new System.Drawing.Size(148, 31);
-            this.rbJual.TabIndex = 23;
-            this.rbJual.TabStop = true;
-            this.rbJual.Text = "Penjualan";
-            this.rbJual.UnCheckedColor = System.Drawing.Color.Gray;
-            this.rbJual.UseVisualStyleBackColor = false;
-            this.rbJual.CheckedChanged += new System.EventHandler(this.rbJual_CheckedChanged);
-            this.rbJual.Click += new System.EventHandler(this.rbJual_Click);
-            // 
-            // rbBeli
-            // 
-            this.rbBeli.AutoSize = true;
-            this.rbBeli.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbBeli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbBeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbBeli.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbBeli.Location = new System.Drawing.Point(303, 238);
-            this.rbBeli.MinimumSize = new System.Drawing.Size(0, 21);
-            this.rbBeli.Name = "rbBeli";
-            this.rbBeli.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.rbBeli.Size = new System.Drawing.Size(153, 31);
-            this.rbBeli.TabIndex = 24;
-            this.rbBeli.TabStop = true;
-            this.rbBeli.Text = "Pembelian";
-            this.rbBeli.UnCheckedColor = System.Drawing.Color.Gray;
-            this.rbBeli.UseVisualStyleBackColor = true;
-            this.rbBeli.CheckedChanged += new System.EventHandler(this.rbBeli_CheckedChanged);
-            this.rbBeli.Click += new System.EventHandler(this.rbBeli_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(587, 201);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "label3";
-            // 
             // formHistory
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1512, 982);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.rbBeli);
             this.Controls.Add(this.rbJual);
             this.Controls.Add(this.dtpAkhir);
@@ -381,7 +371,6 @@
         private CustomControls.RJControls.RJDatePicker dtpAkhir;
         private CustomControls.RJControls.RJRadioButton rbJual;
         private CustomControls.RJControls.RJRadioButton rbBeli;
-        private System.Windows.Forms.Label label3;
     }
 }
 

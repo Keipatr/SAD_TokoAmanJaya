@@ -16,7 +16,7 @@ namespace POSTOKOAMANJAYA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formHistory());
+            Application.Run(new formMenu());
         }
     }
 }

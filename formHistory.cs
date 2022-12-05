@@ -23,6 +23,9 @@ namespace POSTOKOAMANJAYA
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
+        public int jumlah;
+
+        public DataTable dtBarang;
 
         bool isChecked = false;
 
@@ -38,21 +41,32 @@ namespace POSTOKOAMANJAYA
                 sqlAdapter.Fill(dtBarang);
                 dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
+                jumlah = dtBarang.Rows.Count;
             }
             catch (Exception ex)
             {
 
             }
-            //DataGridViewColumn no = dgvInven.Columns[0];
-            //no.Width = 60;
-            //DataGridViewColumn idUkur = dgvInven.Columns[1];
-            //idUkur.Width = 180;
-            //DataGridViewColumn namaUkur = dgvInven.Columns[2];
-            //namaUkur.Width = 350;
-            //dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //for (int i = 3;i<=5;i++)
-            //    dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvInven.Columns[1].DefaultCellStyle.Format = "yyyy-MM-dd";
+               
+            DataGridViewColumn no = dgvInven.Columns[0];
+            no.Width = 80;
+            DataGridViewColumn tanggalUkur = dgvInven.Columns[1];
+            tanggalUkur.Width = 210;
+            DataGridViewColumn idUkurs = dgvInven.Columns[2];
+            idUkurs.Width = 190;
+            DataGridViewColumn namaUkur = dgvInven.Columns[3];
+            namaUkur.Width = 420;
+            DataGridViewColumn plusUkur = dgvInven.Columns[4];
+            plusUkur.Width = 110;
+            DataGridViewColumn minusUkur = dgvInven.Columns[5];
+            minusUkur.Width = 110;
+            dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInven.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            for (int i = 4; i <= 6; i++)
+                dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         public void loadDesign()
         {
@@ -60,13 +74,13 @@ namespace POSTOKOAMANJAYA
 
             paneldgvSearch.BackColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.BackgroundColor = ColorTranslator.FromHtml("#FFC814");
-            dgvInven.GridColor = ColorTranslator.FromHtml("#FFC814");
+            dgvInven.GridColor = Color.Black; //ColorTranslator.FromHtml("#FFC814");
             dgvInven.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFC814");
             dgvInven.EnableHeadersVisualStyles = false;
             dgvInven.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
-            dgvInven.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgvInven.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvInven.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            this.dgvInven.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            this.dgvInven.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            this.dgvInven.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvInven.RowHeadersVisible = false;
 
             lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");

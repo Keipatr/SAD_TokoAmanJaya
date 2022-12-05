@@ -51,7 +51,6 @@
             this.lbIDJual = new System.Windows.Forms.Label();
             this.lbNota = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.tbSearchs = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
@@ -324,16 +323,6 @@
             this.panelMenu.Size = new System.Drawing.Size(817, 742);
             this.panelMenu.TabIndex = 15;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(740, 204);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // tbSearchs
             // 
             this.tbSearchs.BackColor = System.Drawing.SystemColors.Window;
@@ -362,7 +351,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1512, 982);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.pbTxtBack);
             this.Controls.Add(this.tbSearch);
@@ -420,7 +408,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
     }
 }
 
