@@ -113,17 +113,17 @@
     <Compile Include="formDoneEdit.Designer.cs">
       <DependentUpon>formDoneEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAdd.cs">
+    <Compile Include="formInventoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAdd.Designer.cs">
-      <DependentUpon>formAdd.cs</DependentUpon>
+    <Compile Include="formInventoryAdd.Designer.cs">
+      <DependentUpon>formInventoryAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="formEditBarang.cs">
+    <Compile Include="formInventoryEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formEditBarang.Designer.cs">
-      <DependentUpon>formEditBarang.cs</DependentUpon>
+    <Compile Include="formInventoryEdit.Designer.cs">
+      <DependentUpon>formInventoryEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="formMenu.cs">
       <SubType>Form</SubType>
@@ -166,11 +166,11 @@
     <EmbeddedResource Include="formDoneEdit.resx">
       <DependentUpon>formDoneEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAdd.resx">
-      <DependentUpon>formAdd.cs</DependentUpon>
+    <EmbeddedResource Include="formInventoryAdd.resx">
+      <DependentUpon>formInventoryAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formEditBarang.resx">
-      <DependentUpon>formEditBarang.cs</DependentUpon>
+    <EmbeddedResource Include="formInventoryEdit.resx">
+      <DependentUpon>formInventoryEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formMenu.resx">
       <DependentUpon>formMenu.cs</DependentUpon>
