@@ -24,6 +24,8 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
 
+        bool isChecked = false;
+
         public void loadTable()
         {
             try
@@ -74,8 +76,12 @@ namespace POSTOKOAMANJAYA
             dtpAwal.SkinColor = ColorTranslator.FromHtml("#979BC7");
             dtpAkhir.SkinColor = ColorTranslator.FromHtml("#979BC7");
 
-            rbBeli.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#979BC7");
-            rbJual.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#979BC7");
+            rbBeli.UnCheckedColor = ColorTranslator.FromHtml("#979BC7");
+            rbJual.UnCheckedColor = ColorTranslator.FromHtml("#979BC7");
+            rbBeli.BackColor = ColorTranslator.FromHtml("#E4EFFF");
+            rbJual.BackColor = ColorTranslator.FromHtml("#E4EFFF");
+
+
         }
         private void formMenu_Load(object sender, EventArgs e)
         {
@@ -106,11 +112,232 @@ namespace POSTOKOAMANJAYA
         private void dtpAwal_ValueChanged(object sender, EventArgs e)
         {
             dtpAwal.CustomFormat = "dd MMMM yyyy";
+            if (rbBeli.Checked == true)
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where keterangan = 'Pembelian' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            else if (rbJual.Checked == true)
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+
         }
 
         private void dtpAkhir_ValueChanged(object sender, EventArgs e)
         {
             dtpAkhir.CustomFormat = "dd MMMM yyyy";
+            if (rbBeli.Checked == true)
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where keterangan = 'Pembelian' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            else if (rbJual.Checked == true)
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            else
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+        }
+
+        private void rbJual_CheckedChanged(object sender, EventArgs e)
+        {
+            isChecked = rbJual.Checked;
+            sqlConnect.Open();
+            DataTable dtBarang = new DataTable();
+            sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '"+dtpAwal.Value.ToString("yyyy-MM-dd") +"' and '"+dtpAkhir.Value.ToString("yyyy-MM-dd") +"';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtBarang);
+            dgvInven.DataSource = dtBarang;
+            sqlConnect.Close();
+            if (rbBeli.Checked == false && rbJual.Checked == false)
+            {
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            else if (dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
+            {
+                if (rbJual.Checked == true)
+                {
+                    sqlConnect.Open();
+                    dtBarang = new DataTable();
+                    sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtBarang);
+                    dgvInven.DataSource = dtBarang;
+                    sqlConnect.Close();
+                }
+                else if (rbBeli.Checked == true)
+                {
+                    sqlConnect.Open();
+                    dtBarang = new DataTable();
+                    sqlQuery = "select * from v_history_barang where keterangan = 'PEMBELIAN';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtBarang);
+                    dgvInven.DataSource = dtBarang;
+                    sqlConnect.Close();
+                }
+                else if (rbBeli.Checked == false && rbJual.Checked == false)
+                {
+                    sqlConnect.Open();
+                    dtBarang = new DataTable();
+                    sqlQuery = "select * from v_history_barang";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtBarang);
+                    dgvInven.DataSource = dtBarang;
+                    sqlConnect.Close();
+                }
+            }
+        }
+
+        private void rbBeli_CheckedChanged(object sender, EventArgs e)
+        {
+            isChecked = rbBeli.Checked;
+            sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where keterangan = 'Pembelian' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+
+            if (rbBeli.Checked == false && rbJual.Checked == false)
+            {
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            else if (dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
+            {
+                if (rbJual.Checked == true)
+                {
+                    sqlConnect.Open();
+                    dtBarang = new DataTable();
+                    sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtBarang);
+                    dgvInven.DataSource = dtBarang;
+                    sqlConnect.Close();
+                }
+                else if (rbBeli.Checked == true)
+                {
+                    sqlConnect.Open();
+                    dtBarang = new DataTable();
+                    sqlQuery = "select * from v_history_barang where keterangan = 'PEMBELIAN';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtBarang);
+                    dgvInven.DataSource = dtBarang;
+                    sqlConnect.Close();
+                }
+                else if (rbBeli.Checked == false && rbJual.Checked == false)
+                {
+                    sqlConnect.Open();
+                    dtBarang = new DataTable();
+                    sqlQuery = "select * from v_history_barang";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtBarang);
+                    dgvInven.DataSource = dtBarang;
+                    sqlConnect.Close();
+                }
+            }
+        }
+
+        private void rbJual_Click(object sender, EventArgs e)
+        {
+            if (rbJual.Checked && !isChecked)
+                rbJual.Checked = false;
+            else
+            {
+                rbJual.Checked = true;
+                isChecked = false;
+            }
+            if (rbBeli.Checked == false && rbJual.Checked == false && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang;";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+        }
+
+        private void rbBeli_Click(object sender, EventArgs e)
+        {
+            if(rbBeli.Checked && !isChecked)
+                rbBeli.Checked = false;
+            else
+            {
+                rbBeli.Checked = true;
+                isChecked = false;
+            }
+            if (rbBeli.Checked == false && rbJual.Checked == false && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang;";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
         }
     }
 }

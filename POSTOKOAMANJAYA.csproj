@@ -56,6 +56,9 @@
     <Compile Include="CustomTool\RJDatePicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomTool\RJRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomTool\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
