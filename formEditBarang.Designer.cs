@@ -39,6 +39,7 @@
             this.tbQty = new CustomControls.RJControls.RJTextBox();
             this.tbBeli = new CustomControls.RJControls.RJTextBox();
             this.tbJual = new CustomControls.RJControls.RJTextBox();
+            this.btnDel = new CustomControls.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // label1
@@ -216,11 +217,33 @@
             this.tbJual.Texts = "";
             this.tbJual.UnderlinedStyle = false;
             // 
+            // btnDel
+            // 
+            this.btnDel.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnDel.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnDel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDel.BorderRadius = 22;
+            this.btnDel.BorderSize = 0;
+            this.btnDel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDel.FlatAppearance.BorderSize = 0;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.ForeColor = System.Drawing.Color.White;
+            this.btnDel.Location = new System.Drawing.Point(407, 382);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(123, 45);
+            this.btnDel.TabIndex = 17;
+            this.btnDel.Text = "Delete";
+            this.btnDel.TextColor = System.Drawing.Color.White;
+            this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // formEditBarang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(866, 455);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.tbNama);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -255,6 +278,7 @@
         private CustomControls.RJControls.RJTextBox tbQty;
         private CustomControls.RJControls.RJTextBox tbBeli;
         private CustomControls.RJControls.RJTextBox tbJual;
+        private CustomControls.RJControls.RJButton btnDel;
     }
 }
 

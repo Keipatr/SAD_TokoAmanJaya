@@ -313,6 +313,7 @@ namespace POSTOKOAMANJAYA
             id = dtBarang.Rows[Convert.ToInt32(button.Tag)]["ID Barang"].ToString();
             formPembelianAdd.ShowDialog();
 
+            buatNota();
         }
         public void buatNota()
         {

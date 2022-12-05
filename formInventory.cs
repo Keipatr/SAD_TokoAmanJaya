@@ -145,6 +145,7 @@ namespace POSTOKOAMANJAYA
         {
             formAdd formAdd = new formAdd();
             formAdd.ShowDialog();
+            tbSearch.Text = "";
             loadTable();
         }
 

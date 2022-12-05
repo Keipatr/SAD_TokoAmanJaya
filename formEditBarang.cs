@@ -34,6 +34,8 @@ namespace POSTOKOAMANJAYA
             tbNama.BackColor = ColorTranslator.FromHtml("#979BC7");
             btnSave.BackColor = ColorTranslator.FromHtml("#979BC7");
             btnCancel.BackColor = ColorTranslator.FromHtml("#F40000");
+            btnDel.BackColor = ColorTranslator.FromHtml("#FFC814");
+            btnDel.ForeColor = ColorTranslator.FromHtml("#940000");
 
             tbNama.BorderColor = ColorTranslator.FromHtml("#979BC7");
             tbJual.BorderColor = ColorTranslator.FromHtml("#979BC7");
@@ -49,6 +51,8 @@ namespace POSTOKOAMANJAYA
             tbJual.Texts = formInventory.hargaJual.ToString();
             tbNama.Texts = formInventory.namaBarang.ToString();
             tbQty.Texts = formInventory.jumlahBarang.ToString();
+
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -77,6 +81,24 @@ namespace POSTOKOAMANJAYA
         private void tbQty_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand("update BARANG set status_delete = 'Y' where id_barang = '" + formInventory.idBarang + "';", sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+            }
+            catch (Exception ex)
+            {
+            }
+            this.Hide();
+            formDoneEdit formDoneEdit = new formDoneEdit();
+            formDoneEdit.ShowDialog();
+            this.Close();
         }
     }
 }
