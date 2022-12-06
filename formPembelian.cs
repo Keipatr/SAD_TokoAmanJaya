@@ -32,8 +32,10 @@ namespace POSTOKOAMANJAYA
         public int X = 0;
         public int Y = 0;
         public int jmlMenu = 0;
+        public int sum =0;
         public DataTable dtBarang = new DataTable();
         public static DataTable dtJumlahBarang = new DataTable();
+        public DataTable dtSimpan;
 
         public Button menu = new Button();
 
@@ -148,12 +150,14 @@ namespace POSTOKOAMANJAYA
             id = dtBarang.Rows[Convert.ToInt32(button.Tag)]["ID Barang"].ToString();
             formPembelianAdd.ShowDialog();
 
+            sum += formPembelianAdd.sumQTY * formPembelianAdd.total;
+
             buatNota();
         }
         public void buatNota()
         {
             panelNota.Controls.Clear();
-            DataTable dtSimpan = formPembelianAdd.notaIsi;
+            dtSimpan = formPembelianAdd.notaIsi;
 
             int y = 15;
             for (int i = 0; i < dtSimpan.Rows.Count;i++)
@@ -163,10 +167,21 @@ namespace POSTOKOAMANJAYA
                     Label nama = new Label();
                     Label jumlah = new Label();
                     Label harga = new Label();
+                    PictureBox silang = new PictureBox();
 
                     panelNota.Controls.Add(nama);
                     panelNota.Controls.Add(jumlah);
                     panelNota.Controls.Add(harga);
+                    panelNota.Controls.Add(silang);
+
+                    silang.Image = Properties.Resources.maki_cross;
+                    silang.SizeMode = PictureBoxSizeMode.StretchImage;
+                    silang.Size = new Size(22, 23);
+                    silang.Location = new Point(0, y);
+                    silang.Tag = i;
+                    silang.Name = i.ToString();
+                    silang.Cursor = Cursors.Hand;
+                    silang.Click += Silang_Click;
 
                     nama.Text = dtSimpan.Rows[i]["nama"].ToString();
                     jumlah.Text = dtSimpan.Rows[i]["jumlah"].ToString();
@@ -203,10 +218,18 @@ namespace POSTOKOAMANJAYA
 
                     y += 43;
 
-                    //lbTotal.Text = lbTotal.Text + (int.Parse(dtSimpan.Rows[i]["jumlah"]) * int.Parse(dtSimpan.Rows[i]["harga"]));
+                    lbTotal.Text = "Rp. "+sum.ToString("#,#");
                 } 
             }
         }
+
+        private void Silang_Click(object sender, EventArgs e)
+        {
+            formPembelianAdd.notaIsi.Rows.Remove(formPembelianAdd.notaIsi.Rows[int.Parse(((PictureBox)sender).Name)]);
+
+            buatMenu();
+        }
+
         private void formMenu_Load(object sender, EventArgs e)
         {
             formPembelianAdd.notaIsi = new DataTable();
@@ -248,13 +271,13 @@ namespace POSTOKOAMANJAYA
         {
             
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand("insert into NOTA_PENJUALAN() values('','',"+lbTotal.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+            sqlCommand = new MySqlCommand("insert into NOTA_PENJUALAN() values('','"+ DateTime.Now.ToString("yyyy-MM-dd") +"',"+lbTotal.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
             sqlCommand.ExecuteNonQuery();
 
             for(int i =0;i<formPembelianAdd.notaIsi.Rows.Count;i++) //insert ke barang pembelian
             {
-                //sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"',''," + lbIDJual.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
-                //sqlCommand.ExecuteNonQuery();
+                sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"',''," + lbIDJual.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                sqlCommand.ExecuteNonQuery();
             }
             sqlConnect.Close();
 

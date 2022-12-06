@@ -121,9 +121,6 @@
   <data name="Logopenjualan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logopenjualan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Kotak Barang 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Kotak Barang 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Mukta_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -133,14 +130,14 @@
   <data name="laporan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\laporan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gambargaris" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gambargaris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="history" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\history.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="popupAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\popupAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="POSAMANJAYA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POSAMANJAYA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendarDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendarDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +145,8 @@
   <data name="logoJual" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoJual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="popupBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\popupBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="header_nota" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\header_nota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mukta_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -169,17 +166,23 @@
   <data name="Nama Barang _ Qty _ Harga Beli _ Harga Jual _" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nama Barang _ Qty _ Harga Beli _ Harga Jual _.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logoMinus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoMinus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mukta_ExtraLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-ExtraLight.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Nama Barang" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nama Barang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoPembelian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoPembelian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoBeli1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoBeli.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mukta_SemiBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-SemiBold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -187,23 +190,20 @@
   <data name="popupEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\popupEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="POSAMANJAYA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\POSAMANJAYA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gambargaris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gambargaris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoadd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoadd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="LOGOMENU" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGOMENU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoMinus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoMinus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="popupBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popupBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoback" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Kotak Barang 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kotak Barang 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendarWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendarWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,11 +223,14 @@
   <data name="logohistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logohistory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="header_nota" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\header_nota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blackDownArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackDownArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Nama Barang" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nama Barang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoBeli1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoBeli.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kotak biru atas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kotak biru atas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,7 +247,7 @@
   <data name="Mukta_Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mukta-Medium.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="blackDownArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackDownArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maki_cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maki_cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

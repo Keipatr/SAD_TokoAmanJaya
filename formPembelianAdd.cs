@@ -22,8 +22,10 @@ namespace POSTOKOAMANJAYA
         public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
-        public string sqlQuery;
+        public string sqlQuery; 
         public static DataTable notaIsi = new DataTable();
+        public int sumQTY = 0;
+        public int total = 0;
         private void formMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#191A38");
@@ -75,6 +77,9 @@ namespace POSTOKOAMANJAYA
             {
                 notaIsi.Rows.Add(formPembelian.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
             }
+
+            sumQTY  = Convert.ToInt32(tbQty.Texts);
+            total = Convert.ToInt32(tbBeli.Texts.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
             this.Close();
         }
 
