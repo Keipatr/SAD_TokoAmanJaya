@@ -39,11 +39,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbTextTotal = new System.Windows.Forms.Label();
-            this.btnSubmit = new CustomControls.RJControls.RJButton();
             this.lbIDJual = new System.Windows.Forms.Label();
             this.lbNota = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.tbSearchs = new CustomControls.RJControls.RJTextBox();
             this.pbTxtBack = new System.Windows.Forms.PictureBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panelAtas = new System.Windows.Forms.Panel();
@@ -53,6 +51,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbGarisAtas = new System.Windows.Forms.PictureBox();
             this.pbKotak = new System.Windows.Forms.PictureBox();
+            this.tbSearchs = new CustomControls.RJControls.RJTextBox();
+            this.btnSubmit = new CustomControls.RJControls.RJButton();
             this.pnlNota.SuspendLayout();
             this.panelNota.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTxtBack)).BeginInit();
@@ -183,26 +183,6 @@
             this.lbTextTotal.TabIndex = 5;
             this.lbTextTotal.Text = "TOTAL:";
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSubmit.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSubmit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSubmit.BorderRadius = 20;
-            this.btnSubmit.BorderSize = 0;
-            this.btnSubmit.FlatAppearance.BorderSize = 0;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(487, 829);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(130, 42);
-            this.btnSubmit.TabIndex = 3;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.TextColor = System.Drawing.Color.White;
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // lbIDJual
             // 
             this.lbIDJual.AutoSize = true;
@@ -232,30 +212,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(817, 742);
             this.panelMenu.TabIndex = 15;
-            // 
-            // tbSearchs
-            // 
-            this.tbSearchs.BackColor = System.Drawing.SystemColors.Window;
-            this.tbSearchs.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.tbSearchs.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.tbSearchs.BorderRadius = 10;
-            this.tbSearchs.BorderSize = 1;
-            this.tbSearchs.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSearchs.Enabled = false;
-            this.tbSearchs.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearchs.ForeColor = System.Drawing.Color.Black;
-            this.tbSearchs.Location = new System.Drawing.Point(331, 136);
-            this.tbSearchs.Margin = new System.Windows.Forms.Padding(4);
-            this.tbSearchs.Multiline = false;
-            this.tbSearchs.Name = "tbSearchs";
-            this.tbSearchs.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbSearchs.PasswordChar = false;
-            this.tbSearchs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbSearchs.PlaceholderText = "";
-            this.tbSearchs.Size = new System.Drawing.Size(473, 72);
-            this.tbSearchs.TabIndex = 7;
-            this.tbSearchs.Texts = "";
-            this.tbSearchs.UnderlinedStyle = false;
             // 
             // pbTxtBack
             // 
@@ -360,6 +316,50 @@
             this.pbKotak.Size = new System.Drawing.Size(592, 62);
             this.pbKotak.TabIndex = 4;
             this.pbKotak.TabStop = false;
+            // 
+            // tbSearchs
+            // 
+            this.tbSearchs.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSearchs.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbSearchs.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbSearchs.BorderRadius = 10;
+            this.tbSearchs.BorderSize = 1;
+            this.tbSearchs.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSearchs.Enabled = false;
+            this.tbSearchs.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearchs.ForeColor = System.Drawing.Color.Black;
+            this.tbSearchs.Location = new System.Drawing.Point(331, 136);
+            this.tbSearchs.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSearchs.Multiline = false;
+            this.tbSearchs.Name = "tbSearchs";
+            this.tbSearchs.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbSearchs.PasswordChar = false;
+            this.tbSearchs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbSearchs.PlaceholderText = "";
+            this.tbSearchs.Size = new System.Drawing.Size(473, 72);
+            this.tbSearchs.TabIndex = 7;
+            this.tbSearchs.Texts = "";
+            this.tbSearchs.UnderlinedStyle = false;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSubmit.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSubmit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSubmit.BorderRadius = 20;
+            this.btnSubmit.BorderSize = 0;
+            this.btnSubmit.FlatAppearance.BorderSize = 0;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(487, 829);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(130, 42);
+            this.btnSubmit.TabIndex = 3;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.TextColor = System.Drawing.Color.White;
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // formPembelian
             // 

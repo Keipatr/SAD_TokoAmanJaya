@@ -276,7 +276,7 @@ namespace POSTOKOAMANJAYA
 
             for(int i =0;i<formPembelianAdd.notaIsi.Rows.Count;i++) //insert ke barang pembelian
             {
-                sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"',''," + lbIDJual.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"','"+formPembelianAdd.notaIsi.Rows[i]["id"].ToString()+"','"+formPembelianAdd.notaIsi.Rows[i]["jumlah"].ToString()+"','"+formPembelianAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "'," + lbTotal.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
                 sqlCommand.ExecuteNonQuery();
             }
             sqlConnect.Close();
