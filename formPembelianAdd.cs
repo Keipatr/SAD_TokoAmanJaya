@@ -90,7 +90,7 @@ namespace POSTOKOAMANJAYA
 
         private void tbNama_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) || !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) || !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) || !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) || !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = true;
             }

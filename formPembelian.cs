@@ -53,7 +53,7 @@ namespace POSTOKOAMANJAYA
             lbNota.ForeColor = ColorTranslator.FromHtml("#091D36");
             lbIDJual.ForeColor = ColorTranslator.FromHtml("#FF9900");
             pnlNota.BackColor = Color.White;
-            pbKotak.BackColor = ColorTranslator.FromHtml("#FFC814");
+            pnlKotak.BackColor = ColorTranslator.FromHtml("#FFC814");
             lbTextTotal.BackColor = ColorTranslator.FromHtml("#FFC814");
             lbTotal.BackColor = ColorTranslator.FromHtml("#FFC814");
             lbTotal.Text = "";
@@ -145,12 +145,9 @@ namespace POSTOKOAMANJAYA
 
             formPembelianAdd formPembelianAdd = new formPembelianAdd();
             Button button = sender as Button;
-            //nama =  dtBarang.Rows[Convert.ToInt32(button.Tag)]["Nama Barang"].ToString();
             hbeli = dtBarang.Rows[Convert.ToInt32(button.Tag)]["Harga Beli"].ToString();
             id = dtBarang.Rows[Convert.ToInt32(button.Tag)]["ID Barang"].ToString();
             formPembelianAdd.ShowDialog();
-
-            sum += formPembelianAdd.sumQTY * formPembelianAdd.total;
 
             buatNota();
         }
@@ -158,12 +155,13 @@ namespace POSTOKOAMANJAYA
         {
             panelNota.Controls.Clear();
             dtSimpan = formPembelianAdd.notaIsi;
-
+            sum = 0;
             int y = 15;
             for (int i = 0; i < dtSimpan.Rows.Count;i++)
             {
                 if (dtSimpan.Rows.Count >0)
                 {
+                    
                     Label nama = new Label();
                     Label jumlah = new Label();
                     Label harga = new Label();
@@ -177,17 +175,18 @@ namespace POSTOKOAMANJAYA
                     silang.Image = Properties.Resources.maki_cross;
                     silang.SizeMode = PictureBoxSizeMode.StretchImage;
                     silang.Size = new Size(22, 23);
-                    silang.Location = new Point(0, y);
+                    silang.Location = new Point(2, y);
                     silang.Tag = i;
                     silang.Name = i.ToString();
                     silang.Cursor = Cursors.Hand;
                     silang.Click += Silang_Click;
+                    silang.BringToFront();
 
                     nama.Text = dtSimpan.Rows[i]["nama"].ToString();
                     jumlah.Text = dtSimpan.Rows[i]["jumlah"].ToString();
                     harga.Text = dtSimpan.Rows[i]["harga"].ToString();
 
-                    nama.Location = new Point(2,y);
+                    nama.Location = new Point(24,y);
                     harga.Location = new Point(430, y);
                     jumlah.Location = new Point(320, y);
 
@@ -217,17 +216,33 @@ namespace POSTOKOAMANJAYA
 
 
                     y += 43;
-
-                    lbTotal.Text = "Rp. "+sum.ToString("#,#");
-                } 
+                    
+                }
+                
             }
+            for (int j = 0; j < dtSimpan.Rows.Count; j++)
+            {
+                sum += (int.Parse(dtSimpan.Rows[j]["jumlah"].ToString()) * int.Parse(dtSimpan.Rows[j]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })));
+            }
+            if (formPembelianAdd.notaIsi.Rows.Count == 0)
+            {
+                lbTotal.Text = "";
+            }
+            else
+            {
+                lbTotal.Text = "Rp. " + sum.ToString("#,#");
+            }
+
         }
 
         private void Silang_Click(object sender, EventArgs e)
         {
             formPembelianAdd.notaIsi.Rows.Remove(formPembelianAdd.notaIsi.Rows[int.Parse(((PictureBox)sender).Name)]);
-
-            buatMenu();
+            if (formPembelianAdd.notaIsi.Rows.Count == 0)
+            {
+                lbTotal.Text= "";
+            }
+            buatNota();
         }
 
         private void formMenu_Load(object sender, EventArgs e)
@@ -263,20 +278,30 @@ namespace POSTOKOAMANJAYA
         }
 
         private void pbBack_MouseLeave(object sender, EventArgs e)
-        {
+        {            
             pbTxtBack.Visible= false;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand("insert into NOTA_PENJUALAN() values('','"+ DateTime.Now.ToString("yyyy-MM-dd") +"',"+lbTotal.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
-            sqlCommand.ExecuteNonQuery();
 
-            for(int i =0;i<formPembelianAdd.notaIsi.Rows.Count;i++) //insert ke barang pembelian
+            //sqlConnect.Open();
+            ////MessageBox.Show("insert into NOTA_PEMBELIAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')");
+            //sqlCommand = new MySqlCommand("insert into NOTA_PEMBELIAN() values('"+lbIDJual.Text+"','"+ DateTime.Now.ToString("yyyy-MM-dd") +"',"+lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+            //sqlCommand.ExecuteNonQuery();
+            //sqlConnect.Close();
+
+            sqlConnect.Open();
+            for (int i = 0; i < formPembelianAdd.notaIsi.Rows.Count; i++) //insert ke barang pembelian
             {
-                sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"','"+formPembelianAdd.notaIsi.Rows[i]["id"].ToString()+"','"+formPembelianAdd.notaIsi.Rows[i]["jumlah"].ToString()+"','"+formPembelianAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "'," + lbTotal.Text.Replace(",", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                if (i == 0)
+                {
+                    //MessageBox.Show("insert into NOTA_PEMBELIAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')");
+                    sqlCommand = new MySqlCommand("insert into NOTA_PEMBELIAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                sqlCommand = new MySqlCommand("insert into BARANG_PEMBELIAN() values('" + lbIDJual.Text + "','" + formPembelianAdd.notaIsi.Rows[i]["id"].ToString() + "','" + formPembelianAdd.notaIsi.Rows[i]["jumlah"].ToString() + "','" + formPembelianAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                //MessageBox.Show("insert into BARANG_PEMBELIAN() values('"+lbIDJual.Text+"', '"+formPembelianAdd.notaIsi.Rows[i]["id"].ToString()+"', "+formPembelianAdd.notaIsi.Rows[i]["jumlah"].ToString()+", "+formPembelianAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ", " + lbTotal.Text.Replace(", ", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ", 'N')");
                 sqlCommand.ExecuteNonQuery();
             }
             sqlConnect.Close();
@@ -311,6 +336,8 @@ namespace POSTOKOAMANJAYA
             {
                 formBackground.Dispose();
             }
+            panelMenu.Controls.Clear();
+            buatMenu();
         }
     }
 }
