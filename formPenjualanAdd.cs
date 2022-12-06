@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace POSTOKOAMANJAYA
 {
-    public partial class formPembelianAdd : Form
+    public partial class formPenjualanAdd : Form
     {
-        public formPembelianAdd()
+        public formPenjualanAdd()
         {
             InitializeComponent();
         }
@@ -24,12 +24,9 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery; 
         public static DataTable notaIsi = new DataTable();
-        public int sumQTY = 0;
-        public int total = 0;
         private void formMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#191A38");
-            tbBeli.BackColor = ColorTranslator.FromHtml("#979BC7");
             tbQty.BackColor = ColorTranslator.FromHtml("#979BC7");
             tbNama.BackColor = ColorTranslator.FromHtml("#979BC7");
             btnSave.BackColor = ColorTranslator.FromHtml("#979BC7");
@@ -37,14 +34,11 @@ namespace POSTOKOAMANJAYA
 
             tbNama.BorderColor = ColorTranslator.FromHtml("#979BC7");
             tbQty.BorderColor = ColorTranslator.FromHtml("#979BC7");
-            tbBeli.BorderColor = ColorTranslator.FromHtml("#979BC7");
             tbNama.BorderFocusColor = ColorTranslator.FromHtml("#979BC7");
-            tbBeli.BorderFocusColor = ColorTranslator.FromHtml("#979BC7");
             tbQty.BorderFocusColor = ColorTranslator.FromHtml("#979BC7");
 
 
-            tbBeli.Texts = formPembelian.hbeli;
-            tbNama.Texts = formPembelian.nama;
+            tbNama.Texts = formPenjualan.nama;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -53,33 +47,24 @@ namespace POSTOKOAMANJAYA
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbNama.Texts.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) != formPembelian.hbeli.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }))
-            {
-                sqlConnect.Open();                
-                sqlCommand = new MySqlCommand("update BARANG set harga_beli = '"+ tbBeli.Texts.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "' where id_barang = '"+formPembelian.id+"';", sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-            }
-            if (formPembelian.cekBuatDT == 0)
+            if (formPenjualan.cekBuatDT == 0)
             {
                 notaIsi.Columns.Add("id");
                 notaIsi.Columns.Add("nama");
                 notaIsi.Columns.Add("jumlah");
                 notaIsi.Columns.Add("harga");
                 notaIsi.PrimaryKey = new DataColumn[] { notaIsi.Columns["id"] };
-                formPembelian.cekBuatDT = 1;
+                formPenjualan.cekBuatDT = 1;
             }
-            if (notaIsi.Rows.Find(formPembelian.id) != null)
+            if (notaIsi.Rows.Find(formPenjualan.id) != null)
             {
-                DataRow row = notaIsi.AsEnumerable().SingleOrDefault(r => r.Field<string>("id") == formPembelian.id);
+                DataRow row = notaIsi.AsEnumerable().SingleOrDefault(r => r.Field<string>("id") == formPenjualan.id);
                 row["jumlah"] = Convert.ToString(Convert.ToInt32(row["jumlah"]) + Convert.ToInt32(tbQty.Texts));
             }
             else
             {
-                notaIsi.Rows.Add(formPembelian.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(tbBeli.Texts.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
+                notaIsi.Rows.Add(formPenjualan.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(formPenjualan.hjual.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
             }
-
-            sumQTY  = Convert.ToInt32(tbQty.Texts);
-            total = Convert.ToInt32(tbBeli.Texts.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
             this.Close();
         }
 

@@ -77,6 +77,18 @@
     <Compile Include="formLaporan.Designer.cs">
       <DependentUpon>formLaporan.cs</DependentUpon>
     </Compile>
+    <Compile Include="formPenjualanAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPenjualanAdd.Designer.cs">
+      <DependentUpon>formPenjualanAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPenjualan.Designer.cs">
+      <DependentUpon>formPenjualan.cs</DependentUpon>
+    </Compile>
     <Compile Include="formPembelianAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formLaporan.resx">
       <DependentUpon>formLaporan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPenjualanAdd.resx">
+      <DependentUpon>formPenjualanAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPenjualan.resx">
+      <DependentUpon>formPenjualan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPembelianAdd.resx">
       <DependentUpon>formPembelianAdd.cs</DependentUpon>

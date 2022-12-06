@@ -1,6 +1,6 @@
 ﻿namespace POSTOKOAMANJAYA
 {
-    partial class formPembelian
+    partial class formPenjualan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPembelian));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPenjualan));
             this.lbNamabarang = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.pnlNota = new System.Windows.Forms.Panel();
@@ -308,9 +308,9 @@
             this.lbLogo.ForeColor = System.Drawing.Color.Goldenrod;
             this.lbLogo.Location = new System.Drawing.Point(8, 7);
             this.lbLogo.Name = "lbLogo";
-            this.lbLogo.Size = new System.Drawing.Size(426, 78);
+            this.lbLogo.Size = new System.Drawing.Size(435, 78);
             this.lbLogo.TabIndex = 4;
-            this.lbLogo.Text = "PEMBELIAN";
+            this.lbLogo.Text = "PENJUALAN";
             // 
             // pbBack
             // 
@@ -351,7 +351,7 @@
             this.tbSearchs.Texts = "";
             this.tbSearchs.UnderlinedStyle = false;
             // 
-            // formPembelian
+            // formPenjualan
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1512, 982);
@@ -366,7 +366,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "formPembelian";
+            this.Name = "formPenjualan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formPembelian";
             this.Load += new System.EventHandler(this.formMenu_Load);

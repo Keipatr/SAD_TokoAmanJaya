@@ -51,7 +51,10 @@ namespace POSTOKOAMANJAYA
 
         private void pbLaporan_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            formLaporan formLaporan = new formLaporan();
+            formLaporan.ShowDialog();
+            this.Close();
         }
 
         private void pbHistory_Click(object sender, EventArgs e)

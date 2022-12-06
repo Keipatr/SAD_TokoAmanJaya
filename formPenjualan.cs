@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace POSTOKOAMANJAYA
 {
-    public partial class formPembelian : Form
+    public partial class formPenjualan : Form
     {
-        public formPembelian()
+        public formPenjualan()
         {
             InitializeComponent();
         }
@@ -26,14 +26,14 @@ namespace POSTOKOAMANJAYA
 
         public static int cekBuatDT = 0;
         public static string nama = "";
-        public static string hbeli = "";
+        public static string hjual = "";
         public static string id = "";
         public int jumlahBarang = 0;
         public int X = 0;
         public int Y = 0;
         public int jmlMenu = 0;
         public int sum =0;
-        public DataTable dtBarang = new DataTable();
+        public static DataTable dtBarang = new DataTable();
         public static DataTable dtJumlahBarang = new DataTable();
         public DataTable dtSimpan;
 
@@ -63,7 +63,7 @@ namespace POSTOKOAMANJAYA
 
             DataTable dtIdNota = new DataTable();
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand("select fAutogenIDBeli()", sqlConnect);            
+            sqlCommand = new MySqlCommand("select fAutogenIDJual()", sqlConnect);            
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtIdNota);
             sqlConnect.Close();
@@ -72,7 +72,7 @@ namespace POSTOKOAMANJAYA
 
         public void buatMenu()
         {
-            DataTable dtBarang = new DataTable();
+            dtBarang = new DataTable();
             sqlConnect.Open();
             sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
             sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -80,16 +80,6 @@ namespace POSTOKOAMANJAYA
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtBarang);
             sqlConnect.Close();
-            
-            
-            DataTable dtJumlahBarang = new DataTable();
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand("select * from BARANG where status_delete = 'N'", sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtJumlahBarang);
-            sqlConnect.Close();
-
-            jumlahBarang = dtJumlahBarang.Rows.Count;
             X = 3;
             Y = 12;
 
@@ -99,12 +89,12 @@ namespace POSTOKOAMANJAYA
                 
                     for (int j = 0; j < 2; j++)
                     {
-                        if (dtBarang.Rows.Count > 0 && jmlMenu < dtBarang.Rows.Count)
+                        if (dtBarang.Rows.Count > 0 && jmlMenu < dtBarang.Rows.Count && int.Parse(dtBarang.Rows[jmlMenu]["QTY"].ToString()) >0)
                         {
                             menu = new Button();
                             panelMenu.Controls.Add(menu);
                             menu.Image = Properties.Resources.Kotak_Barang_1;
-                            menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"];
+                            menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"] + "\nRp "+ Convert.ToInt64(dtBarang.Rows[jmlMenu]["Harga Jual"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#");
                             menu.Font = new Font("Arial", 20, FontStyle.Regular);
                             menu.ForeColor = Color.White;
                             menu.FlatStyle = FlatStyle.Flat;
@@ -143,18 +133,18 @@ namespace POSTOKOAMANJAYA
 
             nama = dtBarang.Rows[Convert.ToInt32(((Button)sender).Tag)]["Nama Barang"].ToString();
 
-            formPembelianAdd formPembelianAdd = new formPembelianAdd();
+            formPenjualanAdd formPenjualanAdd = new formPenjualanAdd();
             Button button = sender as Button;
-            hbeli = dtBarang.Rows[Convert.ToInt32(button.Tag)]["Harga Beli"].ToString();
+            hjual = dtBarang.Rows[Convert.ToInt32(button.Tag)]["Harga Jual"].ToString();
             id = dtBarang.Rows[Convert.ToInt32(button.Tag)]["ID Barang"].ToString();
-            formPembelianAdd.ShowDialog();
+            formPenjualanAdd.ShowDialog();
 
             buatNota();
         }
         public void buatNota()
         {
             panelNota.Controls.Clear();
-            dtSimpan = formPembelianAdd.notaIsi;
+            dtSimpan = formPenjualanAdd.notaIsi;
             sum = 0;
             int y = 15;
             for (int i = 0; i < dtSimpan.Rows.Count;i++)
@@ -224,7 +214,7 @@ namespace POSTOKOAMANJAYA
             {
                 sum += (int.Parse(dtSimpan.Rows[j]["jumlah"].ToString()) * int.Parse(dtSimpan.Rows[j]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })));
             }
-            if (formPembelianAdd.notaIsi.Rows.Count == 0)
+            if (formPenjualanAdd.notaIsi.Rows.Count == 0)
             {
                 lbTotal.Text = "";
             }
@@ -237,8 +227,8 @@ namespace POSTOKOAMANJAYA
 
         private void Silang_Click(object sender, EventArgs e)
         {
-            formPembelianAdd.notaIsi.Rows.Remove(formPembelianAdd.notaIsi.Rows[int.Parse(((PictureBox)sender).Name)]);
-            if (formPembelianAdd.notaIsi.Rows.Count == 0)
+            formPenjualanAdd.notaIsi.Rows.Remove(formPenjualanAdd.notaIsi.Rows[int.Parse(((PictureBox)sender).Name)]);
+            if (formPenjualanAdd.notaIsi.Rows.Count == 0)
             {
                 lbTotal.Text= "";
             }
@@ -247,7 +237,7 @@ namespace POSTOKOAMANJAYA
 
         private void formMenu_Load(object sender, EventArgs e)
         {
-            formPembelianAdd.notaIsi = new DataTable();
+            formPenjualanAdd.notaIsi = new DataTable();
             cekBuatDT = 0;
             loadDesign();
             buatMenu();
@@ -286,28 +276,28 @@ namespace POSTOKOAMANJAYA
         {
 
             //sqlConnect.Open();
-            ////MessageBox.Show("insert into NOTA_PEMBELIAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')");
-            //sqlCommand = new MySqlCommand("insert into NOTA_PEMBELIAN() values('"+lbIDJual.Text+"','"+ DateTime.Now.ToString("yyyy-MM-dd") +"',"+lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+            ////MessageBox.Show("insert into NOTA_PENJUALAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')");
+            //sqlCommand = new MySqlCommand("insert into NOTA_PENJUALAN() values('"+lbIDJual.Text+"','"+ DateTime.Now.ToString("yyyy-MM-dd") +"',"+lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
             //sqlCommand.ExecuteNonQuery();
             //sqlConnect.Close();
 
             sqlConnect.Open();
-            for (int i = 0; i < formPembelianAdd.notaIsi.Rows.Count; i++) //insert ke barang pembelian
+            for (int i = 0; i < formPenjualanAdd.notaIsi.Rows.Count; i++) //insert ke barang PENJUALAN
             {
                 if (i == 0)
                 {
-                    //MessageBox.Show("insert into NOTA_PEMBELIAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')");
-                    sqlCommand = new MySqlCommand("insert into NOTA_PEMBELIAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                    //MessageBox.Show("insert into NOTA_PENJUALAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')");
+                    sqlCommand = new MySqlCommand("insert into NOTA_PENJUALAN() values('" + lbIDJual.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
                     sqlCommand.ExecuteNonQuery();
                 }
-                sqlCommand = new MySqlCommand("insert into BARANG_PEMBELIAN() values('" + lbIDJual.Text + "','" + formPembelianAdd.notaIsi.Rows[i]["id"].ToString() + "','" + formPembelianAdd.notaIsi.Rows[i]["jumlah"].ToString() + "','" + formPembelianAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
-                //MessageBox.Show("insert into BARANG_PEMBELIAN() values('"+lbIDJual.Text+"', '"+formPembelianAdd.notaIsi.Rows[i]["id"].ToString()+"', "+formPembelianAdd.notaIsi.Rows[i]["jumlah"].ToString()+", "+formPembelianAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ", " + lbTotal.Text.Replace(", ", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ", 'N')");
+                sqlCommand = new MySqlCommand("insert into BARANG_PENJUALAN() values('" + lbIDJual.Text + "','" + formPenjualanAdd.notaIsi.Rows[i]["id"].ToString() + "','" + formPenjualanAdd.notaIsi.Rows[i]["jumlah"].ToString() + "','" + formPenjualanAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + "'," + lbTotal.Text.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ",'N')", sqlConnect);
+                //MessageBox.Show("insert into BARANG_PENJUALAN() values('"+lbIDJual.Text+"', '"+formPenjualanAdd.notaIsi.Rows[i]["id"].ToString()+"', "+formPenjualanAdd.notaIsi.Rows[i]["jumlah"].ToString()+", "+formPenjualanAdd.notaIsi.Rows[i]["harga"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ", " + lbTotal.Text.Replace(", ", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }) + ", 'N')");
                 sqlCommand.ExecuteNonQuery();
             }
             sqlConnect.Close();
 
             cekBuatDT = 0;
-            formPembelianAdd.notaIsi = new DataTable();
+            formPenjualanAdd.notaIsi = new DataTable();
             Form formBackground = new Form();
             try
             {
