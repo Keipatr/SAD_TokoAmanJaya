@@ -95,7 +95,8 @@ namespace POSTOKOAMANJAYA
             rbBeli.BackColor = ColorTranslator.FromHtml("#E4EFFF");
             rbJual.BackColor = ColorTranslator.FromHtml("#E4EFFF");
 
-
+            this.dgvInven.DefaultCellStyle.SelectionBackColor = this.dgvInven.DefaultCellStyle.BackColor;
+            this.dgvInven.DefaultCellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
         }
         private void formMenu_Load(object sender, EventArgs e)
         {
@@ -142,6 +143,17 @@ namespace POSTOKOAMANJAYA
                 sqlConnect.Open();
                 DataTable dtBarang = new DataTable();
                 sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+            }
+            else
+            {
+                sqlConnect.Open();
+                DataTable dtBarang = new DataTable();
+                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);

@@ -104,7 +104,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvInven.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInven.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvInven.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInven.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvInven.Size = new System.Drawing.Size(1362, 596);
             this.dgvInven.TabIndex = 4;
             // 

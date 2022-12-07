@@ -24,50 +24,64 @@ namespace POSTOKOAMANJAYA
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
         public int jumlah;
+        public int sum = 0;
 
         public DataTable dtBarang;
-
-        bool isChecked = false;
+        
 
         public void loadTable()
         {
-            try
-            {
+            
                 sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang";
+                dtBarang = new DataTable();
+                sqlQuery = "select row_number() over (order by nj.TANGGAL_PENJUALAN) as No, nj.TANGGAL_PENJUALAN as 'Tanggal',nj.ID_NOTAPENJUALAN as 'ID Nota',  b.ID_BARANG as 'ID Barang', b.NAMA_BARANG as 'Nama Barang', bj.jml_jual as 'QTY', concat('Rp',format((bj.JML_JUAL * bj.HARGA_JUAL),0)) as 'Jumlah' from NOTA_PENJUALAN nj, BARANG_PENJUALAN bj, BARANG b where bj.ID_BARANG = b.ID_BARANG and nj.ID_NOTAPENJUALAN = bj.ID_NOTAPENJUALAN and substring(nj.ID_NOTAPENJUALAN,1,1) = 'J';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
-                jumlah = dtBarang.Rows.Count;
-            }
-            catch (Exception ex)
-            {
+                dgvInven.DataSource = dtBarang;
 
-            }
+                if (dtBarang.Columns.Count > 0)
+                {
+                    if (dtBarang.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dtBarang.Rows.Count; i++)
+                        {
+                            sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                        }
+                        DataRow row = dtBarang.NewRow();
+                        row[3] = "TOTAL";
+                        row[4] = "PEMASUKAN";
+                        row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                        dtBarang.Rows.Add(row);
+                    }
+                    dgvInven.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
 
-            //dgvInven.Columns[1].DefaultCellStyle.Format = "yyyy-MM-dd";
-               
-            //DataGridViewColumn no = dgvInven.Columns[0];
-            //no.Width = 80;
-            //DataGridViewColumn tanggalUkur = dgvInven.Columns[1];
-            //tanggalUkur.Width = 210;
-            //DataGridViewColumn idUkurs = dgvInven.Columns[2];
-            //idUkurs.Width = 190;
-            //DataGridViewColumn namaUkur = dgvInven.Columns[3];
-            //namaUkur.Width = 420;
-            //DataGridViewColumn plusUkur = dgvInven.Columns[4];
-            //plusUkur.Width = 110;
-            //DataGridViewColumn minusUkur = dgvInven.Columns[5];
-            //minusUkur.Width = 110;
-            //dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgvInven.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //for (int i = 4; i <= 6; i++)
-            //    dgvInven.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                    dgvInven.Columns[1].DefaultCellStyle.Format = "yyyy-MM-dd";
+
+                    DataGridViewColumn no = dgvInven.Columns[0];
+                    no.Width = 60;
+                    DataGridViewColumn tanggalUkur = dgvInven.Columns[1];
+                    tanggalUkur.Width = 170;
+                    DataGridViewColumn idUkurs = dgvInven.Columns[2];
+                    idUkurs.Width = 150;
+                    DataGridViewColumn namaUkur = dgvInven.Columns[3];
+                    namaUkur.Width = 150;
+                    DataGridViewColumn plusUkur = dgvInven.Columns[4];
+                    plusUkur.Width = 400;
+                    DataGridViewColumn minusUkur = dgvInven.Columns[5];
+                    minusUkur.Width = 70;
+                    DataGridViewColumn jmlUkur = dgvInven.Columns[6];
+                    jmlUkur.Width = 200;
+                    dgvInven.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvInven.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvInven.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvInven.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvInven.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
         }
+        
         public void loadDesign()
         {
             this.BackColor = ColorTranslator.FromHtml("#E4EFFF");
@@ -95,12 +109,12 @@ namespace POSTOKOAMANJAYA
             rbBeli.BackColor = ColorTranslator.FromHtml("#E4EFFF");
             rbJual.BackColor = ColorTranslator.FromHtml("#E4EFFF");
 
-
+            this.dgvInven.DefaultCellStyle.SelectionBackColor = this.dgvInven.DefaultCellStyle.BackColor;
+            this.dgvInven.DefaultCellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
         }
         private void formMenu_Load(object sender, EventArgs e)
         {
             loadDesign();
-
             loadTable();
         }
 
@@ -121,236 +135,302 @@ namespace POSTOKOAMANJAYA
         {
             pbTxtBack.Visible= false;
         }
-        
-            
+
+
         private void dtpAwal_ValueChanged(object sender, EventArgs e)
         {
             dtpAwal.CustomFormat = "dd MMMM yyyy";
+
+
             if (rbBeli.Checked == true)
             {
+                sum = 0;
                 sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where keterangan = 'Pembelian' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                 dtBarang = new DataTable();
+                sqlQuery = "pLaporanPembelian";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
                 dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PENGELUARAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
             }
             else if (rbJual.Checked == true)
             {
+                sum = 0;
                 sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPenjualan";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
                 dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
-            }
 
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PEMASUKAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
+            }
         }
 
         private void dtpAkhir_ValueChanged(object sender, EventArgs e)
         {
             dtpAkhir.CustomFormat = "dd MMMM yyyy";
+
+
             if (rbBeli.Checked == true)
             {
+                sum = 0;
                 sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where keterangan = 'Pembelian' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPembelian";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
                 dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PENGELUARAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
             }
             else if (rbJual.Checked == true)
             {
+                sum = 0;
                 sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPenjualan";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
                 dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
-            }
-            else
-            {
-                sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
-                sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PEMASUKAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
             }
         }
 
         private void rbJual_CheckedChanged(object sender, EventArgs e)
         {
-            isChecked = rbJual.Checked;
-            sqlConnect.Open();
-            DataTable dtBarang = new DataTable();
-            sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN' and Tanggal between '"+dtpAwal.Value.ToString("yyyy-MM-dd") +"' and '"+dtpAkhir.Value.ToString("yyyy-MM-dd") +"';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtBarang);
-            dgvInven.DataSource = dtBarang;
-            sqlConnect.Close();
-            if (rbBeli.Checked == false && rbJual.Checked == false)
+            if (rbJual.Checked == true && dtpAwal.CustomFormat ==" " && dtpAkhir.CustomFormat == " ")
             {
+                sum = 0;
                 sqlConnect.Open();
                 dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlQuery = "select row_number() over (order by nj.TANGGAL_PENJUALAN) as No, nj.TANGGAL_PENJUALAN as 'Tanggal',nj.ID_NOTAPENJUALAN as 'ID Nota',  b.ID_BARANG as 'ID Barang', b.NAMA_BARANG as 'Nama Barang', bj.jml_jual as 'QTY', concat('Rp',format((bj.JML_JUAL * bj.HARGA_JUAL),0)) as 'Jumlah' from NOTA_PENJUALAN nj, BARANG_PENJUALAN bj, BARANG b where bj.ID_BARANG = b.ID_BARANG and nj.ID_NOTAPENJUALAN = bj.ID_NOTAPENJUALAN and substring(nj.ID_NOTAPENJUALAN,1,1) = 'J';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
+                dgvInven.DataSource = dtBarang;
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PEMASUKAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
             }
-            else if (dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
+            else if (rbBeli.Checked == true && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
             {
-                if (rbJual.Checked == true)
+                sum = 0;
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "select row_number() over (order by nb.TANGGAL_PEMBELIAN) as No,  nb.TANGGAL_PEMBELIAN as 'Tanggal',  nb.ID_NOTAPEMBELIAN as 'ID Nota',  b.ID_BARANG as 'ID Barang',  b.NAMA_BARANG as 'Nama Barang',  bb.JML_BELI as 'QTY', concat('Rp ',format((bb.JML_BELI * bb.HARGA_BELI),0)) as 'Jumlah' from NOTA_PEMBELIAN nb, BARANG_PEMBELIAN bb, BARANG b where bb.ID_BARANG = b.ID_BARANG and nb.ID_NOTAPEMBELIAN = bb.ID_NOTAPEMBELIAN and substring(nb.ID_NOTAPEMBELIAN,1,1) = 'B';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                sqlConnect.Close();
+                dgvInven.DataSource = dtBarang;
+
+                if (dtBarang.Rows.Count > 0)
                 {
-                    sqlConnect.Open();
-                    dtBarang = new DataTable();
-                    sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN';";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(dtBarang);
-                    dgvInven.DataSource = dtBarang;
-                    sqlConnect.Close();
-                }
-                else if (rbBeli.Checked == true)
-                {
-                    sqlConnect.Open();
-                    dtBarang = new DataTable();
-                    sqlQuery = "select * from v_history_barang where keterangan = 'PEMBELIAN';";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(dtBarang);
-                    dgvInven.DataSource = dtBarang;
-                    sqlConnect.Close();
-                }
-                else if (rbBeli.Checked == false && rbJual.Checked == false)
-                {
-                    sqlConnect.Open();
-                    dtBarang = new DataTable();
-                    sqlQuery = "select * from v_history_barang";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(dtBarang);
-                    dgvInven.DataSource = dtBarang;
-                    sqlConnect.Close();
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PENGELUARAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
                 }
             }
         }
 
         private void rbBeli_CheckedChanged(object sender, EventArgs e)
         {
-            isChecked = rbBeli.Checked;
-            sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where keterangan = 'Pembelian' and Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
-                sqlConnect.Close();
-
-            if (rbBeli.Checked == false && rbJual.Checked == false)
+            if (rbJual.Checked == true && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
             {
+                sum = 0;
                 sqlConnect.Open();
                 dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang where Tanggal between '" + dtpAwal.Value.ToString("yyyy-MM-dd") + "' and '" + dtpAkhir.Value.ToString("yyyy-MM-dd") + "';";
+                sqlQuery = "select row_number() over (order by nj.TANGGAL_PENJUALAN) as No, nj.TANGGAL_PENJUALAN as 'Tanggal',nj.ID_NOTAPENJUALAN as 'ID Nota',  b.ID_BARANG as 'ID Barang', b.NAMA_BARANG as 'Nama Barang', bj.jml_jual as 'QTY', concat('Rp',format((bj.JML_JUAL * bj.HARGA_JUAL),0)) as 'Jumlah' from NOTA_PENJUALAN nj, BARANG_PENJUALAN bj, BARANG b where bj.ID_BARANG = b.ID_BARANG and nj.ID_NOTAPENJUALAN = bj.ID_NOTAPENJUALAN and substring(nj.ID_NOTAPENJUALAN,1,1) = 'J';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
                 sqlConnect.Close();
+                dgvInven.DataSource = dtBarang;
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PEMASUKAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
             }
-            else if (dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
+            else if (rbBeli.Checked == true && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
             {
-                if (rbJual.Checked == true)
+                sum = 0;
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "select row_number() over (order by nb.TANGGAL_PEMBELIAN) as No,  nb.TANGGAL_PEMBELIAN as 'Tanggal',  nb.ID_NOTAPEMBELIAN as 'ID Nota',  b.ID_BARANG as 'ID Barang',  b.NAMA_BARANG as 'Nama Barang',  bb.JML_BELI as 'QTY', concat('Rp ',format((bb.JML_BELI * bb.HARGA_BELI),0)) as 'Jumlah' from NOTA_PEMBELIAN nb, BARANG_PEMBELIAN bb, BARANG b where bb.ID_BARANG = b.ID_BARANG and nb.ID_NOTAPEMBELIAN = bb.ID_NOTAPEMBELIAN and substring(nb.ID_NOTAPEMBELIAN,1,1) = 'B';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                sqlConnect.Close();
+                dgvInven.DataSource = dtBarang;
+
+                if (dtBarang.Rows.Count > 0)
                 {
-                    sqlConnect.Open();
-                    dtBarang = new DataTable();
-                    sqlQuery = "select * from v_history_barang where keterangan = 'PENJUALAN';";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(dtBarang);
-                    dgvInven.DataSource = dtBarang;
-                    sqlConnect.Close();
-                }
-                else if (rbBeli.Checked == true)
-                {
-                    sqlConnect.Open();
-                    dtBarang = new DataTable();
-                    sqlQuery = "select * from v_history_barang where keterangan = 'PEMBELIAN';";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(dtBarang);
-                    dgvInven.DataSource = dtBarang;
-                    sqlConnect.Close();
-                }
-                else if (rbBeli.Checked == false && rbJual.Checked == false)
-                {
-                    sqlConnect.Open();
-                    dtBarang = new DataTable();
-                    sqlQuery = "select * from v_history_barang";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(dtBarang);
-                    dgvInven.DataSource = dtBarang;
-                    sqlConnect.Close();
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PENGELUARAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
                 }
             }
         }
 
-        private void rbJual_Click(object sender, EventArgs e)
+        private void dgvInven_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (rbJual.Checked && !isChecked)
-                rbJual.Checked = false;
-            else
+            if (dtBarang.Rows.Count >0)
             {
-                rbJual.Checked = true;
-                isChecked = false;
-            }
-            if (rbBeli.Checked == false && rbJual.Checked == false && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
-            {
-                sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang;";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
-                sqlConnect.Close();
-            }
-        }
+                if (e.ColumnIndex == 0 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.AdvancedBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                }
+                if (e.ColumnIndex == 1 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.AdvancedBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                }
+                if (e.ColumnIndex == 2 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.AdvancedBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    e.CellStyle.Font = new Font(dgvInven.DefaultCellStyle.Font, FontStyle.Bold);
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                }
+                if (e.ColumnIndex == 3 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.AdvancedBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
 
-        private void rbBeli_Click(object sender, EventArgs e)
-        {
-            if(rbBeli.Checked && !isChecked)
-                rbBeli.Checked = false;
-            else
-            {
-                rbBeli.Checked = true;
-                isChecked = false;
-            }
-            if (rbBeli.Checked == false && rbJual.Checked == false && dtpAwal.CustomFormat == " " && dtpAkhir.CustomFormat == " ")
-            {
-                sqlConnect.Open();
-                DataTable dtBarang = new DataTable();
-                sqlQuery = "select * from v_history_barang;";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtBarang);
-                dgvInven.DataSource = dtBarang;
-                sqlConnect.Close();
+                    e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    e.CellStyle.Font = new Font(dgvInven.DefaultCellStyle.Font, FontStyle.Bold);
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                }
+                if (e.ColumnIndex == 4 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.AdvancedBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
+
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                    e.CellStyle.Font = new Font(dgvInven.DefaultCellStyle.Font, FontStyle.Bold);
+                }
+                if (e.ColumnIndex == 5 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                }
+                if (e.ColumnIndex == 6 && e.RowIndex == dtBarang.Rows.Count - 1)
+                {
+                    e.CellStyle.BackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                    e.CellStyle.Font = new Font(dgvInven.DefaultCellStyle.Font, FontStyle.Bold);
+                    e.CellStyle.SelectionBackColor = ColorTranslator.FromHtml("#FF9900");
+                    e.CellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+                }
             }
         }
     }

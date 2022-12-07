@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHistory));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLaporan));
             this.dgvInven = new System.Windows.Forms.DataGridView();
             this.paneldgvSearch = new System.Windows.Forms.Panel();
             this.lbNamabarang = new System.Windows.Forms.Label();
@@ -104,16 +104,17 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvInven.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInven.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvInven.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInven.Size = new System.Drawing.Size(1362, 596);
+            this.dgvInven.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvInven.Size = new System.Drawing.Size(1379, 596);
             this.dgvInven.TabIndex = 4;
+            this.dgvInven.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvInven_CellPainting);
             // 
             // paneldgvSearch
             // 
             this.paneldgvSearch.Controls.Add(this.dgvInven);
             this.paneldgvSearch.Location = new System.Drawing.Point(13, 13);
             this.paneldgvSearch.Name = "paneldgvSearch";
-            this.paneldgvSearch.Size = new System.Drawing.Size(1362, 596);
+            this.paneldgvSearch.Size = new System.Drawing.Size(1379, 596);
             this.paneldgvSearch.TabIndex = 5;
             // 
             // lbNamabarang
@@ -144,7 +145,7 @@
             this.panel1.Controls.Add(this.paneldgvSearch);
             this.panel1.Location = new System.Drawing.Point(63, 319);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1385, 621);
+            this.panel1.Size = new System.Drawing.Size(1404, 621);
             this.panel1.TabIndex = 15;
             // 
             // dtpAwalss
@@ -201,7 +202,7 @@
             // 
             // panelAtas
             // 
-            this.panelAtas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panelAtas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAtas.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelAtas.BackgroundImage = global::POSTOKOAMANJAYA.Properties.Resources.kotak_biru_atas;
@@ -252,17 +253,16 @@
             this.rbBeli.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.rbBeli.Size = new System.Drawing.Size(153, 31);
             this.rbBeli.TabIndex = 24;
-            this.rbBeli.TabStop = true;
             this.rbBeli.Text = "Pembelian";
             this.rbBeli.UnCheckedColor = System.Drawing.Color.Gray;
             this.rbBeli.UseVisualStyleBackColor = true;
             this.rbBeli.CheckedChanged += new System.EventHandler(this.rbBeli_CheckedChanged);
-            this.rbBeli.Click += new System.EventHandler(this.rbBeli_Click);
             // 
             // rbJual
             // 
             this.rbJual.AutoSize = true;
             this.rbJual.BackColor = System.Drawing.Color.White;
+            this.rbJual.Checked = true;
             this.rbJual.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.rbJual.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbJual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -278,7 +278,6 @@
             this.rbJual.UnCheckedColor = System.Drawing.Color.Gray;
             this.rbJual.UseVisualStyleBackColor = false;
             this.rbJual.CheckedChanged += new System.EventHandler(this.rbJual_CheckedChanged);
-            this.rbJual.Click += new System.EventHandler(this.rbJual_Click);
             // 
             // dtpAkhir
             // 
@@ -318,7 +317,7 @@
             this.dtpAwal.TextColor = System.Drawing.Color.White;
             this.dtpAwal.ValueChanged += new System.EventHandler(this.dtpAwal_ValueChanged);
             // 
-            // formHistory
+            // formLaporan
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1512, 982);
@@ -337,7 +336,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "formHistory";
+            this.Name = "formLaporan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formHistory";
             this.Load += new System.EventHandler(this.formMenu_Load);

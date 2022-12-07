@@ -92,6 +92,8 @@ namespace POSTOKOAMANJAYA
 
             lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");
             btnMinim.BackColor = ColorTranslator.FromHtml("#F40000");
+
+            dgvInven.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvInven.ColumnHeadersDefaultCellStyle.BackColor;
         }
         private void formMenu_Load(object sender, EventArgs e)
         {
