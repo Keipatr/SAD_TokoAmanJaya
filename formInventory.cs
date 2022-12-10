@@ -139,7 +139,7 @@ namespace POSTOKOAMANJAYA
         {
             formEditBarang formEditBarang = new formEditBarang();
             formEditBarang.ShowDialog();
-
+            tbSearch.Text = "";
             loadTable();
         }
 

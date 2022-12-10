@@ -95,9 +95,10 @@ namespace POSTOKOAMANJAYA
             catch (Exception ex)
             {
             }
+            
             this.Hide();
-            formDoneEdit formDoneEdit = new formDoneEdit();
-            formDoneEdit.ShowDialog();
+            formDoneDelete formDoneDelete = new formDoneDelete();
+            formDoneDelete.ShowDialog();
             this.Close();
         }
     }

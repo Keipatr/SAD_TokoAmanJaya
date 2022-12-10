@@ -315,6 +315,62 @@ namespace POSTOKOAMANJAYA
                     dtBarang.Rows.Add(row);
                 }
             }
+            else if (rbBeli.Checked == true && (dtpAwal.CustomFormat != " " || dtpAkhir.CustomFormat != " "))
+            {
+                sum = 0;
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPembelian";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PENGELUARAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
+            }
+            else if (rbJual.Checked == true && (dtpAwal.CustomFormat != " " || dtpAkhir.CustomFormat != " "))
+            {
+                sum = 0;
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPenjualan";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PEMASUKAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
+            }
         }
 
         private void rbBeli_CheckedChanged(object sender, EventArgs e)
@@ -369,6 +425,63 @@ namespace POSTOKOAMANJAYA
                     dtBarang.Rows.Add(row);
                 }
             }
+            else if (rbBeli.Checked == true && (dtpAwal.CustomFormat != " " || dtpAkhir.CustomFormat != " "))
+            {
+                sum = 0;
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPembelian";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PENGELUARAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
+            }
+            else if (rbJual.Checked == true && (dtpAwal.CustomFormat != " " || dtpAkhir.CustomFormat != " "))
+            {
+                sum = 0;
+                sqlConnect.Open();
+                dtBarang = new DataTable();
+                sqlQuery = "pLaporanPenjualan";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("parTglStart", dtpAwal.Value.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("parTglEnd", dtpAkhir.Value.ToString("yyyy-MM-dd"));
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtBarang);
+                dgvInven.DataSource = dtBarang;
+                sqlConnect.Close();
+
+                if (dtBarang.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtBarang.Rows.Count; i++)
+                    {
+                        sum += int.Parse(dtBarang.Rows[i]["Jumlah"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' }));
+                    }
+                    DataRow row = dtBarang.NewRow();
+                    row[3] = "TOTAL";
+                    row[4] = "PEMASUKAN";
+                    row[6] = "Rp" + sum.ToString("#,#").Replace(".", ",");
+                    dtBarang.Rows.Add(row);
+                }
+            }
+            
         }
 
         private void dgvInven_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

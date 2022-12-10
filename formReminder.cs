@@ -68,6 +68,10 @@ namespace POSTOKOAMANJAYA
             dgvInven.RowHeadersVisible = false;
 
             lbLogo.ForeColor = ColorTranslator.FromHtml("#FFC814");
+
+            this.dgvInven.DefaultCellStyle.SelectionBackColor = this.dgvInven.DefaultCellStyle.BackColor;
+            this.dgvInven.DefaultCellStyle.SelectionForeColor = this.dgvInven.DefaultCellStyle.ForeColor;
+            dgvInven.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvInven.ColumnHeadersDefaultCellStyle.BackColor;
         }
         private void formMenu_Load(object sender, EventArgs e)
         {

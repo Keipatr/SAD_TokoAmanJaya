@@ -71,6 +71,12 @@
     <Compile Include="formDoneAdd.Designer.cs">
       <DependentUpon>formDoneAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="formDoneDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDoneDelete.Designer.cs">
+      <DependentUpon>formDoneDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLaporan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formDoneAdd.resx">
       <DependentUpon>formDoneAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDoneDelete.resx">
+      <DependentUpon>formDoneDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLaporan.resx">
       <DependentUpon>formLaporan.cs</DependentUpon>

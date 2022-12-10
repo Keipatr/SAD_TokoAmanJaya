@@ -326,6 +326,15 @@ namespace POSTOKOAMANJAYA
             {
                 formBackground.Dispose();
             }
+            
+            DataTable dtIdNota = new DataTable();
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand("select fAutogenIDJual()", sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtIdNota);
+            sqlConnect.Close();
+            lbIDJual.Text = dtIdNota.Rows[0][0].ToString();
+            
             panelMenu.Controls.Clear();
             buatMenu();
             buatNota();
