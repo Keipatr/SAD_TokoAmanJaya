@@ -84,37 +84,42 @@ namespace POSTOKOAMANJAYA
             Y = 12;
 
             jmlMenu = 0;
-            for (int i = 0; i < (dtBarang.Rows.Count / 2)+1; i++)
+            for (int i = 0; i < (dtBarang.Rows.Count / 2) + 2; i++)
             {
-                
-                    for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 2; j++)
+                {
+                    if (dtBarang.Rows.Count > 0 && jmlMenu < dtBarang.Rows.Count && int.Parse(dtBarang.Rows[jmlMenu]["QTY"].ToString()) <= 0)
                     {
-                        if (dtBarang.Rows.Count > 0 && jmlMenu < dtBarang.Rows.Count && int.Parse(dtBarang.Rows[jmlMenu]["QTY"].ToString()) >0)
-                        {
-                            menu = new Button();
-                            panelMenu.Controls.Add(menu);
-                            menu.Image = Properties.Resources.Kotak_Barang_1;
-                            menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"] + "\nRp "+ Convert.ToInt64(dtBarang.Rows[jmlMenu]["Harga Jual"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#");
-                            menu.Font = new Font("Arial", 20, FontStyle.Regular);
-                            menu.ForeColor = Color.White;
-                            menu.FlatStyle = FlatStyle.Flat;
-                            menu.FlatAppearance.BorderSize = 0;
-                            menu.TextAlign = ContentAlignment.MiddleLeft;
-                            menu.TextImageRelation = TextImageRelation.Overlay;
-                            menu.Size = new Size(355, 121);
-                            menu.Location = new Point(X, Y);
-                            menu.Cursor = Cursors.Hand;
-                            menu.Click += Menu_Click;
-                            menu.Name = Convert.ToString(jmlMenu);
-                            menu.Tag = jmlMenu;
-                            X += 412;
-                            if (X > 415)
-                            {
-                                X = 3;
-                            }
-                            jmlMenu++;
-                        }
+                        dtBarang.Rows.Remove(dtBarang.Rows[jmlMenu]);
                     }
+                    if (dtBarang.Rows.Count > 0 && jmlMenu < dtBarang.Rows.Count && int.Parse(dtBarang.Rows[jmlMenu]["QTY"].ToString()) > 0)
+                    {
+
+                        menu = new Button();
+                        panelMenu.Controls.Add(menu);
+                        menu.Image = Properties.Resources.Kotak_Barang_1;
+                        menu.Text = dtBarang.Rows[jmlMenu]["Nama Barang"].ToString() + "\nQTY : " + dtBarang.Rows[jmlMenu]["QTY"] + "\nRp " + Convert.ToInt64(dtBarang.Rows[jmlMenu]["Harga Jual"].ToString().Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#");
+                        menu.Font = new Font("Arial", 20, FontStyle.Regular);
+                        menu.ForeColor = Color.White;
+                        menu.FlatStyle = FlatStyle.Flat;
+                        menu.FlatAppearance.BorderSize = 0;
+                        menu.TextAlign = ContentAlignment.MiddleLeft;
+                        menu.TextImageRelation = TextImageRelation.Overlay;
+                        menu.Size = new Size(355, 121);
+                        menu.Location = new Point(X, Y);
+                        menu.Cursor = Cursors.Hand;
+                        menu.Click += Menu_Click;
+                        menu.Name = Convert.ToString(jmlMenu);
+                        menu.Tag = jmlMenu;
+                        X += 412;
+                        if (X > 415)
+                        {
+                            X = 3;
+                        }
+                        jmlMenu++;
+                    }
+                    
+                }
                 Y += 162;
             }
 
@@ -122,14 +127,14 @@ namespace POSTOKOAMANJAYA
         }
         private void Menu_Click(object sender, EventArgs e)
         {
-            DataTable dtBarang = new DataTable();
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("cekNama", tbSearch.Text);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtBarang);
-            sqlConnect.Close();
+            //DataTable dtBarang = new DataTable();
+            //sqlConnect.Open();
+            //sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
+            //sqlCommand.CommandType = CommandType.StoredProcedure;
+            //sqlCommand.Parameters.AddWithValue("cekNama", tbSearch.Text);
+            //sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            //sqlAdapter.Fill(dtBarang);
+            //sqlConnect.Close();
 
             nama = dtBarang.Rows[Convert.ToInt32(((Button)sender).Tag)]["Nama Barang"].ToString();
 
