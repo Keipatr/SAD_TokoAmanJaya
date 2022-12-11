@@ -112,7 +112,7 @@
             this.cbKategori.Items.AddRange(new object[] {
             "Food",
             "Drink",
-            "Ciggaretes",
+            "Cigarettes",
             "Detergent",
             "Shampoo",
             "Soap"});
