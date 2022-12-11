@@ -23,41 +23,30 @@ namespace POSTOKOAMANJAYA
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
-
-
-        private void pbInven_Click(object sender, EventArgs e)
+        private void formMenu_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            formInventory formInventory = new formInventory();
-            formInventory.ShowDialog();
-            this.Close();
+            btnHistory.BackColor = Color.Red;
+            btnHistory.BorderColor = Color.Red;
+            btnHistory.Cursor = Cursors.Hand;
+
+            btnLaporan.BackColor = Color.Red;
+            btnLaporan.BorderColor = Color.Red;
+            btnLaporan.Cursor = Cursors.Hand;
+
+            btnInven.BackColor = Color.Red;
+            btnInven.BorderColor = Color.Red;
+            btnInven.Cursor = Cursors.Hand;
+
+            btnPenjualan.BackColor = Color.Red;
+            btnPenjualan.BorderColor = Color.Red;
+            btnPenjualan.Cursor = Cursors.Hand;
+
+            btnPembelian.BackColor = Color.Red;
+            btnPembelian.BorderColor = Color.Red;
+            btnPembelian.Cursor = Cursors.Hand;
         }
 
-        private void pbJual_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            formPenjualan formPenjualan = new formPenjualan();
-            formPenjualan.ShowDialog();
-            this.Close();
-        }
-
-        private void pbBeli_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            formPembelian formPembelian = new formPembelian();
-            formPembelian.ShowDialog();
-            this.Close();
-        }
-
-        private void pbLaporan_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            formLaporan formLaporan = new formLaporan();
-            formLaporan.ShowDialog();
-            this.Close();
-        }
-
-        private void pbHistory_Click(object sender, EventArgs e)
+        private void btnHistory_Click(object sender, EventArgs e)
         {
             this.Hide();
             formHistory formHistory = new formHistory();
@@ -65,5 +54,36 @@ namespace POSTOKOAMANJAYA
             this.Close();
         }
 
+        private void btnLaporan_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formLaporan formLaporan = new formLaporan();
+            formLaporan.ShowDialog();
+            this.Close();
+        }
+
+        private void btnInven_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formInventory formInventory = new formInventory();
+            formInventory.ShowDialog();
+            this.Close();
+        }
+
+        private void btnPembelian_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formPembelian formPembelian = new formPembelian();
+            formPembelian.ShowDialog();
+            this.Close();
+        }
+
+        private void btnPenjualan_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formPenjualan formPenjualan = new formPenjualan();
+            formPenjualan.ShowDialog();
+            this.Close();
+        }
     }
 }

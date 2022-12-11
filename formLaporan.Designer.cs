@@ -221,9 +221,9 @@
             this.lbLogo.ForeColor = System.Drawing.Color.Goldenrod;
             this.lbLogo.Location = new System.Drawing.Point(8, 7);
             this.lbLogo.Name = "lbLogo";
-            this.lbLogo.Size = new System.Drawing.Size(326, 78);
+            this.lbLogo.Size = new System.Drawing.Size(357, 78);
             this.lbLogo.TabIndex = 4;
-            this.lbLogo.Text = "HISTORY";
+            this.lbLogo.Text = "LAPORAN";
             // 
             // pbBack
             // 

@@ -29,108 +29,124 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMenu));
-            this.pbHistory = new System.Windows.Forms.PictureBox();
-            this.pbLaporan = new System.Windows.Forms.PictureBox();
-            this.pbInven = new System.Windows.Forms.PictureBox();
-            this.pbJual = new System.Windows.Forms.PictureBox();
-            this.pbBeli = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLaporan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInven)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbJual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBeli)).BeginInit();
+            this.btnPembelian = new CustomControls.RJControls.RJButton();
+            this.btnPenjualan = new CustomControls.RJControls.RJButton();
+            this.btnInven = new CustomControls.RJControls.RJButton();
+            this.btnLaporan = new CustomControls.RJControls.RJButton();
+            this.btnHistory = new CustomControls.RJControls.RJButton();
             this.SuspendLayout();
             // 
-            // pbHistory
+            // btnPembelian
             // 
-            this.pbHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbHistory.BackColor = System.Drawing.Color.Transparent;
-            this.pbHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHistory.Image = global::POSTOKOAMANJAYA.Properties.Resources.logohistory;
-            this.pbHistory.Location = new System.Drawing.Point(1195, 793);
-            this.pbHistory.Name = "pbHistory";
-            this.pbHistory.Size = new System.Drawing.Size(251, 67);
-            this.pbHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbHistory.TabIndex = 5;
-            this.pbHistory.TabStop = false;
-            this.pbHistory.Click += new System.EventHandler(this.pbHistory_Click);
+            this.btnPembelian.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnPembelian.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnPembelian.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPembelian.BorderRadius = 40;
+            this.btnPembelian.BorderSize = 0;
+            this.btnPembelian.FlatAppearance.BorderSize = 0;
+            this.btnPembelian.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPembelian.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPembelian.ForeColor = System.Drawing.Color.White;
+            this.btnPembelian.Location = new System.Drawing.Point(911, 830);
+            this.btnPembelian.Name = "btnPembelian";
+            this.btnPembelian.Size = new System.Drawing.Size(223, 95);
+            this.btnPembelian.TabIndex = 10;
+            this.btnPembelian.Text = "Pembelian";
+            this.btnPembelian.TextColor = System.Drawing.Color.White;
+            this.btnPembelian.UseVisualStyleBackColor = false;
+            this.btnPembelian.Click += new System.EventHandler(this.btnPembelian_Click);
             // 
-            // pbLaporan
+            // btnPenjualan
             // 
-            this.pbLaporan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLaporan.BackColor = System.Drawing.Color.Transparent;
-            this.pbLaporan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLaporan.Image = global::POSTOKOAMANJAYA.Properties.Resources.logolaporan;
-            this.pbLaporan.Location = new System.Drawing.Point(908, 793);
-            this.pbLaporan.Name = "pbLaporan";
-            this.pbLaporan.Size = new System.Drawing.Size(251, 67);
-            this.pbLaporan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbLaporan.TabIndex = 4;
-            this.pbLaporan.TabStop = false;
-            this.pbLaporan.Click += new System.EventHandler(this.pbLaporan_Click);
+            this.btnPenjualan.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnPenjualan.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnPenjualan.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPenjualan.BorderRadius = 40;
+            this.btnPenjualan.BorderSize = 0;
+            this.btnPenjualan.FlatAppearance.BorderSize = 0;
+            this.btnPenjualan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPenjualan.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPenjualan.ForeColor = System.Drawing.Color.White;
+            this.btnPenjualan.Location = new System.Drawing.Point(1196, 830);
+            this.btnPenjualan.Name = "btnPenjualan";
+            this.btnPenjualan.Size = new System.Drawing.Size(223, 95);
+            this.btnPenjualan.TabIndex = 9;
+            this.btnPenjualan.Text = "Penjualan";
+            this.btnPenjualan.TextColor = System.Drawing.Color.White;
+            this.btnPenjualan.UseVisualStyleBackColor = false;
+            this.btnPenjualan.Click += new System.EventHandler(this.btnPenjualan_Click);
             // 
-            // pbInven
+            // btnInven
             // 
-            this.pbInven.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbInven.BackColor = System.Drawing.Color.Transparent;
-            this.pbInven.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInven.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoinventory;
-            this.pbInven.Location = new System.Drawing.Point(621, 793);
-            this.pbInven.Name = "pbInven";
-            this.pbInven.Size = new System.Drawing.Size(251, 67);
-            this.pbInven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbInven.TabIndex = 2;
-            this.pbInven.TabStop = false;
-            this.pbInven.Click += new System.EventHandler(this.pbInven_Click);
+            this.btnInven.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnInven.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnInven.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnInven.BorderRadius = 40;
+            this.btnInven.BorderSize = 0;
+            this.btnInven.FlatAppearance.BorderSize = 0;
+            this.btnInven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInven.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInven.ForeColor = System.Drawing.Color.White;
+            this.btnInven.Location = new System.Drawing.Point(625, 830);
+            this.btnInven.Name = "btnInven";
+            this.btnInven.Size = new System.Drawing.Size(223, 95);
+            this.btnInven.TabIndex = 8;
+            this.btnInven.Text = "Inventory";
+            this.btnInven.TextColor = System.Drawing.Color.White;
+            this.btnInven.UseVisualStyleBackColor = false;
+            this.btnInven.Click += new System.EventHandler(this.btnInven_Click);
             // 
-            // pbJual
+            // btnLaporan
             // 
-            this.pbJual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbJual.BackColor = System.Drawing.Color.Transparent;
-            this.pbJual.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbJual.Image = global::POSTOKOAMANJAYA.Properties.Resources.Logopenjualan;
-            this.pbJual.Location = new System.Drawing.Point(47, 793);
-            this.pbJual.Name = "pbJual";
-            this.pbJual.Size = new System.Drawing.Size(251, 67);
-            this.pbJual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbJual.TabIndex = 1;
-            this.pbJual.TabStop = false;
-            this.pbJual.Click += new System.EventHandler(this.pbJual_Click);
+            this.btnLaporan.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnLaporan.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnLaporan.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLaporan.BorderRadius = 40;
+            this.btnLaporan.BorderSize = 0;
+            this.btnLaporan.FlatAppearance.BorderSize = 0;
+            this.btnLaporan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaporan.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaporan.ForeColor = System.Drawing.Color.White;
+            this.btnLaporan.Location = new System.Drawing.Point(342, 830);
+            this.btnLaporan.Name = "btnLaporan";
+            this.btnLaporan.Size = new System.Drawing.Size(223, 95);
+            this.btnLaporan.TabIndex = 7;
+            this.btnLaporan.Text = "Laporan";
+            this.btnLaporan.TextColor = System.Drawing.Color.White;
+            this.btnLaporan.UseVisualStyleBackColor = false;
+            this.btnLaporan.Click += new System.EventHandler(this.btnLaporan_Click);
             // 
-            // pbBeli
+            // btnHistory
             // 
-            this.pbBeli.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbBeli.BackColor = System.Drawing.Color.Transparent;
-            this.pbBeli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBeli.Image = global::POSTOKOAMANJAYA.Properties.Resources.logoPembelian;
-            this.pbBeli.Location = new System.Drawing.Point(334, 793);
-            this.pbBeli.Name = "pbBeli";
-            this.pbBeli.Size = new System.Drawing.Size(251, 67);
-            this.pbBeli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbBeli.TabIndex = 0;
-            this.pbBeli.TabStop = false;
-            this.pbBeli.Click += new System.EventHandler(this.pbBeli_Click);
+            this.btnHistory.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnHistory.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnHistory.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHistory.BorderRadius = 40;
+            this.btnHistory.BorderSize = 0;
+            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnHistory.FlatAppearance.BorderSize = 0;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistory.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Location = new System.Drawing.Point(67, 830);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(223, 95);
+            this.btnHistory.TabIndex = 6;
+            this.btnHistory.Text = "History";
+            this.btnHistory.TextColor = System.Drawing.Color.White;
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
             // formMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::POSTOKOAMANJAYA.Properties.Resources.LOGOMENU;
             this.ClientSize = new System.Drawing.Size(1499, 971);
-            this.Controls.Add(this.pbHistory);
-            this.Controls.Add(this.pbLaporan);
-            this.Controls.Add(this.pbInven);
-            this.Controls.Add(this.pbJual);
-            this.Controls.Add(this.pbBeli);
+            this.Controls.Add(this.btnPembelian);
+            this.Controls.Add(this.btnPenjualan);
+            this.Controls.Add(this.btnInven);
+            this.Controls.Add(this.btnLaporan);
+            this.Controls.Add(this.btnHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -139,22 +155,17 @@
             this.Name = "formMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Menu";
-            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLaporan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInven)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbJual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBeli)).EndInit();
+            this.Load += new System.EventHandler(this.formMenu_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pbBeli;
-        private System.Windows.Forms.PictureBox pbJual;
-        private System.Windows.Forms.PictureBox pbInven;
-        private System.Windows.Forms.PictureBox pbLaporan;
-        private System.Windows.Forms.PictureBox pbHistory;
+        private CustomControls.RJControls.RJButton btnHistory;
+        private CustomControls.RJControls.RJButton btnLaporan;
+        private CustomControls.RJControls.RJButton btnInven;
+        private CustomControls.RJControls.RJButton btnPenjualan;
+        private CustomControls.RJControls.RJButton btnPembelian;
     }
 }
 
