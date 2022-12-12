@@ -23,7 +23,6 @@ namespace POSTOKOAMANJAYA
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
         public string sqlQuery;
-
         
         private void formMenu_Load(object sender, EventArgs e)
         {
