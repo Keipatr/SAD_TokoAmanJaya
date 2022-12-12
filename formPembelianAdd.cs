@@ -32,8 +32,9 @@ namespace POSTOKOAMANJAYA
             tbBeli.BackColor = ColorTranslator.FromHtml("#979BC7");
             tbQty.BackColor = ColorTranslator.FromHtml("#979BC7");
             tbNama.BackColor = ColorTranslator.FromHtml("#979BC7");
-            btnSave.BackColor = ColorTranslator.FromHtml("#979BC7");
-            btnCancel.BackColor = ColorTranslator.FromHtml("#F40000");
+            btnSave.BackColor = ColorTranslator.FromHtml("#FFC814");
+            btnSave.ForeColor = Color.Black;
+            btnCancel.BackColor = ColorTranslator.FromHtml("#979BC7");
 
             tbNama.BorderColor = ColorTranslator.FromHtml("#979BC7");
             tbQty.BorderColor = ColorTranslator.FromHtml("#979BC7");
