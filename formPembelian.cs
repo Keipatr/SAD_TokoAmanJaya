@@ -72,6 +72,7 @@ namespace POSTOKOAMANJAYA
 
         public void buatMenu()
         {
+            this.panelNota.Refresh();
             DataTable dtBarang = new DataTable();
             sqlConnect.Open();
             sqlCommand = new MySqlCommand("pSearchBarang", sqlConnect);
