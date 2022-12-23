@@ -94,7 +94,7 @@ namespace POSTOKOAMANJAYA
             Y = 12;
 
             jmlMenu = 0;
-            for (int i = 0; i < (dtBarang.Rows.Count / 2); i++)
+            for (int i = 0; i < (dtBarang.Rows.Count / 2)+2; i++)
             {
                     for (int j = 0; j < 2; j++)
                     {

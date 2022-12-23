@@ -98,7 +98,6 @@ namespace POSTOKOAMANJAYA
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("ERROR!");
                 }
                 this.Hide();
                 Form formBackground = new Form();

@@ -48,25 +48,30 @@ namespace POSTOKOAMANJAYA
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (formPenjualan.cekBuatDT == 0)
+            if (int.Parse(tbQty.Texts) <= int.Parse(formPenjualan.dtBarang.Rows[formPenjualan.cek]["QTY"].ToString()))
             {
-                notaIsi.Columns.Add("id");
-                notaIsi.Columns.Add("nama");
-                notaIsi.Columns.Add("jumlah");
-                notaIsi.Columns.Add("harga");
-                notaIsi.PrimaryKey = new DataColumn[] { notaIsi.Columns["id"] };
-                formPenjualan.cekBuatDT = 1;
+
+                if (formPenjualan.cekBuatDT == 0)
+                {
+                    notaIsi.Columns.Add("id");
+                    notaIsi.Columns.Add("nama");
+                    notaIsi.Columns.Add("jumlah");
+                    notaIsi.Columns.Add("harga");
+                    notaIsi.PrimaryKey = new DataColumn[] { notaIsi.Columns["id"] };
+                    formPenjualan.cekBuatDT = 1;
+                }
+                if (notaIsi.Rows.Find(formPenjualan.id) != null)
+                {
+                    DataRow row = notaIsi.AsEnumerable().SingleOrDefault(r => r.Field<string>("id") == formPenjualan.id);
+                    row["jumlah"] = Convert.ToString(Convert.ToInt32(row["jumlah"]) + Convert.ToInt32(tbQty.Texts));
+                }
+                else
+                {
+                    notaIsi.Rows.Add(formPenjualan.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(formPenjualan.hjual.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
+                }
+                this.Close();
+
             }
-            if (notaIsi.Rows.Find(formPenjualan.id) != null)
-            {
-                DataRow row = notaIsi.AsEnumerable().SingleOrDefault(r => r.Field<string>("id") == formPenjualan.id);
-                row["jumlah"] = Convert.ToString(Convert.ToInt32(row["jumlah"]) + Convert.ToInt32(tbQty.Texts));
-            }
-            else
-            {
-                notaIsi.Rows.Add(formPenjualan.id, tbNama.Texts, tbQty.Texts, "Rp. " + Convert.ToInt32(formPenjualan.hjual.Replace(",", "").Replace(".", "").Trim(new char[] { '.', 'R', 'p', ' ', ',' })).ToString("#,#"));
-            }
-            this.Close();
         }
 
         private void tbQty_KeyPress(object sender, KeyPressEventArgs e)

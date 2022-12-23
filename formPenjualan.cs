@@ -28,6 +28,7 @@ namespace POSTOKOAMANJAYA
         public static string nama = "";
         public static string hjual = "";
         public static string id = "";
+        public static int cek = 0;
         public int jumlahBarang = 0;
         public int X = 0;
         public int Y = 0;
@@ -84,7 +85,7 @@ namespace POSTOKOAMANJAYA
             Y = 12;
 
             jmlMenu = 0;
-            for (int i = 0; i < (dtBarang.Rows.Count / 2) + 2; i++)
+            for (int i = 0; i < (dtBarang.Rows.Count / 2)+2; i++)
             {
                 for (int j = 0; j < 2; j++)
                 {
@@ -137,6 +138,7 @@ namespace POSTOKOAMANJAYA
             //sqlConnect.Close();
 
             nama = dtBarang.Rows[Convert.ToInt32(((Button)sender).Tag)]["Nama Barang"].ToString();
+            cek = Convert.ToInt32(((Button)sender).Tag);
 
             formPenjualanAdd formPenjualanAdd = new formPenjualanAdd();
             Button button = sender as Button;

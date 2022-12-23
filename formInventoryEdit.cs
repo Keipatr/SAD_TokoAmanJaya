@@ -101,5 +101,15 @@ namespace POSTOKOAMANJAYA
             formDoneDelete.ShowDialog();
             this.Close();
         }
+
+        private void tbBeli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void tbJual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }
